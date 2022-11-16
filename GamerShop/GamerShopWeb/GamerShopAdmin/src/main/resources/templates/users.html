@@ -1,0 +1,57 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{fragments/head :: head}"></div>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+
+</br>
+<div class="container-fluid">
+<div class="card border-light mb-5" >
+    <div class="card-header"><h1>
+
+        Manage Users
+    </h1></div>
+    <div class="card-body">
+    <form class="d-flex">
+        <table>
+            <tr>
+                <th><input class="form-control me-sm-2" type="text" placeholder="Search"></th>
+            </tr>
+        </table>
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        <a class="btn btn-light" th:href="@{/users/new}">Create user</a>
+
+    </form>
+    <table class="table table-hover">
+        <thead>
+        <tr class="table-dark">
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+            <th scope="col">Role</th>
+            <th scope="col">Enabled</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="table-dark" th:each="user: ${listUsers}">
+            <td th:text="${user.userName}"/>
+            <td th:text="${user.userEmail}"/>
+            <td th:text="${user.userID}"/>
+            <td th:text="${user.roles}"/>
+            <td th:text="${user.enabled}"/>
+            <td>
+                <button type="button" class="btn btn-link">Edit</button>
+                <button type="button" class="btn btn-link">Delete</button>
+            </td>
+
+
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+    <div th:insert="~{fragments/footer :: footer}"></div>
+</div>
+
+</body>
+</html>
