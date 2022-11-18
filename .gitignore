@@ -2,3 +2,5 @@
 GamerShop/.idea
 GamerShop/GamerShopShared/.mvn
 GamerShop/GamerShopShared/mvnw
+**.mvn
+GamerShop/GamerShopShared/mvnw.cmd
