@@ -12,12 +12,14 @@ import java.util.List;
 @Controller
 public class UserController {
 
-    @Autowired
     private UserService service;
+    public UserController(UserService _service){
+        this.service = _service;
+    }
 
     @GetMapping("/users")
     public String listAll(Model model){
-        List<User> listUsers = service.listAll();
+        Iterable<User> listUsers = service.listAll();
         model.addAttribute("listUsers", listUsers);
         model.addAttribute("pageTitle", "List of users");
         return "users";

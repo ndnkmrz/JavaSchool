@@ -16,10 +16,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(value = false)
 public class UserRepositoryTests {
-    @Autowired
     private UserRepository repo;
-    @Autowired
     private TestEntityManager entityManager;
+    @Autowired
+    public UserRepositoryTests(UserRepository _repo, TestEntityManager _entityManager){
+        this.repo = _repo;
+        this.entityManager = _entityManager;
+    }
 
     @Test
     public void testCreateUser(){
@@ -28,7 +31,7 @@ public class UserRepositoryTests {
         kuku.addRole(roleAdmin);
 
         User savedUser = repo.save(kuku);
-        assertThat(savedUser.getUserID()).isGreaterThan(0);
+        assertThat(savedUser.getUserId()).isGreaterThan(0);
 
     }
 
@@ -41,7 +44,7 @@ public class UserRepositoryTests {
         piotr.addRole(roleSeller);
 
         User savedUser = repo.save(piotr);
-        assertThat(savedUser.getUserID()).isGreaterThan(0);
+        assertThat(savedUser.getUserId()).isGreaterThan(0);
 
     }
 }

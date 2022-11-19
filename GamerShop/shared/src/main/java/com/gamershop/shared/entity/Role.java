@@ -1,47 +1,32 @@
 package com.gamershop.shared.entity;
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name="Roles")
+@Getter
+@Setter
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer RoleID;
+    private Integer roleId;
     @Column(length = 40, nullable = false, unique = true)
-    private String RoleName;
+    private String roleName;
 
 //    @ManyToMany(mappedBy = "Roles")
 //    private Set<User> Users = new HashSet<>();
 
     public Role(){  }
     public Role(String roleName) {
-        RoleName = roleName;
-    }
-
-    public Integer getRoleID() {
-        return RoleID;
-    }
-
-    public void setRoleID(Integer roleID) {
-        RoleID = roleID;
-    }
-
-    public String getRoleName() {
-        return RoleName;
-    }
-
-    public void setRoleName(String roleName) {
-        RoleName = roleName;
+        this.roleName = roleName;
     }
 
     @Override
     public String toString(){
-        return RoleName;
+        return roleName;
     }
 
 }

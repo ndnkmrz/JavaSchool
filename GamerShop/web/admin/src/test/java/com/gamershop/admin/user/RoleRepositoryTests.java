@@ -14,14 +14,17 @@ import org.springframework.test.annotation.Rollback;
 @Rollback(value = false)
 public class RoleRepositoryTests {
 
-    @Autowired
     private RoleRepository repo;
+    @Autowired
+    public RoleRepositoryTests(RoleRepository _repo){
+        this.repo = _repo;
+    }
 
     @Test
     public void testCreateAdmin(){
         Role roleAdmin = new Role("Admin");
         Role savedRole = repo.save(roleAdmin);
-        assertThat(savedRole.getRoleID()).isGreaterThan(0);
+        assertThat(savedRole.getRoleId()).isGreaterThan(0);
 
 
     }
@@ -30,7 +33,7 @@ public class RoleRepositoryTests {
     public void testCreateSeller(){
         Role roleSeller = new Role("Seller");
         Role savedRole = repo.save(roleSeller);
-        assertThat(savedRole.getRoleID()).isGreaterThan(0);
+        assertThat(savedRole.getRoleId()).isGreaterThan(0);
 
 
     }
