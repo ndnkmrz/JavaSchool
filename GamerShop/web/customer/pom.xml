@@ -4,25 +4,20 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.gamershop</groupId>
-        <artifactId>GamerShopWeb</artifactId>
+        <artifactId>web</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>GamerShopAdmin</artifactId>
-    <name>GamerShopAdmin</name>
-    <description>GamerShopAdmin</description>
+
+    <artifactId>customer</artifactId>
+    <name>customer</name>
+    <description>customer</description>
     <properties>
         <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-commons</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.egamershop</groupId>
-            <artifactId>GamerShopShared</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
         </dependency>
     </dependencies>
 

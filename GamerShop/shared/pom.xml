@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.egamershop</groupId>
-    <artifactId>GamerShopShared</artifactId>
+    <artifactId>shared</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>GamerShopShared</name>
-    <description>GamerShopShared</description>
+    <name>shared</name>
+    <description>shared</description>
     <properties>
         <java.version>17</java.version>
     </properties>

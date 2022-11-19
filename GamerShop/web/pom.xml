@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.gamershop</groupId>
-    <artifactId>GamerShopWeb</artifactId>
+    <artifactId>web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>GamerShopWeb</name>
-    <description>GamerShopWeb</description>
+    <name>web</name>
+    <description>web</description>
     <packaging>pom</packaging>
     <properties>
         <java.version>17</java.version>
@@ -37,7 +37,7 @@
         </dependency>
         <dependency>
             <groupId>com.gamershop</groupId>
-            <artifactId>GamerShopWeb</artifactId>
+            <artifactId>web</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -47,8 +47,8 @@
         </dependency>
     </dependencies>
     <modules>
-        <module>GamerShopCustomer</module>
-        <module>GamerShopAdmin</module>
+        <module>customer</module>
+        <module>admin</module>
     </modules>
 
 
