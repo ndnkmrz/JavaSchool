@@ -1,7 +1,7 @@
 package com.gamershop.admin.user;
 
-import com.gamershop.shared.entity.Role;
-import com.gamershop.shared.entity.User;
+import com.gamershop.shared.entity.RoleEntity;
+import com.gamershop.shared.entity.UserEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -15,9 +15,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(value = false)
-public class UserRepositoryTests {
-    private UserRepository repo;
-    private TestEntityManager entityManager;
+class UserRepositoryTests {
+    private final UserRepository repo;
+    private final TestEntityManager entityManager;
     @Autowired
     public UserRepositoryTests(UserRepository _repo, TestEntityManager _entityManager){
         this.repo = _repo;
@@ -25,26 +25,33 @@ public class UserRepositoryTests {
     }
 
     @Test
-    public void testCreateUser(){
-        Role roleAdmin = entityManager.find(Role.class, 1);
-        User kuku = new User("test", "test", "test", true);
+    void testCreateUser(){
+        RoleEntity roleAdmin = entityManager.find(RoleEntity.class, 1);
+        UserEntity kuku = new UserEntity("test", "test", "test", true);
         kuku.addRole(roleAdmin);
 
-        User savedUser = repo.save(kuku);
-        assertThat(savedUser.getUserId()).isGreaterThan(0);
+        UserEntity savedUser = repo.save(kuku);
+        assertThat(savedUser.getUserId()).isPositive();
 
     }
 
     @Test
-    public void testCreateUserWithTwoRoles(){
-        Role roleAdmin = entityManager.find(Role.class, 1);
-        Role roleSeller = entityManager.find(Role.class, 2);
-        User piotr = new User("piotr", "test2", "test2", false);
+    void testCreateUserWithTwoRoles(){
+        RoleEntity roleAdmin = entityManager.find(RoleEntity.class, 1);
+        RoleEntity roleSeller = entityManager.find(RoleEntity.class, 2);
+        UserEntity piotr = new UserEntity("piotr", "test2", "test2", false);
         piotr.addRole(roleAdmin);
         piotr.addRole(roleSeller);
 
-        User savedUser = repo.save(piotr);
-        assertThat(savedUser.getUserId()).isGreaterThan(0);
+        UserEntity savedUser = repo.save(piotr);
+        assertThat(savedUser.getUserId()).isPositive();
 
+    }
+
+    @Test
+    void testGetUserByEmail(){
+        String email = "moroz021291@gmail.com";
+        UserEntity user = repo.getUserEntityByUserEmail(email);
+        assertThat(user).isNotNull();
     }
 }

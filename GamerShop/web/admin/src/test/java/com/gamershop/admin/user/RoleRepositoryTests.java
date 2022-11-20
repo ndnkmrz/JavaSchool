@@ -1,7 +1,7 @@
 package com.gamershop.admin.user;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import com.gamershop.shared.entity.Role;
+import com.gamershop.shared.entity.RoleEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -12,28 +12,28 @@ import org.springframework.test.annotation.Rollback;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(value = false)
-public class RoleRepositoryTests {
+class RoleRepositoryTests {
 
-    private RoleRepository repo;
+    private final RoleRepository repo;
     @Autowired
     public RoleRepositoryTests(RoleRepository _repo){
         this.repo = _repo;
     }
 
     @Test
-    public void testCreateAdmin(){
-        Role roleAdmin = new Role("Admin");
-        Role savedRole = repo.save(roleAdmin);
-        assertThat(savedRole.getRoleId()).isGreaterThan(0);
+    void testCreateAdmin(){
+        RoleEntity roleAdmin = new RoleEntity("Admin");
+        RoleEntity savedRole = repo.save(roleAdmin);
+        assertThat(savedRole.getRoleId()).isPositive();
 
 
     }
 
     @Test
-    public void testCreateSeller(){
-        Role roleSeller = new Role("Seller");
-        Role savedRole = repo.save(roleSeller);
-        assertThat(savedRole.getRoleId()).isGreaterThan(0);
+    void testCreateSeller(){
+        RoleEntity roleSeller = new RoleEntity("Seller");
+        RoleEntity savedRole = repo.save(roleSeller);
+        assertThat(savedRole.getRoleId()).isPositive();
 
 
     }

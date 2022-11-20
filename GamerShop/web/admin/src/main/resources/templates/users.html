@@ -21,12 +21,13 @@
         <a class="btn btn-light" th:href="@{/users/new}">Create user</a>
 
     </form>
+        <div th:if="${message != null}" class="alert alert-dismissible alert-success" th:text="${message}">
+        </div>
     <table class="table table-hover">
         <thead>
         <tr class="table-dark">
             <th scope="col">Username</th>
             <th scope="col">Email</th>
-            <th scope="col">Password</th>
             <th scope="col">Role</th>
             <th scope="col">Enabled</th>
             <th></th>
@@ -36,7 +37,6 @@
         <tr class="table-dark" th:each="user: ${listUsers}">
             <td th:text="${user.userName}"/>
             <td th:text="${user.userEmail}"/>
-            <td th:text="${user.userId}"/>
             <td th:text="${user.roles}"/>
             <td th:text="${user.enabled}"/>
             <td>

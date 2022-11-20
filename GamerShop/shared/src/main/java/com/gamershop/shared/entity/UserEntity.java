@@ -4,14 +4,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name="User")
 @Getter
 @Setter
-public class User {
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
@@ -19,7 +21,7 @@ public class User {
     @Column(length = 120, nullable = false, unique = true)
     private String userEmail;
     private String passwordHash;
-    @Column(length = 50, nullable = false, unique = true)
+    @Column(length = 50, nullable = false)
     private String userName;
 
     private boolean enabled = true;
@@ -31,20 +33,26 @@ public class User {
                     name = "UserID", referencedColumnName = "UserID"),
             inverseJoinColumns = @JoinColumn(
                     name = "RoleID", referencedColumnName = "RoleID"))
-    private Set<Role> roles = new HashSet<>();
+    private List<RoleEntity> roles;
 
-    public User(){
+    public UserEntity(){ }
 
-    }
-
-    public User(String userEmail, String passwordHash, String userName, boolean enabled) {
+    public UserEntity(String userEmail, String passwordHash, String userName, boolean enabled) {
         this.userEmail = userEmail;
         this.passwordHash = passwordHash;
         this.userName = userName;
         this.enabled = enabled;
     }
 
-    public void addRole(Role role){
+    public UserEntity(String userEmail, String passwordHash, String userName, boolean enabled, ArrayList<RoleEntity> roles) {
+        this.userEmail = userEmail;
+        this.passwordHash = passwordHash;
+        this.userName = userName;
+        this.enabled = enabled;
+        this.roles = roles;
+    }
+
+    public void addRole(RoleEntity role){
         this.roles.add(role);
     }
 

@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name="Roles")
 @Getter
 @Setter
-public class Role {
+public class RoleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer roleId;
@@ -19,8 +19,8 @@ public class Role {
 //    @ManyToMany(mappedBy = "Roles")
 //    private Set<User> Users = new HashSet<>();
 
-    public Role(){  }
-    public Role(String roleName) {
+    public RoleEntity(){  }
+    public RoleEntity(String roleName) {
         this.roleName = roleName;
     }
 

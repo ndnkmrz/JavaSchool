@@ -11,26 +11,40 @@
     </h1></div>
     <div class="card-body">
 <!--      email, password, username, enabled-->
-      <form th:action="@{/user/save}" method="post">
+      <form th:action="@{/users/save}" method="post" th:object="${user}">
         <fieldset><div class="form-group">
           <label for="inputEmail" class="form-label mt-4">Email address</label>
-          <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+          <input type="email" class="form-control" id="inputEmail" placeholder="Enter email" th:field="*{userEmail}"
+                 required minlenght="8" maxlength="120">
+
         </div>
           <div class="form-group">
-            <label for="inputUsername" class="form-label mt-4">Email address</label>
-            <input type="email" class="form-control" id="inputUsername" aria-describedby="emailHelp" placeholder="Enter email">
+            <label for="inputUsername" class="form-label mt-4">User Name</label>
+            <input type="text" class="form-control" id="inputUsername" placeholder="Enter user name" th:field="*{userName}">
           </div>
           <div class="form-group">
             <label for="inputPassword" class="form-label mt-4">Password</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password" th:field="*{passwordHash}"
+            required>
+          </div>
+          <legend class="mt-4">Roles</legend>
+          <div class="form-check">
+            <th:block th:each="role : ${listRoles}">
+              <input class="form-check-input" type="checkbox" th:field="*{roles}"
+                                                              th:text="${role.roleName}"
+                                                              th:value="${role.roleName}">
+                <br/>
+            </th:block>
+
           </div>
           <br/>
           <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="" th:field="*{enabled}">
             <label class="form-check-label" for="flexSwitchCheckChecked">Enable</label>
           </div>
           <br/>
-          <button type="button" class="btn btn-light">Submit</button>
+          <button type="submit" class="btn btn-light">Submit</button>
+          <a class="btn btn-secondary" th:href="@{/users}">Cancel</a>
         </fieldset>
       </form>
     </div>
