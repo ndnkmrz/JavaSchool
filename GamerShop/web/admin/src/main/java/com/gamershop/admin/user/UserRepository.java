@@ -3,7 +3,10 @@ package com.gamershop.admin.user;
 import com.gamershop.shared.entity.UserEntity;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.Optional;
+
 public interface UserRepository extends CrudRepository<UserEntity, Integer> {
-    UserEntity getUserEntityByUserEmail(String userEmail);
+
+    Optional<UserEntity> getUserEntityByUserEmail(String userEmail);
 
 }

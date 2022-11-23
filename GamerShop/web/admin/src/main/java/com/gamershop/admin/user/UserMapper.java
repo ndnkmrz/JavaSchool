@@ -11,7 +11,7 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 @Service
-public class Mapper {
+public class UserMapper {
     public UserDTO toDTO(UserEntity userEntity){
         String userName = userEntity.getUserName();
         String userEmail = userEntity.getUserEmail();

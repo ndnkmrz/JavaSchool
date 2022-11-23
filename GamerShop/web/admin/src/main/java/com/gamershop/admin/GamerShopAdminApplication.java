@@ -9,9 +9,7 @@ import javax.persistence.Entity;
 @SpringBootApplication
 @EntityScan({"com.gamershop.shared.entity", "com.gamershop.admin.user"})
 public class GamerShopAdminApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(GamerShopAdminApplication.class, args);
     }
-
 }

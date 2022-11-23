@@ -1,54 +1,44 @@
 package com.gamershop.admin.user;
 
-import com.gamershop.shared.entity.RoleEntity;
+import com.gamershop.shared.dto.UserDTO;
 import com.gamershop.shared.entity.UserEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class UserService {
     private final UserRepository userRepo;
-    private final RoleRepository roleRepo;
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
+    private final RoleService roleService;
+    private final UserMapper userMapper;
 
-    public UserService(UserRepository userRepo, RoleRepository roleRepo, PasswordEncoder passwordEncoder){
+    public UserService(UserRepository userRepo, PasswordEncoder passwordEncoder, RoleService roleService, UserMapper userMapper){
 
         this.userRepo = userRepo;
-        this.roleRepo = roleRepo;
+        this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;
+        this.userMapper = userMapper;
     }
 
-    public List<UserEntity> listUsers(){
-
-        return (List<UserEntity>) userRepo.findAll();
+    public List<UserDTO> listUsers(){
+        var userList = (List<UserEntity>) userRepo.findAll();
+        return userList.stream().map(userMapper::toDTO).toList();
     }
 
-    public Iterable<RoleEntity> listRoles(){
-        return roleRepo.findAll();
-    }
-
-    public void saveUser(UserEntity user){
+    public void saveUser(UserDTO user){
         encodePassword(user);
-        userRepo.save(user);
+        UserEntity userEntity = userMapper.toUser(user);
+        user.getRoles().stream().map(roleService::getOrCreateRole).forEach(userEntity::addRole);
+        userRepo.save(userEntity);
+
     }
 
-    public RoleEntity getOrCreateRole(String roleName){
-        Optional<RoleEntity> role = roleRepo.findByRoleName(roleName);
-        if (role.isPresent()){
-            return role.get();
-        }
-        else {
-            RoleEntity newRole = new RoleEntity(roleName);
-            return roleRepo.save(newRole);
-        }
-    }
-
-    private void encodePassword(UserEntity user){
-        String encodedPassword = passwordEncoder.encode(user.getPasswordHash());
-        user.setPasswordHash(encodedPassword);
+    private void encodePassword(UserDTO user){
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
     }
 
 }

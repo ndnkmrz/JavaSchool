@@ -1,6 +1,7 @@
 package com.gamershop.shared.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Table(name="Roles")
 @Getter
 @Setter
+@NoArgsConstructor
 public class RoleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,10 +18,6 @@ public class RoleEntity {
     @Column(length = 40, nullable = false, unique = true)
     private String roleName;
 
-//    @ManyToMany(mappedBy = "Roles")
-//    private Set<User> Users = new HashSet<>();
-
-    public RoleEntity(){  }
     public RoleEntity(String roleName) {
         this.roleName = roleName;
     }
