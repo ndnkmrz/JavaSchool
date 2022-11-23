@@ -1,4 +1,8 @@
-package com.gamershop.admin.user;
+package com.gamershop.admin.user.controller;
+import com.gamershop.admin.user.interfaces.IRoleService;
+import com.gamershop.admin.user.interfaces.IUserService;
+import com.gamershop.admin.user.service.RoleService;
+import com.gamershop.admin.user.service.UserService;
 import com.gamershop.shared.dto.UserDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,9 +14,9 @@ import java.util.List;
 @Controller
 public class UserController {
 
-    private final UserService userService;
-    private final RoleService roleService;
-    public UserController(UserService userService, RoleService roleService){
+    private final IUserService userService;
+    private final IRoleService roleService;
+    public UserController(IUserService userService, IRoleService roleService){
 
         this.userService = userService;
         this.roleService = roleService;
@@ -38,13 +42,8 @@ public class UserController {
 
     @PostMapping("/users/save")
     public String saveUser(UserDTO user, RedirectAttributes redirectAttributes){
-        try{
-            userService.saveUser(user);
-        }
-        catch (Exception ex){
-            System.out.println(ex);
-        }
 
+        userService.saveUser(user);
         redirectAttributes.addFlashAttribute("message", "The user has been saved succesfully");
         return "redirect:/users";
     }

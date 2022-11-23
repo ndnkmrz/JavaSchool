@@ -1,4 +1,4 @@
-package com.gamershop.admin.user;
+package com.gamershop.admin.user.repo;
 
 import com.gamershop.shared.entity.UserEntity;
 import org.springframework.data.repository.CrudRepository;

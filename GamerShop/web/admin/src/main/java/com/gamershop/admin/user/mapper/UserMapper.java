@@ -1,4 +1,4 @@
-package com.gamershop.admin.user;
+package com.gamershop.admin.user.mapper;
 
 import com.gamershop.shared.dto.UserDTO;
 import com.gamershop.shared.entity.RoleEntity;
@@ -22,6 +22,6 @@ public class UserMapper {
     }
 
     public UserEntity toUser(UserDTO userDTO){
-        return new UserEntity(userDTO.getUserEmail(), userDTO.getPasswordHash(), userDTO.getUserName(), userDTO.isEnabled(), new ArrayList<>());
+        return new UserEntity(userDTO.getUserEmail(), userDTO.getPassword(), userDTO.getUserName(), userDTO.isEnabled(), new ArrayList<>());
     }
 }

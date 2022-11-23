@@ -1,13 +1,14 @@
-package com.gamershop.admin.user;
+package com.gamershop.admin.user.service;
 
+import com.gamershop.admin.user.interfaces.IRoleService;
+import com.gamershop.admin.user.repo.RoleRepository;
 import com.gamershop.shared.entity.RoleEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class RoleService {
+public class RoleService implements IRoleService {
     private final RoleRepository roleRepo;
     public RoleService(RoleRepository roleRepo){
         this.roleRepo = roleRepo;
@@ -20,6 +21,6 @@ public class RoleService {
 
     public List<String> listRoles(){
         var roleList = (List<RoleEntity>) roleRepo.findAll();
-        return roleList.stream().map(role-> toString()).toList();
+        return roleList.stream().map(RoleEntity::getRoleName).toList();
     }
 }
