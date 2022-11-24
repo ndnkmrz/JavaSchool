@@ -42,18 +42,29 @@
             <td th:text="${user.roles}"/>
             <td th:text="${user.enabled}"/>
             <td>
-                <button type="button" class="btn btn-link">Edit</button>
-                <button type="button" class="btn btn-link">Delete</button>
+                <a type="button" class="btn btn-link" th:href="@{'/users/edit/' + ${user.id}}">Edit</a>
+                <a type="button" class="btn btn-link" th:href="@{'/users/delete/' + ${user.id}}">Delete</a>
             </td>
-
-
         </tr>
         </tbody>
     </table>
+        <div>
+            <span th:text="${totalItems}"/>
+            <ul class="pagination justify-content-center">
+                <li th:class="${currentPage == 1 ? 'page-item disabled' : 'page-item'}">
+                    <a class="page-link" th:href="@{'/users/page/' + ${currentPage - 1}}">&laquo;</a>
+                </li>
+                <li th:class="${currentPage != i ? 'page-item' : 'page-item active'}" th:each="i : ${#numbers.sequence(1, totalPages)}">
+                    <a class="page-link" th:href="@{'/users/page/' + ${i}}" th:text="${i}">1</a>
+                </li>
+                <li th:class="${currentPage == totalPages ? 'page-item disabled' : 'page-item'}">
+                    <a class="page-link" th:href="@{'/users/page/' + ${currentPage + 1}}">&raquo;</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
     <div th:insert="~{fragments/footer :: footer}"></div>
 </div>
-
 </body>
 </html>

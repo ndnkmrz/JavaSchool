@@ -42,7 +42,8 @@ public class UserEntity {
         this.enabled = enabled;
     }
 
-    public UserEntity(String userEmail, String passwordHash, String userName, boolean enabled, List<RoleEntity> roles) {
+    public UserEntity(Integer id, String userEmail, String passwordHash, String userName, boolean enabled, List<RoleEntity> roles) {
+        this.userId = id;
         this.userEmail = userEmail;
         this.passwordHash = passwordHash;
         this.userName = userName;

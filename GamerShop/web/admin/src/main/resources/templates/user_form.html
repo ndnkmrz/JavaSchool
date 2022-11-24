@@ -6,26 +6,31 @@
 </br>
 <div class="container-fluid">
   <div class="card border-light mb-5" style="max-width:700px; margin:0 auto">
-    <div class="card-header"><h1>
-      New user
+    <div class="card-header" th:text="${cardTitle}"><h1>
     </h1></div>
     <div class="card-body">
 <!--      email, password, username, enabled-->
       <form th:action="@{/users/save}" method="post" th:object="${user}">
-        <fieldset><div class="form-group">
+        <fieldset>
+          <div class="form-group">
+            <input type="hidden" th:field="*{id}">
+          </div>
+          <div class="form-group">
           <label for="inputEmail" class="form-label mt-4">Email address</label>
           <input type="email" class="form-control" id="inputEmail" placeholder="Enter email" th:field="*{userEmail}"
                  required minlenght="8" maxlength="120">
-
         </div>
           <div class="form-group">
             <label for="inputUsername" class="form-label mt-4">User Name</label>
             <input type="text" class="form-control" id="inputUsername" placeholder="Enter user name" th:field="*{userName}">
           </div>
           <div class="form-group">
-            <label for="inputPassword" class="form-label mt-4">Password</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password" th:field="*{password}"
-            required>
+            <label class="form-label mt-4">Password</label>
+            <input th:if="${user.id == null}" type="password" class="form-control"
+                   placeholder="Password" th:field="*{password}"
+                   required>
+            <input th:if="${user.id != null}" type="password" class="form-control"
+                   placeholder="Password" th:field="*{password}">
           </div>
           <legend class="mt-4">Roles</legend>
           <div class="form-check">
