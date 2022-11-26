@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IUserService {
     List<UserDTO> listUsers();
-    Page<UserDTO> listByPage(int pageNum);
+    Page<UserDTO> listByPage(int pageNum, String sortField, String sortDir);
     void saveUser(UserDTO user) throws UserNotFoundException;
     UserDTO getUser(Integer id) throws UserNotFoundException;
     void deleteUser(Integer id) throws UserNotFoundException;

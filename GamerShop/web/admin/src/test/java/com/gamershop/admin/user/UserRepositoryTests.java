@@ -9,7 +9,12 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.annotation.Rollback;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -54,5 +59,18 @@ class UserRepositoryTests {
         String email = "moroz021291@gmail.com";
         UserEntity user = repo.getUserEntityByUserEmail(email).orElseGet(UserEntity::new);
         assertThat(user).isNotNull();
+    }
+
+    @Test
+    public void teatSearchUsers(){
+        String keyword = "baks";
+        Pageable pageable = PageRequest.of(0, 5);
+        Page<UserEntity> page = repo.findAll(keyword, pageable);
+        List<UserEntity> userEntityList = page.getContent();
+        userEntityList.forEach(user -> System.out.println(user));
+        assertThat(userEntityList.size()).isGreaterThan(0);
+
+
+
     }
 }

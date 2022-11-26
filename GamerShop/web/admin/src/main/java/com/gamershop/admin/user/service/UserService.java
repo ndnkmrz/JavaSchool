@@ -6,10 +6,9 @@ import com.gamershop.admin.user.mapper.UserMapper;
 import com.gamershop.admin.user.repo.UserRepository;
 import com.gamershop.shared.dto.UserDTO;
 import com.gamershop.shared.entity.UserEntity;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+import net.bytebuddy.matcher.FilterableList;
+import org.springframework.data.domain.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -37,8 +36,12 @@ public class UserService implements IUserService {
         return userList.stream().map(userMapper::toDTO).toList();
     }
 
-    public Page<UserDTO> listByPage(int pageNum){
-        Pageable pageable = PageRequest.of(pageNum -1, USERS_PER_PAGE);
+    public Page<UserDTO> listByPage(int pageNum,
+                                    String sortField,
+                                    String sortDir){
+        Sort sort = Sort.by(sortField);
+        sort = sortDir.equals("asc") ? sort.ascending() : sort.descending();
+        Pageable pageable = PageRequest.of(pageNum -1, USERS_PER_PAGE, sort);
         Page<UserEntity> userEntities = userRepo.findAll(pageable);
         List<UserDTO> users = userEntities.stream().map(userMapper::toDTO).toList();
         return new PageImpl<>(users, pageable, userEntities.getTotalElements());
@@ -89,8 +92,13 @@ public class UserService implements IUserService {
      * @return
      */
     public boolean isEmailUnique(String email){
+
         return userRepo.getUserEntityByUserEmail(email).isPresent();
     }
+
+
+
+
 
 
 
