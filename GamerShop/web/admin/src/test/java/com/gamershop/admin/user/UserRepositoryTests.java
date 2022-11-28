@@ -63,9 +63,9 @@ class UserRepositoryTests {
 
     @Test
     public void teatSearchUsers(){
-        String keyword = "baks";
+        String keyword = "%baks%";
         Pageable pageable = PageRequest.of(0, 5);
-        Page<UserEntity> page = repo.findAll(keyword, pageable);
+        Page<UserEntity> page = repo.findAllByUserNameLikeOrUserEmailLike(keyword, keyword, pageable);
         List<UserEntity> userEntityList = page.getContent();
         userEntityList.forEach(user -> System.out.println(user));
         assertThat(userEntityList.size()).isGreaterThan(0);

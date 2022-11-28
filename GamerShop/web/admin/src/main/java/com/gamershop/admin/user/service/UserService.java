@@ -38,11 +38,19 @@ public class UserService implements IUserService {
 
     public Page<UserDTO> listByPage(int pageNum,
                                     String sortField,
-                                    String sortDir){
+                                    String sortDir,
+                                    String keyword){
+        Page<UserEntity> userEntities;
         Sort sort = Sort.by(sortField);
         sort = sortDir.equals("asc") ? sort.ascending() : sort.descending();
         Pageable pageable = PageRequest.of(pageNum -1, USERS_PER_PAGE, sort);
-        Page<UserEntity> userEntities = userRepo.findAll(pageable);
+        if (keyword != null){
+            keyword = "%" + keyword + "%";
+            userEntities = userRepo.findAllByUserNameLikeOrUserEmailLike(keyword, keyword, pageable);
+        }
+        else {
+            userEntities = userRepo.findAll(pageable);
+        }
         List<UserDTO> users = userEntities.stream().map(userMapper::toDTO).toList();
         return new PageImpl<>(users, pageable, userEntities.getTotalElements());
 
