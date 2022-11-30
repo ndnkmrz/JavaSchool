@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
 
@@ -12,8 +13,8 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer>, JpaS
     Optional<UserEntity> getUserEntityByUserEmail(String userEmail);
 
 
-
-    public Page<UserEntity> findAllByUserNameLikeOrUserEmailLike(String userName, String userEmail, Pageable pageable);
+    @Query("SELECT u FROM UserEntity u WHERE u.userName LIKE %?1% OR u.userEmail LIKE %?1%")
+    public Page<UserEntity> findAll(String keyword, Pageable pageable);
 
 
 

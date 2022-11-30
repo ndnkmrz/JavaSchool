@@ -23,7 +23,7 @@ public class UserEntity {
 
     private boolean enabled = true;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name="UserRoles",
             joinColumns = @JoinColumn(

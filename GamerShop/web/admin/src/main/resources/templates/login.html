@@ -1,0 +1,36 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{fragments/head :: head}"></div>
+<body>
+</br>
+<div>
+<div class="container-fluid">
+    <div class="card border-light mb-5" style="max-width:700px; margin:0 auto">
+        <h1>&nbsp;&nbsp;Login page</h1>
+    <div class="card-body">
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+        <form th:action="@{/login}" method="post">
+            <fieldset>
+                <div class="form-floating mb-3">
+                    <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                    <br/>
+                </div>
+                    <button type="submit" class="btn btn-secondary">Login</button>
+                <div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</body>

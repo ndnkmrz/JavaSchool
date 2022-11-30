@@ -3,7 +3,6 @@ import com.gamershop.admin.user.interfaces.IRoleService;
 import com.gamershop.admin.user.interfaces.IUserService;
 import com.gamershop.admin.user.repo.UserRepository;
 import com.gamershop.shared.dto.UserDTO;
-import com.gamershop.shared.entity.UserEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -11,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 
@@ -29,8 +27,8 @@ public class UserController {
 
     @GetMapping("/users")
     public String listFirstPage(Model model){
+        model.addAttribute("pageTitle", "Users");
         return listByPage(1, model, "userName", "asc", null);
-
     }
 
     @GetMapping("/users/new")
@@ -61,6 +59,7 @@ public class UserController {
         model.addAttribute("sortDir", sortDir);
         model.addAttribute("reverseSortDir", reverseSortDir);
         model.addAttribute("keyword", keyword);
+        model.addAttribute("pageTitle", "Users");
         return "users";
     }
 

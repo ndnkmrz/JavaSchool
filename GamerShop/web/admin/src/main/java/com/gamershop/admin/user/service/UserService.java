@@ -6,9 +6,7 @@ import com.gamershop.admin.user.mapper.UserMapper;
 import com.gamershop.admin.user.repo.UserRepository;
 import com.gamershop.shared.dto.UserDTO;
 import com.gamershop.shared.entity.UserEntity;
-import net.bytebuddy.matcher.FilterableList;
 import org.springframework.data.domain.*;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -46,7 +44,7 @@ public class UserService implements IUserService {
         Pageable pageable = PageRequest.of(pageNum -1, USERS_PER_PAGE, sort);
         if (keyword != null){
             keyword = "%" + keyword + "%";
-            userEntities = userRepo.findAllByUserNameLikeOrUserEmailLike(keyword, keyword, pageable);
+            userEntities = userRepo.findAll(keyword, pageable);
         }
         else {
             userEntities = userRepo.findAll(pageable);
