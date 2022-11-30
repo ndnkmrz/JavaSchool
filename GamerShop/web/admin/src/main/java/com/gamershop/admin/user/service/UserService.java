@@ -67,7 +67,6 @@ public class UserService implements IUserService {
         else {
             encodePassword(user);
         }
-        encodePassword(user);
         UserEntity userEntity = userMapper.toUser(user);
         user.getRoles().stream().map(roleService::getOrCreateRole).forEach(userEntity::addRole);
         userRepo.save(userEntity);
