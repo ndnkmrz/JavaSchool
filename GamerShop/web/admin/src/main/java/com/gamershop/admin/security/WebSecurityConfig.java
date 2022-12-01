@@ -56,20 +56,17 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        http.authorizeRequests()
+        http.authorizeRequests().antMatchers("/static**/").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .usernameParameter("email")
+                .defaultSuccessUrl("/", true)
                 .permitAll();
 //                .antMatcher("/static**/").authorizeHttpRequests()
 
         return http.build();
     }
-//    @Bean
-//    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-//
-//    }
 
 }
