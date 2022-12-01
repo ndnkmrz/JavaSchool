@@ -73,7 +73,7 @@ public class UserController {
     @GetMapping("/users/edit/{id}")
     public String editUser(@PathVariable(name="id") Integer id, Model model){
         List<String> listRoles = roleService.listRoles();
-        UserDTO user = userService.getUser(id);
+        UserDTO user = userService.getUserById(id);
         model.addAttribute("user", user);
         model.addAttribute("pageTitle", "Edit " + user.getUserEmail());
         model.addAttribute("cardTitle", "Edit "+ user.getUserEmail());

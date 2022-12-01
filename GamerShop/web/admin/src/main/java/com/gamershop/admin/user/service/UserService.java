@@ -54,10 +54,10 @@ public class UserService implements IUserService {
 
     }
 
-    public void saveUser(UserDTO user) throws UserNotFoundException{
+    public void saveUser(UserDTO user){
         if (user.getId() != null){
             if (user.getPassword().isEmpty()){
-                UserDTO existingUser = getUser(user.getId());
+                UserDTO existingUser = getUserById(user.getId());
                 user.setPassword(existingUser.getPassword());
             }
             else {
@@ -72,12 +72,19 @@ public class UserService implements IUserService {
         userRepo.save(userEntity);
     }
 
-    public UserDTO getUser(Integer id) throws UserNotFoundException{
-        UserEntity user = userRepo.findById(id).orElseThrow(()-> new UserNotFoundException("Could not find any user with ID " + id));
+    public UserDTO getUserById(Integer id){
+        UserEntity user = userRepo.findById(id)
+                .orElseThrow(()-> new UserNotFoundException("Could not find any user with ID " + id));
         return userMapper.toDTO(user);
     }
 
-    public void deleteUser(Integer id) throws UserNotFoundException{
+    public UserDTO getUserByEmail(String email){
+        UserEntity user = userRepo.getUserEntityByUserEmail(email)
+                .orElseThrow(()-> new UserNotFoundException("Could not find any user with: " + email));
+        return userMapper.toDTO(user);
+    }
+
+    public void deleteUser(Integer id){
         if (userRepo.existsById(id)){
             userRepo.deleteById(id);
         }
