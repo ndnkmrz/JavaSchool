@@ -51,7 +51,7 @@ class UserRepositoryTests {
         RoleEntity roleAdmin = entityManager.find(RoleEntity.class, 1);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         List<RoleEntity> roles = Arrays.asList(roleAdmin);
-        UserEntity user = new UserEntity(null, "piotr@gmail.com", passwordEncoder.encode("010989Bill"), "piotr", true, roles);
+        UserEntity user = new UserEntity(null, "piotr1@gmail.com", passwordEncoder.encode("010989Bill"), "piotr1", true, roles);
         UserEntity savedUser = repo.save(user);
         String encodedPass = savedUser.getPasswordHash();
         String rawPass = "010989Bill";

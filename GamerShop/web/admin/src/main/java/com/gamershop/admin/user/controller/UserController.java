@@ -18,7 +18,7 @@ public class UserController {
 
     private final IUserService userService;
     private final IRoleService roleService;
-    private UserRepository userRepo;
+
     public UserController(IUserService userService, IRoleService roleService){
 
         this.userService = userService;

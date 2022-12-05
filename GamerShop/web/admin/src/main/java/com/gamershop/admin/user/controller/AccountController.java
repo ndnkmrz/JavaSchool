@@ -1,15 +1,16 @@
 package com.gamershop.admin.user.controller;
 
 import com.gamershop.admin.security.GamershopUserDetails;
+import com.gamershop.admin.user.interfaces.IRoleService;
 import com.gamershop.admin.user.interfaces.IUserService;
-import com.gamershop.admin.user.service.UserService;
 import com.gamershop.shared.dto.UserDTO;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 @Controller
 public class AccountController {
