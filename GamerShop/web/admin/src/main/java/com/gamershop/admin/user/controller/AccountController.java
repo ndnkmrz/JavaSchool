@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -30,10 +31,11 @@ public class AccountController {
     }
 
     @PostMapping("/account/update")
-    public String saveUser(UserDTO user, Model model){
+    public String saveUser(UserDTO user, Model model, RedirectAttributes redirectAttributes){
         service.saveUser(user);
         UserDTO savedUser = service.getUserByEmail(user.getUserEmail());
         model.addAttribute("user", savedUser);
-        return "account_form";
+        redirectAttributes.addFlashAttribute("message", "Your account has been updated successfully");
+        return "redirect:/account";
     }
 }

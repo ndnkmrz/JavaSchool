@@ -18,7 +18,6 @@ public class RoleService implements IRoleService {
         return roleRepo.findByRoleName(roleName).orElseGet(()-> roleRepo.save(new RoleEntity(roleName)));
     }
 
-
     public List<String> listRoles(){
         var roleList = (List<RoleEntity>) roleRepo.findAll();
         return roleList.stream().map(RoleEntity::getRoleName).toList();

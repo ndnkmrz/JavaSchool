@@ -56,12 +56,15 @@ public class UserService implements IUserService {
 
     public void saveUser(UserDTO user){
         if (user.getId() != null){
+            UserDTO existingUser = getUserById(user.getId());
             if (user.getPassword().isEmpty()){
-                UserDTO existingUser = getUserById(user.getId());
                 user.setPassword(existingUser.getPassword());
             }
             else {
                 encodePassword(user);
+            }
+            if (user.getRoles() == null){
+                user.setRoles(existingUser.getRoles());
             }
         }
         else {
