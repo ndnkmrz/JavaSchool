@@ -1,7 +1,6 @@
 package com.gamershop.admin.user.controller;
 import com.gamershop.admin.user.interfaces.IRoleService;
 import com.gamershop.admin.user.interfaces.IUserService;
-import com.gamershop.admin.user.repo.UserRepository;
 import com.gamershop.shared.dto.UserDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.query.Param;

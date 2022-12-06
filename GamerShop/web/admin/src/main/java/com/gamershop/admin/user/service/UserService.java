@@ -6,6 +6,8 @@ import com.gamershop.admin.user.mapper.UserMapper;
 import com.gamershop.admin.user.repo.UserRepository;
 import com.gamershop.shared.dto.UserDTO;
 import com.gamershop.shared.entity.UserEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,7 @@ public class UserService implements IUserService {
     private final PasswordEncoder passwordEncoder;
     private final RoleService roleService;
     private final UserMapper userMapper;
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
 
     public UserService(UserRepository userRepo, PasswordEncoder passwordEncoder, RoleService roleService, UserMapper userMapper){
 
@@ -55,6 +58,7 @@ public class UserService implements IUserService {
     }
 
     public void saveUser(UserDTO user){
+        LOGGER.debug("Trying to save user");
         if (user.getId() != null){
             UserDTO existingUser = getUserById(user.getId());
             if (user.getPassword().isEmpty()){

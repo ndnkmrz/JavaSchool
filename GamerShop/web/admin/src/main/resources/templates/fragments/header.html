@@ -11,17 +11,26 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav me-auto">
-          <li class="nav-item">
+          <li class="nav-item" sec:authorize="hasAuthority('Admin')">
             <a class="nav-link" th:href="@{/users}">Users</a>
+          </li>
+          <li class="nav-item" sec:authorize="hasAuthority('Editor')">
+            <a class="nav-link" th:href="@{/categories}">Categories</a>
+          </li>
+          <li class="nav-item" sec:authorize="hasAuthority('Editor')">
+            <a class="nav-link" th:href="@{/products}">Products</a>
+          </li>
+          <li class="nav-item" sec:authorize="hasAuthority('Seller')">
+            <a class="nav-link" th:href="@{/crm}">CRM</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" sec:authentication="principal.username">Users</a>
             <div class="dropdown-menu">
+              <a th:href="@{/account}" class="dropdown-item">Account</a>
               <a href="javascript: document.logoutForm.submit()" class="dropdown-item">Sign out</a>
               <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
                 <input hidden type="submit" value="Sign Out" />
               </form>
-              <a th:href="@{/account}" class="dropdown-item">Account</a>
             </div>
           </li>
         </ul>
