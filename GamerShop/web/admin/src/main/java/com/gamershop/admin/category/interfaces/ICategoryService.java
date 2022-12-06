@@ -14,5 +14,6 @@ public interface ICategoryService {
 
     void saveCategory(CategoryDTO category);
     CategoryDTO getCategoryById(Integer id);
+    List<CategoryDTO> listCategoriesUsedInForm();
 
 }

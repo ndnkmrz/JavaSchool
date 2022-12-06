@@ -33,6 +33,7 @@ public class CategoryEntity {
         this.enabled = enabled;
     }
 
+
     public CategoryEntity() {
     }
 }

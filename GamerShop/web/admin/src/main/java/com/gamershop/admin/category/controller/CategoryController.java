@@ -2,10 +2,8 @@ package com.gamershop.admin.category.controller;
 
 import com.gamershop.admin.category.interfaces.ICategoryService;
 import com.gamershop.shared.dto.CategoryDTO;
-import com.gamershop.shared.dto.UserDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.query.Param;
-import org.springframework.security.core.userdetails.UserCache;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -59,9 +57,11 @@ public class CategoryController {
     @GetMapping("/categories/new")
     public String createCategory(Model model){
         CategoryDTO category = new CategoryDTO();
+        List<CategoryDTO> listCategories = categoryService.listCategoriesUsedInForm();
         model.addAttribute("pageTitle", "Create new category");
         model.addAttribute("category", category);
         model.addAttribute("cardTitle", "Create new category");
+        model.addAttribute("listCategories", listCategories);
         return "category_form";
     }
 

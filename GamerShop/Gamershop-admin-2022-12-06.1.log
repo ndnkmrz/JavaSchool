@@ -1,0 +1,1047 @@
+2022-12-06 18:56:43.727 TRACE 19136 --- [main] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {webSecurityConfig=com.gamershop.admin.security.WebSecurityConfig$$EnhancerBySpringCGLIB$$ba0b781c@6a013bdd}
+2022-12-06 18:56:43.810 DEBUG 19136 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [permitAll] for ExactUrl [processUrl='/login?error']
+2022-12-06 18:56:43.825 DEBUG 19136 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [permitAll] for ExactUrl [processUrl='/login']
+2022-12-06 18:56:43.825 DEBUG 19136 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [permitAll] for ExactUrl [processUrl='/login']
+2022-12-06 18:56:43.830 DEBUG 19136 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [permitAll] for Ant [pattern='/logout', POST]
+2022-12-06 18:56:43.830 DEBUG 19136 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [permitAll] for ExactUrl [processUrl='/login?logout']
+2022-12-06 18:56:43.831 DEBUG 19136 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [hasAuthority('Admin')] for Ant [pattern='/users**/']
+2022-12-06 18:56:43.832 DEBUG 19136 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [authenticated] for any request
+2022-12-06 18:56:43.836 TRACE 19136 --- [main] o.s.s.w.a.i.FilterSecurityInterceptor    : Validated configuration attributes
+2022-12-06 18:56:43.837 TRACE 19136 --- [main] o.s.s.w.a.i.FilterSecurityInterceptor    : Validated configuration attributes
+2022-12-06 18:56:43.838  INFO 19136 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@f13e0a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@329efc61, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e2a, org.springframework.security.web.header.HeaderWriterFilter@4a7c72af, org.springframework.security.web.csrf.CsrfFilter@c7443f, org.springframework.security.web.authentication.logout.LogoutFilter@a0bdbe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c599679, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e3d36c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4add4dff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32f45e15, org.springframework.security.web.session.SessionManagementFilter@2ba9ed19, org.springframework.security.web.access.ExceptionTranslationFilter@7f9d40b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41f5389f]
+2022-12-06 18:56:43.877  WARN 19136 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-06 18:56:44.186  INFO 19136 --- [main] c.g.admin.GamerShopAdminApplication      : Started GamerShopAdminApplication in 3.616 seconds (JVM running for 4.266)
+2022-12-06 18:56:47.965 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@f13e0a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@329efc61, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e2a, org.springframework.security.web.header.HeaderWriterFilter@4a7c72af, org.springframework.security.web.csrf.CsrfFilter@c7443f, org.springframework.security.web.authentication.logout.LogoutFilter@a0bdbe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c599679, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e3d36c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4add4dff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32f45e15, org.springframework.security.web.session.SessionManagementFilter@2ba9ed19, org.springframework.security.web.access.ExceptionTranslationFilter@7f9d40b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41f5389f]] (1/1)
+2022-12-06 18:56:47.966 DEBUG 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /categories/page/2?sortField=categoryName&sortDir=asc
+2022-12-06 18:56:47.967 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/13)
+2022-12-06 18:56:47.967 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/13)
+2022-12-06 18:56:47.969 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (3/13)
+2022-12-06 18:56:47.969 TRACE 19136 --- [http-nio-80-exec-1] w.c.HttpSessionSecurityContextRepository : No HttpSession currently exists
+2022-12-06 18:56:47.969 TRACE 19136 --- [http-nio-80-exec-1] w.c.HttpSessionSecurityContextRepository : Created SecurityContextImpl [Null authentication]
+2022-12-06 18:56:47.970 DEBUG 19136 --- [http-nio-80-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-12-06 18:56:47.970 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/13)
+2022-12-06 18:56:47.971 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking CsrfFilter (5/13)
+2022-12-06 18:56:47.972 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.csrf.CsrfFilter         : Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+2022-12-06 18:56:47.972 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (6/13)
+2022-12-06 18:56:47.972 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Ant [pattern='/logout', POST]
+2022-12-06 18:56:47.972 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (7/13)
+2022-12-06 18:56:47.972 TRACE 19136 --- [http-nio-80-exec-1] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-12-06 18:56:47.972 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (8/13)
+2022-12-06 18:56:47.973 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.s.HttpSessionRequestCache        : No saved request
+2022-12-06 18:56:47.973 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (9/13)
+2022-12-06 18:56:47.974 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (10/13)
+2022-12-06 18:56:47.975 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2022-12-06 18:56:47.975 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (11/13)
+2022-12-06 18:56:47.975 DEBUG 19136 --- [http-nio-80-exec-1] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id F21C69B4EC7BDB851C899A5A56277B2B
+2022-12-06 18:56:47.975 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (12/13)
+2022-12-06 18:56:47.975 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking FilterSecurityInterceptor (13/13)
+2022-12-06 18:56:47.976 TRACE 19136 --- [http-nio-80-exec-1] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?error'] - [permitAll] (1/7)
+2022-12-06 18:56:47.976 TRACE 19136 --- [http-nio-80-exec-1] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login'] - [permitAll] (2/7)
+2022-12-06 18:56:47.976 TRACE 19136 --- [http-nio-80-exec-1] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login'] - [permitAll] (3/7)
+2022-12-06 18:56:47.976 TRACE 19136 --- [http-nio-80-exec-1] edFilterInvocationSecurityMetadataSource : Did not match request to Ant [pattern='/logout', POST] - [permitAll] (4/7)
+2022-12-06 18:56:47.976 TRACE 19136 --- [http-nio-80-exec-1] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?logout'] - [permitAll] (5/7)
+2022-12-06 18:56:47.976 TRACE 19136 --- [http-nio-80-exec-1] edFilterInvocationSecurityMetadataSource : Did not match request to Ant [pattern='/users**/'] - [hasAuthority('Admin')] (6/7)
+2022-12-06 18:56:47.977 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not re-authenticate AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]] before authorizing
+2022-12-06 18:56:47.977 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorizing filter invocation [GET /categories/page/2?sortField=categoryName&sortDir=asc] with attributes [authenticated]
+2022-12-06 18:56:47.982 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.a.expression.WebExpressionVoter  : Voted to deny authorization
+2022-12-06 18:56:47.982 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Failed to authorize filter invocation [GET /categories/page/2?sortField=categoryName&sortDir=asc] with attributes [authenticated] using AffirmativeBased [DecisionVoters=[org.springframework.security.web.access.expression.WebExpressionVoter@75507e68], AllowIfAllAbstainDecisions=false]
+2022-12-06 18:56:47.986 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.a.ExceptionTranslationFilter     : Sending AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]] to authentication entry point since access is denied
+
+org.springframework.security.access.AccessDeniedException: Access is denied
+	at org.springframework.security.access.vote.AffirmativeBased.decide(AffirmativeBased.java:73) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.attemptAuthorization(AbstractSecurityInterceptor.java:239) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.beforeInvocation(AbstractSecurityInterceptor.java:208) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:113) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.base/java.lang.Thread.run(Thread.java:1589) ~[na:na]
+
+2022-12-06 18:56:48.026 DEBUG 19136 --- [http-nio-80-exec-1] o.s.s.w.s.HttpSessionRequestCache        : Saved request http://localhost/GamerShopAdmin/categories/page/2?sortField=categoryName&sortDir=asc to session
+2022-12-06 18:56:48.026 DEBUG 19136 --- [http-nio-80-exec-1] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost/GamerShopAdmin/login
+2022-12-06 18:56:48.027 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2022-12-06 18:56:48.027 DEBUG 19136 --- [http-nio-80-exec-1] w.c.HttpSessionSecurityContextRepository : Did not store empty SecurityContext
+2022-12-06 18:56:48.029 DEBUG 19136 --- [http-nio-80-exec-1] w.c.HttpSessionSecurityContextRepository : Did not store empty SecurityContext
+2022-12-06 18:56:48.029 DEBUG 19136 --- [http-nio-80-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-12-06 18:56:48.033 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@f13e0a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@329efc61, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e2a, org.springframework.security.web.header.HeaderWriterFilter@4a7c72af, org.springframework.security.web.csrf.CsrfFilter@c7443f, org.springframework.security.web.authentication.logout.LogoutFilter@a0bdbe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c599679, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e3d36c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4add4dff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32f45e15, org.springframework.security.web.session.SessionManagementFilter@2ba9ed19, org.springframework.security.web.access.ExceptionTranslationFilter@7f9d40b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41f5389f]] (1/1)
+2022-12-06 18:56:48.033 DEBUG 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /login
+2022-12-06 18:56:48.033 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/13)
+2022-12-06 18:56:48.034 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/13)
+2022-12-06 18:56:48.034 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (3/13)
+2022-12-06 18:56:48.034 TRACE 19136 --- [http-nio-80-exec-4] w.c.HttpSessionSecurityContextRepository : Did not find SecurityContext in HttpSession 6FCF0A838CA86F84273F451F705F5F6C using the SPRING_SECURITY_CONTEXT session attribute
+2022-12-06 18:56:48.034 TRACE 19136 --- [http-nio-80-exec-4] w.c.HttpSessionSecurityContextRepository : Created SecurityContextImpl [Null authentication]
+2022-12-06 18:56:48.034 DEBUG 19136 --- [http-nio-80-exec-4] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-12-06 18:56:48.034 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/13)
+2022-12-06 18:56:48.034 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking CsrfFilter (5/13)
+2022-12-06 18:56:48.034 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.csrf.CsrfFilter         : Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+2022-12-06 18:56:48.034 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (6/13)
+2022-12-06 18:56:48.034 TRACE 19136 --- [http-nio-80-exec-4] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Ant [pattern='/logout', POST]
+2022-12-06 18:56:48.035 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (7/13)
+2022-12-06 18:56:48.035 TRACE 19136 --- [http-nio-80-exec-4] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-12-06 18:56:48.035 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (8/13)
+2022-12-06 18:56:48.035 TRACE 19136 --- [http-nio-80-exec-4] o.s.s.w.s.HttpSessionRequestCache        : Did not match request /login to the saved one DefaultSavedRequest [http://localhost/GamerShopAdmin/categories/page/2?sortField=categoryName&sortDir=asc]
+2022-12-06 18:56:48.035 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (9/13)
+2022-12-06 18:56:48.035 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (10/13)
+2022-12-06 18:56:48.035 TRACE 19136 --- [http-nio-80-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]]
+2022-12-06 18:56:48.035 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (11/13)
+2022-12-06 18:56:48.035 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (12/13)
+2022-12-06 18:56:48.035 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking FilterSecurityInterceptor (13/13)
+2022-12-06 18:56:48.035 TRACE 19136 --- [http-nio-80-exec-4] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?error'] - [permitAll] (1/7)
+2022-12-06 18:56:48.036 TRACE 19136 --- [http-nio-80-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not re-authenticate AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] before authorizing
+2022-12-06 18:56:48.036 TRACE 19136 --- [http-nio-80-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorizing filter invocation [GET /login] with attributes [permitAll]
+2022-12-06 18:56:48.036 DEBUG 19136 --- [http-nio-80-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /login] with attributes [permitAll]
+2022-12-06 18:56:48.036 TRACE 19136 --- [http-nio-80-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not switch RunAs authentication since RunAsManager returned null
+2022-12-06 18:56:48.036 DEBUG 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /login
+2022-12-06 18:56:48.357 TRACE 19136 --- [http-nio-80-exec-4] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2022-12-06 18:56:48.358 DEBUG 19136 --- [http-nio-80-exec-4] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
+2022-12-06 18:56:48.359 DEBUG 19136 --- [http-nio-80-exec-4] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
+2022-12-06 18:56:48.359 DEBUG 19136 --- [http-nio-80-exec-4] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-12-06 18:56:48.370 TRACE 19136 --- [http-nio-80-exec-7] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@f13e0a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@329efc61, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e2a, org.springframework.security.web.header.HeaderWriterFilter@4a7c72af, org.springframework.security.web.csrf.CsrfFilter@c7443f, org.springframework.security.web.authentication.logout.LogoutFilter@a0bdbe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c599679, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e3d36c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4add4dff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32f45e15, org.springframework.security.web.session.SessionManagementFilter@2ba9ed19, org.springframework.security.web.access.ExceptionTranslationFilter@7f9d40b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41f5389f]] (1/1)
+2022-12-06 18:56:48.370 DEBUG 19136 --- [http-nio-80-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /bootstrap.min.css
+2022-12-06 18:56:48.370 TRACE 19136 --- [http-nio-80-exec-7] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/13)
+2022-12-06 18:56:48.371 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@f13e0a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@329efc61, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e2a, org.springframework.security.web.header.HeaderWriterFilter@4a7c72af, org.springframework.security.web.csrf.CsrfFilter@c7443f, org.springframework.security.web.authentication.logout.LogoutFilter@a0bdbe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c599679, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e3d36c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4add4dff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32f45e15, org.springframework.security.web.session.SessionManagementFilter@2ba9ed19, org.springframework.security.web.access.ExceptionTranslationFilter@7f9d40b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41f5389f]] (1/1)
+2022-12-06 18:56:48.371 DEBUG 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /jquery-3.6.1.min.js
+2022-12-06 18:56:48.371 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/13)
+2022-12-06 18:56:48.371 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/13)
+2022-12-06 18:56:48.371 TRACE 19136 --- [http-nio-80-exec-7] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/13)
+2022-12-06 18:56:48.372 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (3/13)
+2022-12-06 18:56:48.372 TRACE 19136 --- [http-nio-80-exec-5] w.c.HttpSessionSecurityContextRepository : Did not find SecurityContext in HttpSession 6FCF0A838CA86F84273F451F705F5F6C using the SPRING_SECURITY_CONTEXT session attribute
+2022-12-06 18:56:48.372 TRACE 19136 --- [http-nio-80-exec-7] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (3/13)
+2022-12-06 18:56:48.373 TRACE 19136 --- [http-nio-80-exec-5] w.c.HttpSessionSecurityContextRepository : Created SecurityContextImpl [Null authentication]
+2022-12-06 18:56:48.373 DEBUG 19136 --- [http-nio-80-exec-5] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-12-06 18:56:48.373 TRACE 19136 --- [http-nio-80-exec-7] w.c.HttpSessionSecurityContextRepository : Did not find SecurityContext in HttpSession 6FCF0A838CA86F84273F451F705F5F6C using the SPRING_SECURITY_CONTEXT session attribute
+2022-12-06 18:56:48.373 TRACE 19136 --- [http-nio-80-exec-7] w.c.HttpSessionSecurityContextRepository : Created SecurityContextImpl [Null authentication]
+2022-12-06 18:56:48.373 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/13)
+2022-12-06 18:56:48.373 DEBUG 19136 --- [http-nio-80-exec-7] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-12-06 18:56:48.373 TRACE 19136 --- [http-nio-80-exec-7] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/13)
+2022-12-06 18:56:48.373 TRACE 19136 --- [http-nio-80-exec-7] o.s.security.web.FilterChainProxy        : Invoking CsrfFilter (5/13)
+2022-12-06 18:56:48.373 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking CsrfFilter (5/13)
+2022-12-06 18:56:48.373 TRACE 19136 --- [http-nio-80-exec-7] o.s.security.web.csrf.CsrfFilter         : Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+2022-12-06 18:56:48.373 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.csrf.CsrfFilter         : Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+2022-12-06 18:56:48.373 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (6/13)
+2022-12-06 18:56:48.373 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Ant [pattern='/logout', POST]
+2022-12-06 18:56:48.374 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (7/13)
+2022-12-06 18:56:48.374 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@f13e0a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@329efc61, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e2a, org.springframework.security.web.header.HeaderWriterFilter@4a7c72af, org.springframework.security.web.csrf.CsrfFilter@c7443f, org.springframework.security.web.authentication.logout.LogoutFilter@a0bdbe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c599679, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e3d36c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4add4dff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32f45e15, org.springframework.security.web.session.SessionManagementFilter@2ba9ed19, org.springframework.security.web.access.ExceptionTranslationFilter@7f9d40b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41f5389f]] (1/1)
+2022-12-06 18:56:48.374 TRACE 19136 --- [http-nio-80-exec-3] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@f13e0a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@329efc61, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e2a, org.springframework.security.web.header.HeaderWriterFilter@4a7c72af, org.springframework.security.web.csrf.CsrfFilter@c7443f, org.springframework.security.web.authentication.logout.LogoutFilter@a0bdbe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c599679, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e3d36c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4add4dff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32f45e15, org.springframework.security.web.session.SessionManagementFilter@2ba9ed19, org.springframework.security.web.access.ExceptionTranslationFilter@7f9d40b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41f5389f]] (1/1)
+2022-12-06 18:56:48.374 DEBUG 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /bootstrap.min.js
+2022-12-06 18:56:48.374 DEBUG 19136 --- [http-nio-80-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /bootstrap.bundle.min.js
+2022-12-06 18:56:48.374 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/13)
+2022-12-06 18:56:48.374 TRACE 19136 --- [http-nio-80-exec-3] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/13)
+2022-12-06 18:56:48.374 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/13)
+2022-12-06 18:56:48.374 TRACE 19136 --- [http-nio-80-exec-3] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/13)
+2022-12-06 18:56:48.374 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (3/13)
+2022-12-06 18:56:48.374 TRACE 19136 --- [http-nio-80-exec-2] w.c.HttpSessionSecurityContextRepository : Did not find SecurityContext in HttpSession 6FCF0A838CA86F84273F451F705F5F6C using the SPRING_SECURITY_CONTEXT session attribute
+2022-12-06 18:56:48.375 TRACE 19136 --- [http-nio-80-exec-2] w.c.HttpSessionSecurityContextRepository : Created SecurityContextImpl [Null authentication]
+2022-12-06 18:56:48.373 TRACE 19136 --- [http-nio-80-exec-7] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (6/13)
+2022-12-06 18:56:48.375 DEBUG 19136 --- [http-nio-80-exec-2] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-12-06 18:56:48.374 TRACE 19136 --- [http-nio-80-exec-5] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-12-06 18:56:48.375 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/13)
+2022-12-06 18:56:48.375 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (8/13)
+2022-12-06 18:56:48.375 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking CsrfFilter (5/13)
+2022-12-06 18:56:48.375 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.s.HttpSessionRequestCache        : Did not match request /jquery-3.6.1.min.js to the saved one DefaultSavedRequest [http://localhost/GamerShopAdmin/categories/page/2?sortField=categoryName&sortDir=asc]
+2022-12-06 18:56:48.375 TRACE 19136 --- [http-nio-80-exec-7] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Ant [pattern='/logout', POST]
+2022-12-06 18:56:48.375 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (9/13)
+2022-12-06 18:56:48.375 TRACE 19136 --- [http-nio-80-exec-3] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (3/13)
+2022-12-06 18:56:48.375 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.csrf.CsrfFilter         : Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (6/13)
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-2] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Ant [pattern='/logout', POST]
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-9] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@f13e0a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@329efc61, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e2a, org.springframework.security.web.header.HeaderWriterFilter@4a7c72af, org.springframework.security.web.csrf.CsrfFilter@c7443f, org.springframework.security.web.authentication.logout.LogoutFilter@a0bdbe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c599679, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e3d36c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4add4dff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32f45e15, org.springframework.security.web.session.SessionManagementFilter@2ba9ed19, org.springframework.security.web.access.ExceptionTranslationFilter@7f9d40b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41f5389f]] (1/1)
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (7/13)
+2022-12-06 18:56:48.376 DEBUG 19136 --- [http-nio-80-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /prism.js
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-2] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-6] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@f13e0a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@329efc61, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e2a, org.springframework.security.web.header.HeaderWriterFilter@4a7c72af, org.springframework.security.web.csrf.CsrfFilter@c7443f, org.springframework.security.web.authentication.logout.LogoutFilter@a0bdbe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c599679, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e3d36c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4add4dff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32f45e15, org.springframework.security.web.session.SessionManagementFilter@2ba9ed19, org.springframework.security.web.access.ExceptionTranslationFilter@7f9d40b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41f5389f]] (1/1)
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-9] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/13)
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (8/13)
+2022-12-06 18:56:48.376 DEBUG 19136 --- [http-nio-80-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /custom.js
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-9] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/13)
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-2] o.s.s.w.s.HttpSessionRequestCache        : Did not match request /bootstrap.min.js to the saved one DefaultSavedRequest [http://localhost/GamerShopAdmin/categories/page/2?sortField=categoryName&sortDir=asc]
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-6] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/13)
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-9] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (3/13)
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (9/13)
+2022-12-06 18:56:48.375 TRACE 19136 --- [http-nio-80-exec-7] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (7/13)
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (10/13)
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-7] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-7] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (8/13)
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]]
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-3] w.c.HttpSessionSecurityContextRepository : Did not find SecurityContext in HttpSession 6FCF0A838CA86F84273F451F705F5F6C using the SPRING_SECURITY_CONTEXT session attribute
+2022-12-06 18:56:48.377 TRACE 19136 --- [http-nio-80-exec-3] w.c.HttpSessionSecurityContextRepository : Created SecurityContextImpl [Null authentication]
+2022-12-06 18:56:48.377 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (11/13)
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (10/13)
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-6] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/13)
+2022-12-06 18:56:48.377 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (12/13)
+2022-12-06 18:56:48.377 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]]
+2022-12-06 18:56:48.377 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking FilterSecurityInterceptor (13/13)
+2022-12-06 18:56:48.376 TRACE 19136 --- [http-nio-80-exec-9] w.c.HttpSessionSecurityContextRepository : Did not find SecurityContext in HttpSession 6FCF0A838CA86F84273F451F705F5F6C using the SPRING_SECURITY_CONTEXT session attribute
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-2] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?error'] - [permitAll] (1/7)
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-9] w.c.HttpSessionSecurityContextRepository : Created SecurityContextImpl [Null authentication]
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-2] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login'] - [permitAll] (2/7)
+2022-12-06 18:56:48.377 TRACE 19136 --- [http-nio-80-exec-7] o.s.s.w.s.HttpSessionRequestCache        : Did not match request /bootstrap.min.css to the saved one DefaultSavedRequest [http://localhost/GamerShopAdmin/categories/page/2?sortField=categoryName&sortDir=asc]
+2022-12-06 18:56:48.377 DEBUG 19136 --- [http-nio-80-exec-3] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-12-06 18:56:48.377 TRACE 19136 --- [http-nio-80-exec-6] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (3/13)
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (11/13)
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-3] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/13)
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-6] w.c.HttpSessionSecurityContextRepository : Did not find SecurityContext in HttpSession 6FCF0A838CA86F84273F451F705F5F6C using the SPRING_SECURITY_CONTEXT session attribute
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (12/13)
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-6] w.c.HttpSessionSecurityContextRepository : Created SecurityContextImpl [Null authentication]
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-3] o.s.security.web.FilterChainProxy        : Invoking CsrfFilter (5/13)
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking FilterSecurityInterceptor (13/13)
+2022-12-06 18:56:48.378 DEBUG 19136 --- [http-nio-80-exec-6] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-3] o.s.security.web.csrf.CsrfFilter         : Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-5] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?error'] - [permitAll] (1/7)
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-3] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (6/13)
+2022-12-06 18:56:48.378 DEBUG 19136 --- [http-nio-80-exec-9] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-3] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Ant [pattern='/logout', POST]
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-9] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/13)
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-3] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (7/13)
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-2] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login'] - [permitAll] (3/7)
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-7] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (9/13)
+2022-12-06 18:56:48.379 TRACE 19136 --- [http-nio-80-exec-7] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (10/13)
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-2] edFilterInvocationSecurityMetadataSource : Did not match request to Ant [pattern='/logout', POST] - [permitAll] (4/7)
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-6] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/13)
+2022-12-06 18:56:48.379 TRACE 19136 --- [http-nio-80-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]]
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-5] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login'] - [permitAll] (2/7)
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-3] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-12-06 18:56:48.380 TRACE 19136 --- [http-nio-80-exec-7] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (11/13)
+2022-12-06 18:56:48.380 TRACE 19136 --- [http-nio-80-exec-3] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (8/13)
+2022-12-06 18:56:48.380 TRACE 19136 --- [http-nio-80-exec-3] o.s.s.w.s.HttpSessionRequestCache        : Did not match request /bootstrap.bundle.min.js to the saved one DefaultSavedRequest [http://localhost/GamerShopAdmin/categories/page/2?sortField=categoryName&sortDir=asc]
+2022-12-06 18:56:48.380 TRACE 19136 --- [http-nio-80-exec-3] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (9/13)
+2022-12-06 18:56:48.380 TRACE 19136 --- [http-nio-80-exec-3] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (10/13)
+2022-12-06 18:56:48.380 TRACE 19136 --- [http-nio-80-exec-7] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (12/13)
+2022-12-06 18:56:48.380 TRACE 19136 --- [http-nio-80-exec-7] o.s.security.web.FilterChainProxy        : Invoking FilterSecurityInterceptor (13/13)
+2022-12-06 18:56:48.380 TRACE 19136 --- [http-nio-80-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]]
+2022-12-06 18:56:48.378 TRACE 19136 --- [http-nio-80-exec-9] o.s.security.web.FilterChainProxy        : Invoking CsrfFilter (5/13)
+2022-12-06 18:56:48.379 TRACE 19136 --- [http-nio-80-exec-2] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?logout'] - [permitAll] (5/7)
+2022-12-06 18:56:48.379 TRACE 19136 --- [http-nio-80-exec-6] o.s.security.web.FilterChainProxy        : Invoking CsrfFilter (5/13)
+2022-12-06 18:56:48.380 TRACE 19136 --- [http-nio-80-exec-5] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login'] - [permitAll] (3/7)
+2022-12-06 18:56:48.380 TRACE 19136 --- [http-nio-80-exec-3] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (11/13)
+2022-12-06 18:56:48.381 TRACE 19136 --- [http-nio-80-exec-2] edFilterInvocationSecurityMetadataSource : Did not match request to Ant [pattern='/users**/'] - [hasAuthority('Admin')] (6/7)
+2022-12-06 18:56:48.380 TRACE 19136 --- [http-nio-80-exec-7] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?error'] - [permitAll] (1/7)
+2022-12-06 18:56:48.381 TRACE 19136 --- [http-nio-80-exec-6] o.s.security.web.csrf.CsrfFilter         : Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+2022-12-06 18:56:48.381 TRACE 19136 --- [http-nio-80-exec-9] o.s.security.web.csrf.CsrfFilter         : Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+2022-12-06 18:56:48.381 TRACE 19136 --- [http-nio-80-exec-7] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login'] - [permitAll] (2/7)
+2022-12-06 18:56:48.381 TRACE 19136 --- [http-nio-80-exec-9] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (6/13)
+2022-12-06 18:56:48.381 TRACE 19136 --- [http-nio-80-exec-7] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login'] - [permitAll] (3/7)
+2022-12-06 18:56:48.381 TRACE 19136 --- [http-nio-80-exec-6] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (6/13)
+2022-12-06 18:56:48.381 TRACE 19136 --- [http-nio-80-exec-7] edFilterInvocationSecurityMetadataSource : Did not match request to Ant [pattern='/logout', POST] - [permitAll] (4/7)
+2022-12-06 18:56:48.381 TRACE 19136 --- [http-nio-80-exec-6] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Ant [pattern='/logout', POST]
+2022-12-06 18:56:48.381 TRACE 19136 --- [http-nio-80-exec-7] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?logout'] - [permitAll] (5/7)
+2022-12-06 18:56:48.381 TRACE 19136 --- [http-nio-80-exec-3] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (12/13)
+2022-12-06 18:56:48.381 TRACE 19136 --- [http-nio-80-exec-6] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (7/13)
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-6] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-12-06 18:56:48.381 TRACE 19136 --- [http-nio-80-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not re-authenticate AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] before authorizing
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-6] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (8/13)
+2022-12-06 18:56:48.381 TRACE 19136 --- [http-nio-80-exec-5] edFilterInvocationSecurityMetadataSource : Did not match request to Ant [pattern='/logout', POST] - [permitAll] (4/7)
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-6] o.s.s.w.s.HttpSessionRequestCache        : Did not match request /custom.js to the saved one DefaultSavedRequest [http://localhost/GamerShopAdmin/categories/page/2?sortField=categoryName&sortDir=asc]
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-5] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?logout'] - [permitAll] (5/7)
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-6] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (9/13)
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-5] edFilterInvocationSecurityMetadataSource : Did not match request to Ant [pattern='/users**/'] - [hasAuthority('Admin')] (6/7)
+2022-12-06 18:56:48.381 TRACE 19136 --- [http-nio-80-exec-9] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Ant [pattern='/logout', POST]
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-6] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (10/13)
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not re-authenticate AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] before authorizing
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-9] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (7/13)
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]]
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorizing filter invocation [GET /jquery-3.6.1.min.js] with attributes [authenticated]
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-9] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-9] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (8/13)
+2022-12-06 18:56:48.383 TRACE 19136 --- [http-nio-80-exec-9] o.s.s.w.s.HttpSessionRequestCache        : Did not match request /prism.js to the saved one DefaultSavedRequest [http://localhost/GamerShopAdmin/categories/page/2?sortField=categoryName&sortDir=asc]
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-6] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (11/13)
+2022-12-06 18:56:48.383 TRACE 19136 --- [http-nio-80-exec-3] o.s.security.web.FilterChainProxy        : Invoking FilterSecurityInterceptor (13/13)
+2022-12-06 18:56:48.383 TRACE 19136 --- [http-nio-80-exec-9] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (9/13)
+2022-12-06 18:56:48.383 TRACE 19136 --- [http-nio-80-exec-9] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (10/13)
+2022-12-06 18:56:48.383 TRACE 19136 --- [http-nio-80-exec-6] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (12/13)
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorizing filter invocation [GET /bootstrap.min.js] with attributes [authenticated]
+2022-12-06 18:56:48.382 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.a.expression.WebExpressionVoter  : Voted to deny authorization
+2022-12-06 18:56:48.383 TRACE 19136 --- [http-nio-80-exec-7] edFilterInvocationSecurityMetadataSource : Did not match request to Ant [pattern='/users**/'] - [hasAuthority('Admin')] (6/7)
+2022-12-06 18:56:48.383 TRACE 19136 --- [http-nio-80-exec-3] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?error'] - [permitAll] (1/7)
+2022-12-06 18:56:48.383 TRACE 19136 --- [http-nio-80-exec-6] o.s.security.web.FilterChainProxy        : Invoking FilterSecurityInterceptor (13/13)
+2022-12-06 18:56:48.383 TRACE 19136 --- [http-nio-80-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]]
+2022-12-06 18:56:48.383 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor    : Failed to authorize filter invocation [GET /jquery-3.6.1.min.js] with attributes [authenticated] using AffirmativeBased [DecisionVoters=[org.springframework.security.web.access.expression.WebExpressionVoter@75507e68], AllowIfAllAbstainDecisions=false]
+2022-12-06 18:56:48.383 TRACE 19136 --- [http-nio-80-exec-2] o.s.s.w.a.expression.WebExpressionVoter  : Voted to deny authorization
+2022-12-06 18:56:48.384 TRACE 19136 --- [http-nio-80-exec-6] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?error'] - [permitAll] (1/7)
+2022-12-06 18:56:48.384 TRACE 19136 --- [http-nio-80-exec-6] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login'] - [permitAll] (2/7)
+2022-12-06 18:56:48.384 TRACE 19136 --- [http-nio-80-exec-6] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login'] - [permitAll] (3/7)
+2022-12-06 18:56:48.383 TRACE 19136 --- [http-nio-80-exec-7] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not re-authenticate AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] before authorizing
+2022-12-06 18:56:48.384 TRACE 19136 --- [http-nio-80-exec-7] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorizing filter invocation [GET /bootstrap.min.css] with attributes [authenticated]
+2022-12-06 18:56:48.383 TRACE 19136 --- [http-nio-80-exec-3] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login'] - [permitAll] (2/7)
+2022-12-06 18:56:48.385 TRACE 19136 --- [http-nio-80-exec-7] o.s.s.w.a.expression.WebExpressionVoter  : Voted to deny authorization
+2022-12-06 18:56:48.384 TRACE 19136 --- [http-nio-80-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor    : Failed to authorize filter invocation [GET /bootstrap.min.js] with attributes [authenticated] using AffirmativeBased [DecisionVoters=[org.springframework.security.web.access.expression.WebExpressionVoter@75507e68], AllowIfAllAbstainDecisions=false]
+2022-12-06 18:56:48.385 TRACE 19136 --- [http-nio-80-exec-7] o.s.s.w.a.i.FilterSecurityInterceptor    : Failed to authorize filter invocation [GET /bootstrap.min.css] with attributes [authenticated] using AffirmativeBased [DecisionVoters=[org.springframework.security.web.access.expression.WebExpressionVoter@75507e68], AllowIfAllAbstainDecisions=false]
+2022-12-06 18:56:48.385 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.a.ExceptionTranslationFilter     : Sending AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] to authentication entry point since access is denied
+
+org.springframework.security.access.AccessDeniedException: Access is denied
+	at org.springframework.security.access.vote.AffirmativeBased.decide(AffirmativeBased.java:73) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.attemptAuthorization(AbstractSecurityInterceptor.java:239) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.beforeInvocation(AbstractSecurityInterceptor.java:208) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:113) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.base/java.lang.Thread.run(Thread.java:1589) ~[na:na]
+
+2022-12-06 18:56:48.386 DEBUG 19136 --- [http-nio-80-exec-5] o.s.s.w.s.HttpSessionRequestCache        : Saved request http://localhost/GamerShopAdmin/jquery-3.6.1.min.js to session
+2022-12-06 18:56:48.384 TRACE 19136 --- [http-nio-80-exec-6] edFilterInvocationSecurityMetadataSource : Did not match request to Ant [pattern='/logout', POST] - [permitAll] (4/7)
+2022-12-06 18:56:48.387 TRACE 19136 --- [http-nio-80-exec-6] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?logout'] - [permitAll] (5/7)
+2022-12-06 18:56:48.387 TRACE 19136 --- [http-nio-80-exec-6] edFilterInvocationSecurityMetadataSource : Did not match request to Ant [pattern='/users**/'] - [hasAuthority('Admin')] (6/7)
+2022-12-06 18:56:48.386 TRACE 19136 --- [http-nio-80-exec-7] o.s.s.w.a.ExceptionTranslationFilter     : Sending AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] to authentication entry point since access is denied
+
+org.springframework.security.access.AccessDeniedException: Access is denied
+	at org.springframework.security.access.vote.AffirmativeBased.decide(AffirmativeBased.java:73) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.attemptAuthorization(AbstractSecurityInterceptor.java:239) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.beforeInvocation(AbstractSecurityInterceptor.java:208) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:113) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.base/java.lang.Thread.run(Thread.java:1589) ~[na:na]
+
+2022-12-06 18:56:48.385 TRACE 19136 --- [http-nio-80-exec-3] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login'] - [permitAll] (3/7)
+2022-12-06 18:56:48.386 TRACE 19136 --- [http-nio-80-exec-9] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (11/13)
+2022-12-06 18:56:48.387 DEBUG 19136 --- [http-nio-80-exec-5] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost/GamerShopAdmin/login
+2022-12-06 18:56:48.387 TRACE 19136 --- [http-nio-80-exec-2] o.s.s.w.a.ExceptionTranslationFilter     : Sending AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] to authentication entry point since access is denied
+
+org.springframework.security.access.AccessDeniedException: Access is denied
+	at org.springframework.security.access.vote.AffirmativeBased.decide(AffirmativeBased.java:73) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.attemptAuthorization(AbstractSecurityInterceptor.java:239) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.beforeInvocation(AbstractSecurityInterceptor.java:208) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:113) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.base/java.lang.Thread.run(Thread.java:1589) ~[na:na]
+
+2022-12-06 18:56:48.387 TRACE 19136 --- [http-nio-80-exec-9] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (12/13)
+2022-12-06 18:56:48.387 TRACE 19136 --- [http-nio-80-exec-9] o.s.security.web.FilterChainProxy        : Invoking FilterSecurityInterceptor (13/13)
+2022-12-06 18:56:48.387 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2022-12-06 18:56:48.387 TRACE 19136 --- [http-nio-80-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not re-authenticate AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] before authorizing
+2022-12-06 18:56:48.387 TRACE 19136 --- [http-nio-80-exec-3] edFilterInvocationSecurityMetadataSource : Did not match request to Ant [pattern='/logout', POST] - [permitAll] (4/7)
+2022-12-06 18:56:48.387 TRACE 19136 --- [http-nio-80-exec-9] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?error'] - [permitAll] (1/7)
+2022-12-06 18:56:48.387 DEBUG 19136 --- [http-nio-80-exec-5] w.c.HttpSessionSecurityContextRepository : Did not store empty SecurityContext
+2022-12-06 18:56:48.388 TRACE 19136 --- [http-nio-80-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorizing filter invocation [GET /custom.js] with attributes [authenticated]
+2022-12-06 18:56:48.388 DEBUG 19136 --- [http-nio-80-exec-2] o.s.s.w.s.HttpSessionRequestCache        : Saved request http://localhost/GamerShopAdmin/bootstrap.min.js to session
+2022-12-06 18:56:48.388 DEBUG 19136 --- [http-nio-80-exec-5] w.c.HttpSessionSecurityContextRepository : Did not store empty SecurityContext
+2022-12-06 18:56:48.388 DEBUG 19136 --- [http-nio-80-exec-2] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost/GamerShopAdmin/login
+2022-12-06 18:56:48.388 DEBUG 19136 --- [http-nio-80-exec-5] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-12-06 18:56:48.388 DEBUG 19136 --- [http-nio-80-exec-7] o.s.s.w.s.HttpSessionRequestCache        : Saved request http://localhost/GamerShopAdmin/bootstrap.min.css to session
+2022-12-06 18:56:48.388 TRACE 19136 --- [http-nio-80-exec-3] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?logout'] - [permitAll] (5/7)
+2022-12-06 18:56:48.389 TRACE 19136 --- [http-nio-80-exec-3] edFilterInvocationSecurityMetadataSource : Did not match request to Ant [pattern='/users**/'] - [hasAuthority('Admin')] (6/7)
+2022-12-06 18:56:48.389 TRACE 19136 --- [http-nio-80-exec-2] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2022-12-06 18:56:48.389 TRACE 19136 --- [http-nio-80-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not re-authenticate AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] before authorizing
+2022-12-06 18:56:48.389 DEBUG 19136 --- [http-nio-80-exec-2] w.c.HttpSessionSecurityContextRepository : Did not store empty SecurityContext
+2022-12-06 18:56:48.389 TRACE 19136 --- [http-nio-80-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorizing filter invocation [GET /bootstrap.bundle.min.js] with attributes [authenticated]
+2022-12-06 18:56:48.389 TRACE 19136 --- [http-nio-80-exec-9] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login'] - [permitAll] (2/7)
+2022-12-06 18:56:48.389 DEBUG 19136 --- [http-nio-80-exec-7] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost/GamerShopAdmin/login
+2022-12-06 18:56:48.389 DEBUG 19136 --- [http-nio-80-exec-2] w.c.HttpSessionSecurityContextRepository : Did not store empty SecurityContext
+2022-12-06 18:56:48.389 TRACE 19136 --- [http-nio-80-exec-9] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login'] - [permitAll] (3/7)
+2022-12-06 18:56:48.389 DEBUG 19136 --- [http-nio-80-exec-2] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-12-06 18:56:48.389 TRACE 19136 --- [http-nio-80-exec-9] edFilterInvocationSecurityMetadataSource : Did not match request to Ant [pattern='/logout', POST] - [permitAll] (4/7)
+2022-12-06 18:56:48.389 TRACE 19136 --- [http-nio-80-exec-9] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?logout'] - [permitAll] (5/7)
+2022-12-06 18:56:48.389 TRACE 19136 --- [http-nio-80-exec-9] edFilterInvocationSecurityMetadataSource : Did not match request to Ant [pattern='/users**/'] - [hasAuthority('Admin')] (6/7)
+2022-12-06 18:56:48.389 TRACE 19136 --- [http-nio-80-exec-6] o.s.s.w.a.expression.WebExpressionVoter  : Voted to deny authorization
+2022-12-06 18:56:48.389 TRACE 19136 --- [http-nio-80-exec-7] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2022-12-06 18:56:48.389 TRACE 19136 --- [http-nio-80-exec-3] o.s.s.w.a.expression.WebExpressionVoter  : Voted to deny authorization
+2022-12-06 18:56:48.389 DEBUG 19136 --- [http-nio-80-exec-7] w.c.HttpSessionSecurityContextRepository : Did not store empty SecurityContext
+2022-12-06 18:56:48.389 TRACE 19136 --- [http-nio-80-exec-9] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not re-authenticate AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] before authorizing
+2022-12-06 18:56:48.389 DEBUG 19136 --- [http-nio-80-exec-7] w.c.HttpSessionSecurityContextRepository : Did not store empty SecurityContext
+2022-12-06 18:56:48.390 DEBUG 19136 --- [http-nio-80-exec-7] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-12-06 18:56:48.390 TRACE 19136 --- [http-nio-80-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor    : Failed to authorize filter invocation [GET /custom.js] with attributes [authenticated] using AffirmativeBased [DecisionVoters=[org.springframework.security.web.access.expression.WebExpressionVoter@75507e68], AllowIfAllAbstainDecisions=false]
+2022-12-06 18:56:48.390 TRACE 19136 --- [http-nio-80-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor    : Failed to authorize filter invocation [GET /bootstrap.bundle.min.js] with attributes [authenticated] using AffirmativeBased [DecisionVoters=[org.springframework.security.web.access.expression.WebExpressionVoter@75507e68], AllowIfAllAbstainDecisions=false]
+2022-12-06 18:56:48.390 TRACE 19136 --- [http-nio-80-exec-9] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorizing filter invocation [GET /prism.js] with attributes [authenticated]
+2022-12-06 18:56:48.390 TRACE 19136 --- [http-nio-80-exec-9] o.s.s.w.a.expression.WebExpressionVoter  : Voted to deny authorization
+2022-12-06 18:56:48.390 TRACE 19136 --- [http-nio-80-exec-9] o.s.s.w.a.i.FilterSecurityInterceptor    : Failed to authorize filter invocation [GET /prism.js] with attributes [authenticated] using AffirmativeBased [DecisionVoters=[org.springframework.security.web.access.expression.WebExpressionVoter@75507e68], AllowIfAllAbstainDecisions=false]
+2022-12-06 18:56:48.391 TRACE 19136 --- [http-nio-80-exec-3] o.s.s.w.a.ExceptionTranslationFilter     : Sending AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] to authentication entry point since access is denied
+
+org.springframework.security.access.AccessDeniedException: Access is denied
+	at org.springframework.security.access.vote.AffirmativeBased.decide(AffirmativeBased.java:73) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.attemptAuthorization(AbstractSecurityInterceptor.java:239) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.beforeInvocation(AbstractSecurityInterceptor.java:208) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:113) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.base/java.lang.Thread.run(Thread.java:1589) ~[na:na]
+
+2022-12-06 18:56:48.391 TRACE 19136 --- [http-nio-80-exec-6] o.s.s.w.a.ExceptionTranslationFilter     : Sending AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] to authentication entry point since access is denied
+
+org.springframework.security.access.AccessDeniedException: Access is denied
+	at org.springframework.security.access.vote.AffirmativeBased.decide(AffirmativeBased.java:73) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.attemptAuthorization(AbstractSecurityInterceptor.java:239) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.beforeInvocation(AbstractSecurityInterceptor.java:208) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:113) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.base/java.lang.Thread.run(Thread.java:1589) ~[na:na]
+
+2022-12-06 18:56:48.392 DEBUG 19136 --- [http-nio-80-exec-3] o.s.s.w.s.HttpSessionRequestCache        : Saved request http://localhost/GamerShopAdmin/bootstrap.bundle.min.js to session
+2022-12-06 18:56:48.392 DEBUG 19136 --- [http-nio-80-exec-3] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost/GamerShopAdmin/login
+2022-12-06 18:56:48.393 TRACE 19136 --- [http-nio-80-exec-3] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2022-12-06 18:56:48.393 DEBUG 19136 --- [http-nio-80-exec-6] o.s.s.w.s.HttpSessionRequestCache        : Saved request http://localhost/GamerShopAdmin/custom.js to session
+2022-12-06 18:56:48.393 DEBUG 19136 --- [http-nio-80-exec-3] w.c.HttpSessionSecurityContextRepository : Did not store empty SecurityContext
+2022-12-06 18:56:48.393 DEBUG 19136 --- [http-nio-80-exec-6] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost/GamerShopAdmin/login
+2022-12-06 18:56:48.393 DEBUG 19136 --- [http-nio-80-exec-3] w.c.HttpSessionSecurityContextRepository : Did not store empty SecurityContext
+2022-12-06 18:56:48.393 DEBUG 19136 --- [http-nio-80-exec-3] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-12-06 18:56:48.393 TRACE 19136 --- [http-nio-80-exec-6] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2022-12-06 18:56:48.393 DEBUG 19136 --- [http-nio-80-exec-6] w.c.HttpSessionSecurityContextRepository : Did not store empty SecurityContext
+2022-12-06 18:56:48.393 TRACE 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@f13e0a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@329efc61, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e2a, org.springframework.security.web.header.HeaderWriterFilter@4a7c72af, org.springframework.security.web.csrf.CsrfFilter@c7443f, org.springframework.security.web.authentication.logout.LogoutFilter@a0bdbe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c599679, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e3d36c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4add4dff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32f45e15, org.springframework.security.web.session.SessionManagementFilter@2ba9ed19, org.springframework.security.web.access.ExceptionTranslationFilter@7f9d40b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41f5389f]] (1/1)
+2022-12-06 18:56:48.393 DEBUG 19136 --- [http-nio-80-exec-6] w.c.HttpSessionSecurityContextRepository : Did not store empty SecurityContext
+2022-12-06 18:56:48.393 DEBUG 19136 --- [http-nio-80-exec-6] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-12-06 18:56:48.393 DEBUG 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /login
+2022-12-06 18:56:48.393 TRACE 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/13)
+2022-12-06 18:56:48.393 TRACE 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/13)
+2022-12-06 18:56:48.393 TRACE 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (3/13)
+2022-12-06 18:56:48.393 TRACE 19136 --- [http-nio-80-exec-8] w.c.HttpSessionSecurityContextRepository : Did not find SecurityContext in HttpSession 6FCF0A838CA86F84273F451F705F5F6C using the SPRING_SECURITY_CONTEXT session attribute
+2022-12-06 18:56:48.393 TRACE 19136 --- [http-nio-80-exec-8] w.c.HttpSessionSecurityContextRepository : Created SecurityContextImpl [Null authentication]
+2022-12-06 18:56:48.394 DEBUG 19136 --- [http-nio-80-exec-8] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-12-06 18:56:48.394 TRACE 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/13)
+2022-12-06 18:56:48.394 TRACE 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Invoking CsrfFilter (5/13)
+2022-12-06 18:56:48.394 TRACE 19136 --- [http-nio-80-exec-8] o.s.security.web.csrf.CsrfFilter         : Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+2022-12-06 18:56:48.392 TRACE 19136 --- [http-nio-80-exec-9] o.s.s.w.a.ExceptionTranslationFilter     : Sending AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] to authentication entry point since access is denied
+
+org.springframework.security.access.AccessDeniedException: Access is denied
+	at org.springframework.security.access.vote.AffirmativeBased.decide(AffirmativeBased.java:73) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.attemptAuthorization(AbstractSecurityInterceptor.java:239) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.beforeInvocation(AbstractSecurityInterceptor.java:208) ~[spring-security-core-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:113) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.4.jar:5.7.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.base/java.lang.Thread.run(Thread.java:1589) ~[na:na]
+
+2022-12-06 18:56:48.395 TRACE 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (6/13)
+2022-12-06 18:56:48.395 TRACE 19136 --- [http-nio-80-exec-8] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Ant [pattern='/logout', POST]
+2022-12-06 18:56:48.395 TRACE 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (7/13)
+2022-12-06 18:56:48.396 TRACE 19136 --- [http-nio-80-exec-8] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-12-06 18:56:48.396 TRACE 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (8/13)
+2022-12-06 18:56:48.396 TRACE 19136 --- [http-nio-80-exec-8] o.s.s.w.s.HttpSessionRequestCache        : Did not match request /login to the saved one DefaultSavedRequest [http://localhost/GamerShopAdmin/custom.js]
+2022-12-06 18:56:48.396 DEBUG 19136 --- [http-nio-80-exec-9] o.s.s.w.s.HttpSessionRequestCache        : Saved request http://localhost/GamerShopAdmin/prism.js to session
+2022-12-06 18:56:48.396 TRACE 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (9/13)
+2022-12-06 18:56:48.396 TRACE 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (10/13)
+2022-12-06 18:56:48.396 DEBUG 19136 --- [http-nio-80-exec-9] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost/GamerShopAdmin/login
+2022-12-06 18:56:48.396 TRACE 19136 --- [http-nio-80-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]]
+2022-12-06 18:56:48.396 TRACE 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (11/13)
+2022-12-06 18:56:48.396 TRACE 19136 --- [http-nio-80-exec-9] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2022-12-06 18:56:48.396 TRACE 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (12/13)
+2022-12-06 18:56:48.396 DEBUG 19136 --- [http-nio-80-exec-9] w.c.HttpSessionSecurityContextRepository : Did not store empty SecurityContext
+2022-12-06 18:56:48.396 TRACE 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Invoking FilterSecurityInterceptor (13/13)
+2022-12-06 18:56:48.396 DEBUG 19136 --- [http-nio-80-exec-9] w.c.HttpSessionSecurityContextRepository : Did not store empty SecurityContext
+2022-12-06 18:56:48.396 TRACE 19136 --- [http-nio-80-exec-8] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?error'] - [permitAll] (1/7)
+2022-12-06 18:56:48.396 DEBUG 19136 --- [http-nio-80-exec-9] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-12-06 18:56:48.396 TRACE 19136 --- [http-nio-80-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not re-authenticate AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] before authorizing
+2022-12-06 18:56:48.396 TRACE 19136 --- [http-nio-80-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorizing filter invocation [GET /login] with attributes [permitAll]
+2022-12-06 18:56:48.396 DEBUG 19136 --- [http-nio-80-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /login] with attributes [permitAll]
+2022-12-06 18:56:48.396 TRACE 19136 --- [http-nio-80-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not switch RunAs authentication since RunAsManager returned null
+2022-12-06 18:56:48.396 DEBUG 19136 --- [http-nio-80-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /login
+2022-12-06 18:56:48.399 TRACE 19136 --- [http-nio-80-exec-8] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2022-12-06 18:56:48.400 DEBUG 19136 --- [http-nio-80-exec-8] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
+2022-12-06 18:56:48.401 DEBUG 19136 --- [http-nio-80-exec-8] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
+2022-12-06 18:56:48.401 DEBUG 19136 --- [http-nio-80-exec-8] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-12-06 18:56:48.402 TRACE 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@f13e0a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@329efc61, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e2a, org.springframework.security.web.header.HeaderWriterFilter@4a7c72af, org.springframework.security.web.csrf.CsrfFilter@c7443f, org.springframework.security.web.authentication.logout.LogoutFilter@a0bdbe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c599679, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e3d36c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4add4dff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32f45e15, org.springframework.security.web.session.SessionManagementFilter@2ba9ed19, org.springframework.security.web.access.ExceptionTranslationFilter@7f9d40b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41f5389f]] (1/1)
+2022-12-06 18:56:48.402 DEBUG 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /login
+2022-12-06 18:56:48.402 TRACE 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/13)
+2022-12-06 18:56:48.402 TRACE 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/13)
+2022-12-06 18:56:48.402 TRACE 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (3/13)
+2022-12-06 18:56:48.402 TRACE 19136 --- [http-nio-80-exec-10] w.c.HttpSessionSecurityContextRepository : Did not find SecurityContext in HttpSession 6FCF0A838CA86F84273F451F705F5F6C using the SPRING_SECURITY_CONTEXT session attribute
+2022-12-06 18:56:48.402 TRACE 19136 --- [http-nio-80-exec-10] w.c.HttpSessionSecurityContextRepository : Created SecurityContextImpl [Null authentication]
+2022-12-06 18:56:48.402 DEBUG 19136 --- [http-nio-80-exec-10] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-12-06 18:56:48.402 TRACE 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/13)
+2022-12-06 18:56:48.402 TRACE 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Invoking CsrfFilter (5/13)
+2022-12-06 18:56:48.402 TRACE 19136 --- [http-nio-80-exec-10] o.s.security.web.csrf.CsrfFilter         : Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+2022-12-06 18:56:48.402 TRACE 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (6/13)
+2022-12-06 18:56:48.402 TRACE 19136 --- [http-nio-80-exec-10] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Ant [pattern='/logout', POST]
+2022-12-06 18:56:48.403 TRACE 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (7/13)
+2022-12-06 18:56:48.403 TRACE 19136 --- [http-nio-80-exec-10] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-12-06 18:56:48.403 TRACE 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (8/13)
+2022-12-06 18:56:48.403 TRACE 19136 --- [http-nio-80-exec-10] o.s.s.w.s.HttpSessionRequestCache        : Did not match request /login to the saved one DefaultSavedRequest [http://localhost/GamerShopAdmin/prism.js]
+2022-12-06 18:56:48.403 TRACE 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (9/13)
+2022-12-06 18:56:48.403 TRACE 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (10/13)
+2022-12-06 18:56:48.403 TRACE 19136 --- [http-nio-80-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]]
+2022-12-06 18:56:48.403 TRACE 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (11/13)
+2022-12-06 18:56:48.403 TRACE 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (12/13)
+2022-12-06 18:56:48.403 TRACE 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Invoking FilterSecurityInterceptor (13/13)
+2022-12-06 18:56:48.404 TRACE 19136 --- [http-nio-80-exec-10] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?error'] - [permitAll] (1/7)
+2022-12-06 18:56:48.404 TRACE 19136 --- [http-nio-80-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not re-authenticate AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] before authorizing
+2022-12-06 18:56:48.404 TRACE 19136 --- [http-nio-80-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorizing filter invocation [GET /login] with attributes [permitAll]
+2022-12-06 18:56:48.404 DEBUG 19136 --- [http-nio-80-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /login] with attributes [permitAll]
+2022-12-06 18:56:48.404 TRACE 19136 --- [http-nio-80-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not switch RunAs authentication since RunAsManager returned null
+2022-12-06 18:56:48.404 DEBUG 19136 --- [http-nio-80-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /login
+2022-12-06 18:56:48.406 TRACE 19136 --- [http-nio-80-exec-10] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2022-12-06 18:56:48.406 DEBUG 19136 --- [http-nio-80-exec-10] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
+2022-12-06 18:56:48.407 DEBUG 19136 --- [http-nio-80-exec-10] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
+2022-12-06 18:56:48.407 DEBUG 19136 --- [http-nio-80-exec-10] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-12-06 18:56:48.409 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@f13e0a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@329efc61, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e2a, org.springframework.security.web.header.HeaderWriterFilter@4a7c72af, org.springframework.security.web.csrf.CsrfFilter@c7443f, org.springframework.security.web.authentication.logout.LogoutFilter@a0bdbe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c599679, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e3d36c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4add4dff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32f45e15, org.springframework.security.web.session.SessionManagementFilter@2ba9ed19, org.springframework.security.web.access.ExceptionTranslationFilter@7f9d40b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41f5389f]] (1/1)
+2022-12-06 18:56:48.409 DEBUG 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /login
+2022-12-06 18:56:48.409 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/13)
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/13)
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (3/13)
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] w.c.HttpSessionSecurityContextRepository : Did not find SecurityContext in HttpSession 6FCF0A838CA86F84273F451F705F5F6C using the SPRING_SECURITY_CONTEXT session attribute
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] w.c.HttpSessionSecurityContextRepository : Created SecurityContextImpl [Null authentication]
+2022-12-06 18:56:48.410 DEBUG 19136 --- [http-nio-80-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/13)
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking CsrfFilter (5/13)
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.csrf.CsrfFilter         : Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (6/13)
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Ant [pattern='/logout', POST]
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (7/13)
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (8/13)
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.s.HttpSessionRequestCache        : Did not match request /login to the saved one DefaultSavedRequest [http://localhost/GamerShopAdmin/prism.js]
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (9/13)
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (10/13)
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]]
+2022-12-06 18:56:48.410 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (11/13)
+2022-12-06 18:56:48.411 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (12/13)
+2022-12-06 18:56:48.411 TRACE 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Invoking FilterSecurityInterceptor (13/13)
+2022-12-06 18:56:48.411 TRACE 19136 --- [http-nio-80-exec-1] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?error'] - [permitAll] (1/7)
+2022-12-06 18:56:48.411 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not re-authenticate AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] before authorizing
+2022-12-06 18:56:48.411 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorizing filter invocation [GET /login] with attributes [permitAll]
+2022-12-06 18:56:48.411 DEBUG 19136 --- [http-nio-80-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /login] with attributes [permitAll]
+2022-12-06 18:56:48.411 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not switch RunAs authentication since RunAsManager returned null
+2022-12-06 18:56:48.411 DEBUG 19136 --- [http-nio-80-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /login
+2022-12-06 18:56:48.413 TRACE 19136 --- [http-nio-80-exec-1] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2022-12-06 18:56:48.414 DEBUG 19136 --- [http-nio-80-exec-1] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
+2022-12-06 18:56:48.414 DEBUG 19136 --- [http-nio-80-exec-1] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
+2022-12-06 18:56:48.414 DEBUG 19136 --- [http-nio-80-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-12-06 18:56:48.416 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@f13e0a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@329efc61, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e2a, org.springframework.security.web.header.HeaderWriterFilter@4a7c72af, org.springframework.security.web.csrf.CsrfFilter@c7443f, org.springframework.security.web.authentication.logout.LogoutFilter@a0bdbe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c599679, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e3d36c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4add4dff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32f45e15, org.springframework.security.web.session.SessionManagementFilter@2ba9ed19, org.springframework.security.web.access.ExceptionTranslationFilter@7f9d40b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41f5389f]] (1/1)
+2022-12-06 18:56:48.416 DEBUG 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /login
+2022-12-06 18:56:48.416 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/13)
+2022-12-06 18:56:48.416 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/13)
+2022-12-06 18:56:48.416 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (3/13)
+2022-12-06 18:56:48.416 TRACE 19136 --- [http-nio-80-exec-4] w.c.HttpSessionSecurityContextRepository : Did not find SecurityContext in HttpSession 6FCF0A838CA86F84273F451F705F5F6C using the SPRING_SECURITY_CONTEXT session attribute
+2022-12-06 18:56:48.416 TRACE 19136 --- [http-nio-80-exec-4] w.c.HttpSessionSecurityContextRepository : Created SecurityContextImpl [Null authentication]
+2022-12-06 18:56:48.416 DEBUG 19136 --- [http-nio-80-exec-4] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-12-06 18:56:48.416 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/13)
+2022-12-06 18:56:48.416 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking CsrfFilter (5/13)
+2022-12-06 18:56:48.416 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.csrf.CsrfFilter         : Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+2022-12-06 18:56:48.416 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (6/13)
+2022-12-06 18:56:48.416 TRACE 19136 --- [http-nio-80-exec-4] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Ant [pattern='/logout', POST]
+2022-12-06 18:56:48.416 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (7/13)
+2022-12-06 18:56:48.417 TRACE 19136 --- [http-nio-80-exec-4] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-12-06 18:56:48.417 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (8/13)
+2022-12-06 18:56:48.417 TRACE 19136 --- [http-nio-80-exec-4] o.s.s.w.s.HttpSessionRequestCache        : Did not match request /login to the saved one DefaultSavedRequest [http://localhost/GamerShopAdmin/prism.js]
+2022-12-06 18:56:48.417 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (9/13)
+2022-12-06 18:56:48.417 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (10/13)
+2022-12-06 18:56:48.417 TRACE 19136 --- [http-nio-80-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]]
+2022-12-06 18:56:48.417 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (11/13)
+2022-12-06 18:56:48.417 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (12/13)
+2022-12-06 18:56:48.417 TRACE 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Invoking FilterSecurityInterceptor (13/13)
+2022-12-06 18:56:48.417 TRACE 19136 --- [http-nio-80-exec-4] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?error'] - [permitAll] (1/7)
+2022-12-06 18:56:48.417 TRACE 19136 --- [http-nio-80-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not re-authenticate AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] before authorizing
+2022-12-06 18:56:48.417 TRACE 19136 --- [http-nio-80-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorizing filter invocation [GET /login] with attributes [permitAll]
+2022-12-06 18:56:48.417 DEBUG 19136 --- [http-nio-80-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /login] with attributes [permitAll]
+2022-12-06 18:56:48.417 TRACE 19136 --- [http-nio-80-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not switch RunAs authentication since RunAsManager returned null
+2022-12-06 18:56:48.417 DEBUG 19136 --- [http-nio-80-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /login
+2022-12-06 18:56:48.419 TRACE 19136 --- [http-nio-80-exec-4] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2022-12-06 18:56:48.419 DEBUG 19136 --- [http-nio-80-exec-4] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
+2022-12-06 18:56:48.420 DEBUG 19136 --- [http-nio-80-exec-4] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
+2022-12-06 18:56:48.420 DEBUG 19136 --- [http-nio-80-exec-4] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-12-06 18:56:48.422 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@f13e0a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@329efc61, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e2a, org.springframework.security.web.header.HeaderWriterFilter@4a7c72af, org.springframework.security.web.csrf.CsrfFilter@c7443f, org.springframework.security.web.authentication.logout.LogoutFilter@a0bdbe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c599679, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e3d36c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4add4dff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32f45e15, org.springframework.security.web.session.SessionManagementFilter@2ba9ed19, org.springframework.security.web.access.ExceptionTranslationFilter@7f9d40b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41f5389f]] (1/1)
+2022-12-06 18:56:48.422 DEBUG 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /login
+2022-12-06 18:56:48.422 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/13)
+2022-12-06 18:56:48.422 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/13)
+2022-12-06 18:56:48.422 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (3/13)
+2022-12-06 18:56:48.422 TRACE 19136 --- [http-nio-80-exec-5] w.c.HttpSessionSecurityContextRepository : Did not find SecurityContext in HttpSession 6FCF0A838CA86F84273F451F705F5F6C using the SPRING_SECURITY_CONTEXT session attribute
+2022-12-06 18:56:48.422 TRACE 19136 --- [http-nio-80-exec-5] w.c.HttpSessionSecurityContextRepository : Created SecurityContextImpl [Null authentication]
+2022-12-06 18:56:48.422 DEBUG 19136 --- [http-nio-80-exec-5] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-12-06 18:56:48.422 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/13)
+2022-12-06 18:56:48.422 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking CsrfFilter (5/13)
+2022-12-06 18:56:48.422 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.csrf.CsrfFilter         : Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+2022-12-06 18:56:48.422 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (6/13)
+2022-12-06 18:56:48.422 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Ant [pattern='/logout', POST]
+2022-12-06 18:56:48.422 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (7/13)
+2022-12-06 18:56:48.422 TRACE 19136 --- [http-nio-80-exec-5] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-12-06 18:56:48.422 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (8/13)
+2022-12-06 18:56:48.423 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.s.HttpSessionRequestCache        : Did not match request /login to the saved one DefaultSavedRequest [http://localhost/GamerShopAdmin/prism.js]
+2022-12-06 18:56:48.423 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (9/13)
+2022-12-06 18:56:48.423 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (10/13)
+2022-12-06 18:56:48.423 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]]
+2022-12-06 18:56:48.423 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (11/13)
+2022-12-06 18:56:48.423 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (12/13)
+2022-12-06 18:56:48.423 TRACE 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Invoking FilterSecurityInterceptor (13/13)
+2022-12-06 18:56:48.423 TRACE 19136 --- [http-nio-80-exec-5] edFilterInvocationSecurityMetadataSource : Did not match request to ExactUrl [processUrl='/login?error'] - [permitAll] (1/7)
+2022-12-06 18:56:48.423 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not re-authenticate AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6FCF0A838CA86F84273F451F705F5F6C], Granted Authorities=[ROLE_ANONYMOUS]] before authorizing
+2022-12-06 18:56:48.423 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorizing filter invocation [GET /login] with attributes [permitAll]
+2022-12-06 18:56:48.423 DEBUG 19136 --- [http-nio-80-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /login] with attributes [permitAll]
+2022-12-06 18:56:48.423 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor    : Did not switch RunAs authentication since RunAsManager returned null
+2022-12-06 18:56:48.423 DEBUG 19136 --- [http-nio-80-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /login
+2022-12-06 18:56:48.425 TRACE 19136 --- [http-nio-80-exec-5] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2022-12-06 18:56:48.425 DEBUG 19136 --- [http-nio-80-exec-5] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
+2022-12-06 18:56:48.426 DEBUG 19136 --- [http-nio-80-exec-5] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
+2022-12-06 18:56:48.426 DEBUG 19136 --- [http-nio-80-exec-5] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-12-06 18:56:48.427 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@f13e0a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@329efc61, org.springframework.security.web.context.SecurityContextPersistenceFilter@391e2a, org.springframework.security.web.header.HeaderWriterFilter@4a7c72af, org.springframework.security.web.csrf.CsrfFilter@c7443f, org.springframework.security.web.authentication.logout.LogoutFilter@a0bdbe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c599679, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e3d36c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4add4dff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32f45e15, org.springframework.security.web.session.SessionManagementFilter@2ba9ed19, org.springframework.security.web.access.ExceptionTranslationFilter@7f9d40b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41f5389f]] (1/1)
+2022-12-06 18:56:48.427 DEBUG 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /login
+2022-12-06 18:56:48.427 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/13)
+2022-12-06 18:56:48.427 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/13)
+2022-12-06 18:56:48.427 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking SecurityContextPersistenceFilter (3/13)
+2022-12-06 18:56:48.427 TRACE 19136 --- [http-nio-80-exec-2] w.c.HttpSessionSecurityContextRepository : Did not find SecurityContext in HttpSession 6FCF0A838CA86F84273F451F705F5F6C using the SPRING_SECURITY_CONTEXT session attribute
+2022-12-06 18:56:48.428 TRACE 19136 --- [http-nio-80-exec-2] w.c.HttpSessionSecurityContextRepository : Created SecurityContextImpl [Null authentication]
+2022-12-06 18:56:48.428 DEBUG 19136 --- [http-nio-80-exec-2] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-12-06 18:56:48.428 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/13)
+2022-12-06 18:56:48.428 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking CsrfFilter (5/13)
+2022-12-06 18:56:48.428 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.csrf.CsrfFilter         : Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+2022-12-06 18:56:48.428 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (6/13)
+2022-12-06 18:56:48.428 TRACE 19136 --- [http-nio-80-exec-2] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Ant [pattern='/logout', POST]
+2022-12-06 18:56:48.428 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking UsernamePasswordAuthenticationFilter (7/13)
+2022-12-06 18:56:48.428 TRACE 19136 --- [http-nio-80-exec-2] w.a.UsernamePasswordAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-12-06 18:56:48.428 TRACE 19136 --- [http-nio-80-exec-2] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (8/13)

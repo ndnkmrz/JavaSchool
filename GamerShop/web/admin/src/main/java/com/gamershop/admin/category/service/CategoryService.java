@@ -25,6 +25,7 @@ public class CategoryService implements ICategoryService {
         this.categoryMapper = categoryMapper;
     }
 
+    @Override
     public List<CategoryDTO> listCategories(){
         var categoryList = (List<CategoryEntity>) categoryRepo.findAll();
         return categoryList.stream().map(categoryMapper::toDTO).toList();
@@ -59,6 +60,13 @@ public class CategoryService implements ICategoryService {
                 .orElseThrow(()-> new UserNotFoundException("Could not find any category with ID " + id));
         return categoryMapper.toDTO(category);
     }
+
+    public List<CategoryDTO> listCategoriesUsedInForm(){
+        var categoryList = (List<CategoryEntity>) categoryRepo.findAll();
+        return (categoryList.stream().map(categoryMapper::toDTO).toList());
+    }
+
+
 
 
 

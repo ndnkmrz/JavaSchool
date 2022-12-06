@@ -1,5 +1,6 @@
 package com.gamershop.shared.dto;
 
+import com.gamershop.shared.entity.CategoryEntity;
 import lombok.*;
 
 @Getter
