@@ -1,0 +1,108 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{fragments/head :: head}"></div>
+<title>Products</title>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+
+</br>
+<div class="container-fluid">
+    <div class="card border-light mb-5" >
+        <div class="card-header"><h1>
+            Manage Products
+        </h1></div>
+        <div class="card-body">
+
+            <form th:action="@{/products/page/1}" class="d-flex">
+                <input type="hidden" name="sortField" th:value="${sortField}"/>
+                <input type="hidden" name="sortDir" th:value="${sortDir}"/>
+                <table>
+                    <tr>
+                        <th><input type="search" name="keyword" th:value="${keyword}" class="form-control me-sm-2" required></th>
+                    </tr>
+                </table>
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+                <button type="button" class="btn btn-secondary" onclick="clearFilter()">Clear</button>
+                &nbsp;&nbsp;
+                <a class="btn btn-light" th:href="@{/products/new}">Create product</a>
+
+            </form>
+
+            <div th:if="${message != null}" class="alert alert-dismissible alert-success" th:text="${message}">
+            </div>
+            <div th:if="${errormessage != null}" class="alert alert-dismissible alert-danger" th:text="${errormessage}">
+            </div>
+            <table class="table table-hover">
+                <thead>
+                <tr class="table-dark">
+                    <th>
+                        <a th:if="${sortField != 'productName'}" style="color:white; text-decoration:none"
+                           th:href="@{'/products/page/' + ${currentPage} + '?sortField=productName&sortDir=' + ${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">Product&nbsp;</a>
+                        <a th:if="${sortField == 'productName'}" style="color:white; text-decoration:none"
+                           th:href="@{'/products/page/' + ${currentPage} + '?sortField=productName&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Product&nbsp;</a>
+
+                        <i th:if="${sortField == 'productName'}"
+                           th:class="${sortDir == 'asc' ? 'fa-solid fa-sort-up' : 'fa-solid fa-sort-down'}"></i>
+                    </th>
+                    <th>
+                        <a th:if="${sortField != 'enabled'}" style="color:white; text-decoration:none"
+                           th:href="@{'/products/page/' + ${currentPage} + '?sortField=enabled&sortDir=' + ${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">Enabled&nbsp;</a>
+                        <a th:if="${sortField == 'enabled'}" style="color:white; text-decoration:none"
+                           th:href="@{'/products/page/' + ${currentPage} + '?sortField=enabled&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Enabled&nbsp;</a>
+
+                        <i th:if="${sortField == 'enabled'}"
+                           th:class="${sortDir == 'asc' ? 'fa-solid fa-sort-up' : 'fa-solid fa-sort-down'}"></i>
+                    </th>
+
+                    <th scope="col">Price</th>
+                    <th scope="col">Weight</th>
+                    <th scope="col">Height</th>
+                    <th scope="col">Width</th>
+                    <th scope="col">Length</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Description</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="table-dark" th:each="product: ${listProducts}">
+                    <td th:text="${product.productName}"/>
+                    <td th:text="${product.enabled}"/>
+                    <td th:text="${product.productPrice}"/>
+                    <td th:text="${product.productWeight}"/>
+                    <td th:text="${product.productHeight}"/>
+                    <td th:text="${product.productWidth}"/>
+                    <td th:text="${product.productLength}"/>
+                    <td th:text="${product.productQuantity}"/>
+                    <td th:text="${product.productDescription}"/>
+                    <td>
+                        <a type="button" class="btn btn-link" th:href="@{'/products/edit/' + ${product.productId}}">Edit</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div th:if="${totalPages} > 1">
+                <span th:text="${totalItems}"/>
+                <ul class="pagination justify-content-center">
+                    <li th:class="${currentPage == 1 ? 'page-item disabled' : 'page-item'}">
+                        <a class="page-link" th:href="@{'/products/page/' + ${currentPage - 1} + '?sortField=' + ${sortField} + '&sortDir=' +${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">&laquo;</a>
+                    </li>
+                    <li th:class="${currentPage != i ? 'page-item' : 'page-item active'}" th:each="i : ${#numbers.sequence(1, totalPages)}">
+                        <a class="page-link" th:href="@{'/products/page/' + ${i} + '?sortField=' + ${sortField} + '&sortDir=' +${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}" th:text="${i}">1</a>
+                    </li>
+                    <li th:class="${currentPage == totalPages ? 'page-item disabled' : 'page-item'}">
+                        <a class="page-link" th:href="@{'/products/page/' + ${currentPage + 1} + '?sortField=' + ${sortField} + '&sortDir=' +${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div th:insert="~{fragments/footer :: footer}"></div>
+</div>
+
+<script type="text/javascript">
+    function clearFilter(){
+        window.location = "[[@{/products}]]"
+    }
+</script>
+</body>
+</html>
