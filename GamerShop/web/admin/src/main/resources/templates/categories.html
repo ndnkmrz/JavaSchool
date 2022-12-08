@@ -43,6 +43,15 @@
                 <i th:if="${sortField == 'categoryName'}"
                    th:class="${sortDir == 'asc' ? 'fa-solid fa-sort-up' : 'fa-solid fa-sort-down'}"></i>
             </th>
+            <th>
+                <a th:if="${sortField != 'enabled'}" style="color:white; text-decoration:none"
+                   th:href="@{'/categories/page/' + ${currentPage} + '?sortField=enabled&sortDir=' + ${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">Enabled&nbsp;</a>
+                <a th:if="${sortField == 'enabled'}" style="color:white; text-decoration:none"
+                   th:href="@{'/categories/page/' + ${currentPage} + '?sortField=enabled&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Enabled&nbsp;</a>
+
+                <i th:if="${sortField == 'enabled'}"
+                   th:class="${sortDir == 'asc' ? 'fa-solid fa-sort-up' : 'fa-solid fa-sort-down'}"></i>
+            </th>
 
             <th scope="col">Enabled</th>
             <th></th>

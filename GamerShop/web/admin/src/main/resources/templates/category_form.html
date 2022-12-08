@@ -21,15 +21,12 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleSelect1" class="form-label mt-4">Parent category</label>
-                            <select class="form-select" id="exampleSelect1">
-                                <option value="0">[No parent]</option>
+                            <select class="form-select" id="exampleSelect1" th:field="*{parentCategory}">
+                                <option th:value="${null}">[No parent]</option>
                                 <th:block th:each="cat : ${listCategories}">
-                                    <option th:value="${cat.categoryId}" th:text="${cat.categoryName}"></option>
-
+                                    <option th:text="${cat}" th:value="${cat}" ></option>
                                 </th:block>
-
                             </select>
-
                     </div>
                     <br/>
                     <div class="form-check form-switch">

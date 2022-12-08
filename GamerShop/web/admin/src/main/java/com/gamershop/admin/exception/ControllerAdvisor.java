@@ -22,6 +22,16 @@ public class ControllerAdvisor {
             redirectAttributes.addFlashAttribute("errormessage", message);
             return "redirect:/users";
         }
+        if (ex.getMessage().contains("category")){
+            if (ex.getMessage().contains("Duplicate entry")){
+                message = "This category already exist";
+            }
+            else {
+                message = "Unknown error";
+            }
+            redirectAttributes.addFlashAttribute("errormessage", message);
+            return "redirect:/categories";
+        }
         return "redirect:/index";
     }
 

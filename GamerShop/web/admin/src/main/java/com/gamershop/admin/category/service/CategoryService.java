@@ -5,9 +5,7 @@ import com.gamershop.admin.category.mapper.CategoryMapper;
 import com.gamershop.admin.category.repo.CategoryRepository;
 import com.gamershop.admin.exception.UserNotFoundException;
 import com.gamershop.shared.dto.CategoryDTO;
-import com.gamershop.shared.dto.UserDTO;
 import com.gamershop.shared.entity.CategoryEntity;
-import com.gamershop.shared.entity.UserEntity;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
@@ -52,7 +50,14 @@ public class CategoryService implements ICategoryService {
 
     public void saveCategory(CategoryDTO category){
         CategoryEntity categoryEntity = categoryMapper.toCategory(category);
+        if (!category.getParentCategory().isEmpty()){
+            categoryEntity.setParent(getOrCreateCategory(category.getParentCategory()));
+        }
         categoryRepo.save(categoryEntity);
+    }
+
+    public CategoryEntity getOrCreateCategory(String categoryName){
+        return categoryRepo.findByCategoryName(categoryName).orElseGet(()-> categoryRepo.save(new CategoryEntity(categoryName)));
     }
 
     public CategoryDTO getCategoryById(Integer id){
@@ -61,9 +66,9 @@ public class CategoryService implements ICategoryService {
         return categoryMapper.toDTO(category);
     }
 
-    public List<CategoryDTO> listCategoriesUsedInForm(){
+    public List<String> listCategoriesUsedInForm(){
         var categoryList = (List<CategoryEntity>) categoryRepo.findAll();
-        return (categoryList.stream().map(categoryMapper::toDTO).toList());
+        return categoryList.stream().map(CategoryEntity::getCategoryName).toList();
     }
 
 

@@ -31,9 +31,14 @@ public class CategoryEntity {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.enabled = enabled;
+
     }
 
 
     public CategoryEntity() {
+    }
+
+    public CategoryEntity(String categoryName) {
+        this.categoryName = categoryName;
     }
 }

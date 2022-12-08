@@ -1,16 +1,9 @@
 package com.gamershop.admin.category.mapper;
 
 import com.gamershop.shared.dto.CategoryDTO;
-import com.gamershop.shared.dto.UserDTO;
 import com.gamershop.shared.entity.CategoryEntity;
-import com.gamershop.shared.entity.RoleEntity;
-import com.gamershop.shared.entity.UserEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 @Service
 public class CategoryMapper {
@@ -18,7 +11,8 @@ public class CategoryMapper {
         Integer id = categoryEntity.getCategoryId();
         String categoryName = categoryEntity.getCategoryName();
         boolean enable = categoryEntity.isEnabled();
-        return new CategoryDTO(id, categoryName, enable);
+        String parentCategory = categoryEntity.getParent() != null ? categoryEntity.getParent().getCategoryName() : null;
+        return new CategoryDTO(id, categoryName, enable, parentCategory);
     }
 
     public CategoryEntity toCategory(CategoryDTO categoryDTO){

@@ -57,7 +57,7 @@ public class CategoryController {
     @GetMapping("/categories/new")
     public String createCategory(Model model){
         CategoryDTO category = new CategoryDTO();
-        List<CategoryDTO> listCategories = categoryService.listCategoriesUsedInForm();
+        List<String> listCategories = categoryService.listCategoriesUsedInForm();
         model.addAttribute("pageTitle", "Create new category");
         model.addAttribute("category", category);
         model.addAttribute("cardTitle", "Create new category");
@@ -67,10 +67,12 @@ public class CategoryController {
 
     @GetMapping("/categories/edit/{id}")
     public String editCategory(@PathVariable(name="id") Integer id, Model model){
+        List<String> listCategories = categoryService.listCategoriesUsedInForm();
         CategoryDTO category = categoryService.getCategoryById(id);
         model.addAttribute("category", category);
         model.addAttribute("pageTitle", "Edit " + category.getCategoryName());
         model.addAttribute("cardTitle", "Edit "+ category.getCategoryName());
+        model.addAttribute("listCategories", listCategories);
         return "category_form";
     }
 
