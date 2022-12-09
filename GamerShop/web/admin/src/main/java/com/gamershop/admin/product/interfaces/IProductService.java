@@ -12,4 +12,5 @@ public interface IProductService {
                                 String sortDir,
                                 String keyword);
     ProductDTO getProductById(Integer id);
+    void saveProduct(ProductDTO productDTO);
 }

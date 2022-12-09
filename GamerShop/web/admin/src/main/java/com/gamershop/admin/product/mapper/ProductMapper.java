@@ -22,6 +22,7 @@ public class ProductMapper {
         Integer productQuantity = productEntity.getProductQuantity();
         String productDescription = productEntity.getProductDescription();
         boolean enabled = productEntity.isEnabled();
+        String productCategory = productEntity.getProductCategory().getCategoryName();
         List<ProductImagesEntity> productImages = productEntity.getProductImages();
         List<ProductParametersEntity> productParameters = productEntity.getProductParameters();
         return new ProductDTO(productId,
@@ -34,6 +35,7 @@ public class ProductMapper {
                 productQuantity,
                 productDescription,
                 enabled,
+                productCategory,
                 productImages,
                 productParameters);
     }

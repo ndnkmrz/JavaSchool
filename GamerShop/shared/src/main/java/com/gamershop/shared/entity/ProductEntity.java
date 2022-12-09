@@ -14,9 +14,7 @@ public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productId;
-    @Column(length = 150, nullable = false, unique = true)
     private String productName;
-
     private Double productPrice;
     private Double productWeight;
     private Double productHeight;
@@ -33,8 +31,10 @@ public class ProductEntity {
     @OneToMany(mappedBy = "productEntity")
     private List<ProductParametersEntity> productParameters;
 
-    public ProductEntity(Integer productId, String productName, Double productPrice, Double productWeight, Double productHeight, Double productWidth, Double productLength, Integer productQuantity, String productDescription, boolean enabled) {
-    }
+    @ManyToOne
+    @JoinColumn(name = "category_id", referencedColumnName = "categoryId")
+    private CategoryEntity productCategory;
+
 
     public ProductEntity(Integer productId, String productName, Double productPrice, Double productWeight, Double productHeight, Double productWidth, Double productLength, Integer productQuantity, String productDescription, boolean enabled, List<ProductImagesEntity> productImages, List<ProductParametersEntity> productParameters) {
         this.productId = productId;
@@ -50,6 +50,5 @@ public class ProductEntity {
     }
 
     public ProductEntity() {
-
     }
 }

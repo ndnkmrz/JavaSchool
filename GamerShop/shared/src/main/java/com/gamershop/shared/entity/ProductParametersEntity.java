@@ -21,7 +21,7 @@ public class ProductParametersEntity {
     private String productParameterValue;
 
     @ManyToOne
-    @JoinColumn(name = "product_entity_product_id")
+    @JoinColumn(name = "product_id", referencedColumnName = "productId")
     private ProductEntity productEntity;
 
     public ProductParametersEntity(Integer productParameterId, String productParameterName, String productParameterValue, ProductEntity productEntity) {

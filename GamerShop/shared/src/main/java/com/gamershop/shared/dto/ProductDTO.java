@@ -21,10 +21,9 @@ public class ProductDTO {
     private Double productLength;
     private Integer productQuantity;
     private String productDescription;
-    private boolean enabled;
+    private boolean enabled = true;
+    private String productCategory;
     private List<ProductImagesEntity> productImages;
     private List<ProductParametersEntity> productParameters;
 
-    public ProductDTO(Integer productId, String productName, Double productPrice, Double productWeight, Double productHeight, Double productWidth, Double productLength, Integer productQuantity, String productDescription, boolean enabled) {
-    }
 }

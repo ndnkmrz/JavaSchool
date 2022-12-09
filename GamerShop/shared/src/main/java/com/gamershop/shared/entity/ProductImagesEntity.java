@@ -16,7 +16,7 @@ public class ProductImagesEntity {
     private String productImageLink;
 
     @ManyToOne
-    @JoinColumn(name = "product_entity_product_id")
+    @JoinColumn(name = "product_id", referencedColumnName = "productId")
     private ProductEntity productEntity;
 
     public ProductImagesEntity(Integer productImageId, String productImageLink, ProductEntity productEntity) {
