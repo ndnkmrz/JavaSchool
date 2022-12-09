@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name="ProductParameters")
-public class ProductParametersEntity {
+public class ProductParameterEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productParameterId;
@@ -24,13 +24,13 @@ public class ProductParametersEntity {
     @JoinColumn(name = "product_id", referencedColumnName = "productId")
     private ProductEntity productEntity;
 
-    public ProductParametersEntity(Integer productParameterId, String productParameterName, String productParameterValue, ProductEntity productEntity) {
+    public ProductParameterEntity(Integer productParameterId, String productParameterName, String productParameterValue, ProductEntity productEntity) {
         this.productParameterId = productParameterId;
         this.productParameterName = productParameterName;
         this.productParameterValue = productParameterValue;
         this.productEntity = productEntity;
     }
 
-    public ProductParametersEntity() {
+    public ProductParameterEntity() {
     }
 }

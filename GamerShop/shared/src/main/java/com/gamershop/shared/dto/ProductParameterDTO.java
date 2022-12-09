@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProductParametersDTO {
+public class ProductParameterDTO {
     private Integer productParameterId;
     private String productParameterName;
     private String productParameterValue;

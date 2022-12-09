@@ -2,8 +2,8 @@ package com.gamershop.admin.product.mapper;
 
 import com.gamershop.shared.dto.ProductDTO;
 import com.gamershop.shared.entity.ProductEntity;
-import com.gamershop.shared.entity.ProductImagesEntity;
-import com.gamershop.shared.entity.ProductParametersEntity;
+import com.gamershop.shared.entity.ProductImageEntity;
+import com.gamershop.shared.entity.ProductParameterEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,8 +23,8 @@ public class ProductMapper {
         String productDescription = productEntity.getProductDescription();
         boolean enabled = productEntity.isEnabled();
         String productCategory = productEntity.getProductCategory().getCategoryName();
-        List<ProductImagesEntity> productImages = productEntity.getProductImages();
-        List<ProductParametersEntity> productParameters = productEntity.getProductParameters();
+        List<ProductImageEntity> productImages = productEntity.getProductImages();
+        List<ProductParameterEntity> productParameters = productEntity.getProductParameters();
         return new ProductDTO(productId,
                 productName,
                 productPrice,

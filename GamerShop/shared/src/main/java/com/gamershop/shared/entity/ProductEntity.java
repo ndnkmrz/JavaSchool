@@ -26,17 +26,17 @@ public class ProductEntity {
     private boolean enabled = true;
 
     @OneToMany(mappedBy = "productEntity")
-    private List<ProductImagesEntity> productImages;
+    private List<ProductImageEntity> productImages;
 
     @OneToMany(mappedBy = "productEntity")
-    private List<ProductParametersEntity> productParameters;
+    private List<ProductParameterEntity> productParameters;
 
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "categoryId")
     private CategoryEntity productCategory;
 
 
-    public ProductEntity(Integer productId, String productName, Double productPrice, Double productWeight, Double productHeight, Double productWidth, Double productLength, Integer productQuantity, String productDescription, boolean enabled, List<ProductImagesEntity> productImages, List<ProductParametersEntity> productParameters) {
+    public ProductEntity(Integer productId, String productName, Double productPrice, Double productWeight, Double productHeight, Double productWidth, Double productLength, Integer productQuantity, String productDescription, boolean enabled, List<ProductImageEntity> productImages, List<ProductParameterEntity> productParameters) {
         this.productId = productId;
         this.productName = productName;
         this.productPrice = productPrice;
@@ -50,5 +50,13 @@ public class ProductEntity {
     }
 
     public ProductEntity() {
+    }
+
+    public void addImage(ProductImageEntity productImage){
+        this.productImages.add(productImage);
+    }
+
+    public void addParameter(ProductParameterEntity productParameter){
+        this.productParameters.add(productParameter);
     }
 }

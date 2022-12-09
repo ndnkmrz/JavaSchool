@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name="ProductImages")
-public class ProductImagesEntity {
+public class ProductImageEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productImageId;
@@ -19,13 +19,13 @@ public class ProductImagesEntity {
     @JoinColumn(name = "product_id", referencedColumnName = "productId")
     private ProductEntity productEntity;
 
-    public ProductImagesEntity(Integer productImageId, String productImageLink, ProductEntity productEntity) {
+    public ProductImageEntity(Integer productImageId, String productImageLink, ProductEntity productEntity) {
         this.productImageId = productImageId;
         this.productImageLink = productImageLink;
         this.productEntity = productEntity;
     }
 
-    public ProductImagesEntity() {
+    public ProductImageEntity() {
 
     }
 }
