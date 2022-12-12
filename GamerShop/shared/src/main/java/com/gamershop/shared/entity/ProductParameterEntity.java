@@ -33,4 +33,10 @@ public class ProductParameterEntity {
 
     public ProductParameterEntity() {
     }
+
+    public ProductParameterEntity(String productParameterName, String productParameterValue, ProductEntity productEntity) {
+        this.productParameterName = productParameterName;
+        this.productParameterValue = productParameterValue;
+        this.productEntity = productEntity;
+    }
 }

@@ -12,8 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 @Controller
@@ -64,8 +68,12 @@ public class ProductController {
     }
 
     @PostMapping("/products/save")
-    public String saveProduct(ProductDTO product, RedirectAttributes redirectAttributes){
-        productService.saveProduct(product);
+    public String saveProduct(ProductDTO product, RedirectAttributes redirectAttributes,
+                              @RequestParam("image") MultipartFile[] files,
+                              @RequestParam(name="detailNames", required = false) String[] detailNames,
+                              @RequestParam(name="detailValues", required = false) String[] detailValues)
+    throws SQLException, IOException {
+        productService.saveProduct(product, files, detailNames, detailValues);
         redirectAttributes.addFlashAttribute("message", "The product has been saved successfully");
         return "redirect:/products";
     }

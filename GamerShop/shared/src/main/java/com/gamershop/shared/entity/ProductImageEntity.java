@@ -14,12 +14,20 @@ public class ProductImageEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productImageId;
     @Lob
-    @Column(name = "productImageLink", columnDefinition="BLOB")
+    @Column(name = "productImageLink", columnDefinition = "BLOB")
     private byte[] productImageLink;
 
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "productId")
     private ProductEntity productEntity;
+
+    private String productImageName;
+
+    public ProductImageEntity(byte[] productImageLink, ProductEntity productEntity, String productImageName){
+        this.productImageLink = productImageLink;
+        this.productEntity = productEntity;
+        this.productImageName = productImageName;
+    }
 
     public ProductImageEntity(Integer productImageId, byte[] productImageLink) {
         this.productImageId = productImageId;

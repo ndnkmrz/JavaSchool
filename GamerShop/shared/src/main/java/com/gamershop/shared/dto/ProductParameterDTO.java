@@ -12,5 +12,4 @@ public class ProductParameterDTO {
     private Integer productParameterId;
     private String productParameterName;
     private String productParameterValue;
-    private ProductEntity productEntity;
 }

@@ -3,10 +3,9 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <body>
 <div th:fragment="product_images">
-  Choose images
   <div class="form-group">
-    <label for="formFile" class="form-label mt-4">Default file input example</label>
-    <input class="form-control" type="file" id="formFile">
+    <label for="formFile" class="form-label mt-4">Add image max 65KB</label>
+    <input class="form-control" name="image" type="file" id="formFile" accept="image/*" multiple="multiple">
   </div>
 </div>
 </body>

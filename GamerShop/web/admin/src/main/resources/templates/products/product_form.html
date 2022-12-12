@@ -4,51 +4,85 @@
 <body>
 <div th:insert="~{fragments/header :: header}"></div>
 
-
+<br/>
 <div class="container-fluid">
   <div class="card border-light mb-5" style="max-width:700px; margin:0 auto">
     <div class="card-header" th:text="${cardTitle}"><h1>
     </h1></div>
     <div class="card-body">
-      <form th:action="@{/products/save}" method="post" th:object="${product}">
+      <form th:action="@{/products/save}" method="post" th:object="${product}" enctype="multipart/form-data">
         <div class="form-group">
           <input type="hidden" th:field="*{productId}">
         </div>
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item" role="presentation">
-          <a class="nav-link active" data-bs-toggle="tab" href="#overview" aria-selected="true" role="tab">Overview</a>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a class="nav-link" data-bs-toggle="tab" href="#description" aria-selected="false" role="tab" tabindex="-1">Description</a>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a class="nav-link" data-bs-toggle="tab" href="#images" aria-selected="false" role="tab" tabindex="-1">Images</a>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a class="nav-link" data-bs-toggle="tab" href="#parameters" aria-selected="false" role="tab" tabindex="-1">Parameters</a>
-        </li>
-      </ul>
-      <div id="myTabContent" class="tab-content">
-        <div class="tab-pane fade active show" id="overview" role="tabpanel">
-          <div th:insert="~{products/product_overview :: product_overview}"></div>
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" data-bs-toggle="tab" href="#overview" aria-selected="true" role="tab">Overview</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" data-bs-toggle="tab" href="#description" aria-selected="false" role="tab" tabindex="-1">Description</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" data-bs-toggle="tab" href="#images" aria-selected="false" role="tab" tabindex="-1">Images</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" data-bs-toggle="tab" href="#parameters" aria-selected="false" role="tab" tabindex="-1">Parameters</a>
+          </li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane fade active show" id="overview" role="tabpanel">
+            <div th:insert="~{products/product_overview :: product_overview}"></div>
+          </div>
+          <div class="tab-pane fade" id="description" role="tabpanel">
+            <div th:insert="~{products/product_description :: product_description}"></div>
+          </div>
+          <div class="tab-pane fade" id="images" role="tabpanel">
+            <div th:insert="~{products/product_images :: product_images}"></div>
+          </div>
+          <div class="tab-pane fade" id="parameters" role="tabpanel">
+            <div th:insert="~{products/product_parameters :: product_parameters}"></div>
+            <br/>
+            <input type="button" class="btn btn-secondary" value="Add more parameters"
+                   onclick="addNextParameterSection()">
+          </div>
         </div>
-        <div class="tab-pane fade" id="description" role="tabpanel">
-          <div th:insert="~{products/product_description :: product_description}"></div>
-        </div>
-        <div class="tab-pane fade" id="images" role="tabpanel">
-          <div th:insert="~{products/product_images :: product_images}"></div>
-        </div>
-        <div class="tab-pane fade" id="parameters" role="tabpanel">
-          <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
-        </div>
-      </div>
         <br/>
         <button type="submit" class="btn btn-light">Submit</button>
         <a class="btn btn-secondary" th:href="@{/templates/products}">Cancel</a>
       </form>
-  </div>
-  </div>
+    </div>
   </div>
 </div>
+</div>
+<script>
+  function addNextParameterSection(){
+    allDivParams = document.querySelectorAll('[id^="divParameterRow"]');
+    lastId = allDivParams.item(allDivParams.length - 1).id;
+    lastIdNumber = parseInt(lastId.slice(15)) + 1;
+    htmlParameterSection = `<div class="row" id="divParameterRow${lastIdNumber}">
+      <div class="col-sm">
+        <div class="form-group">
+          <label class="form-label mt-4">Name</label>
+          <input type="text" class="form-control" placeholder="Enter parameter name" name="detailNames">
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="form-group">
+          <label class="form-label mt-4">Value</label>
+          <input type="text" class="form-control" placeholder="Enter parameter value" name="detailValues">
+        </div>
+      </div>
+    </div>`
+    $("#divProductParameters").append(htmlParameterSection);
+    previousSection = `#${lastId}`;
+    htmlButton = `<div class="col-1 align-self-center"><a class="fa-regular fa-circle-xmark"
+            onclick="removeParamSectionById(previousSection)"></a></div>
+    `
+    $(previousSection).append(htmlButton);
+  }
+  function removeParamSectionById(previousSection){
+    $(previousSection).remove();
+
+  }
+</script>
 </body>
 </html>
