@@ -1,7 +1,8 @@
 package com.gamershop.shared.dto;
 
-import com.gamershop.shared.entity.ProductEntity;
 import lombok.*;
+
+import javax.persistence.criteria.CriteriaBuilder;
 
 @Getter
 @Setter
@@ -10,6 +11,6 @@ import lombok.*;
 @Builder
 public class ProductImageDTO {
     private Integer productImageId;
-    private String productImageLink;
-    private ProductEntity productEntity;
+    private byte[] productImageLink;
+    private Integer productId;
 }

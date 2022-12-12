@@ -23,7 +23,7 @@ public class ProductDTO {
     private String productDescription;
     private boolean enabled = true;
     private String productCategory;
-    private List<ProductImageEntity> productImages;
-    private List<ProductParameterEntity> productParameters;
+    private List<ProductImageDTO> productImages;
+    private List<ProductParameterDTO> productParameters;
 
 }

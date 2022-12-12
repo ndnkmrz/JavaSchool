@@ -36,7 +36,16 @@ public class ProductEntity {
     private CategoryEntity productCategory;
 
 
-    public ProductEntity(Integer productId, String productName, Double productPrice, Double productWeight, Double productHeight, Double productWidth, Double productLength, Integer productQuantity, String productDescription, boolean enabled, List<ProductImageEntity> productImages, List<ProductParameterEntity> productParameters) {
+    public ProductEntity(Integer productId,
+                         String productName,
+                         Double productPrice,
+                         Double productWeight,
+                         Double productHeight,
+                         Double productWidth,
+                         Double productLength,
+                         Integer productQuantity,
+                         String productDescription,
+                         boolean enabled) {
         this.productId = productId;
         this.productName = productName;
         this.productPrice = productPrice;
@@ -51,6 +60,8 @@ public class ProductEntity {
 
     public ProductEntity() {
     }
+
+
 
     public void addImage(ProductImageEntity productImage){
         this.productImages.add(productImage);
