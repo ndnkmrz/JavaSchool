@@ -10,7 +10,6 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name="Category")
-
 public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

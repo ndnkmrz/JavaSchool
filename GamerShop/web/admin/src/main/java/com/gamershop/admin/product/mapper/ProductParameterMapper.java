@@ -2,9 +2,9 @@ package com.gamershop.admin.product.mapper;
 
 import com.gamershop.shared.dto.ProductParameterDTO;
 import com.gamershop.shared.entity.ProductParameterEntity;
+import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
-
+@Service
 public class ProductParameterMapper {
     public ProductParameterDTO toDTO(ProductParameterEntity productParameterEntity){
         Integer productParameterId = productParameterEntity.getProductParameterId();

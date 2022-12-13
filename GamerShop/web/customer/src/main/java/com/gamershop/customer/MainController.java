@@ -10,16 +10,21 @@ import java.util.List;
 
 @Controller
 public class MainController {
-    private final CategoryService categoryService;
-
-    public MainController(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
+//    private final CategoryService categoryService;
+//
+//    public MainController(CategoryService categoryService) {
+//        this.categoryService = categoryService;
+//    }
+//
+//    @GetMapping("")
+//    public String viewHomePage(Model model) {
+//        List<CategoryDTO> listCategories = categoryService.listNoChildrenCategories();
+//        model.addAttribute("listCategories", listCategories);
+//        return "index";
+//    }
 
     @GetMapping("")
-    public String viewHomePage(Model model) {
-        List<CategoryDTO> listCategories = categoryService.listNoChildrenCategories();
-        model.addAttribute("listCategories", listCategories);
+    public String viewHomePage() {
         return "index";
     }
 }
