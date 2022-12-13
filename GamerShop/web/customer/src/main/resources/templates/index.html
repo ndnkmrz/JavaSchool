@@ -3,16 +3,30 @@
 <div th:insert="~{fragments/head :: head}"></div>
 <body>
 <div th:insert="~{fragments/header :: header}"></div>
-
-<div>
-    <h1>Shopping by Categories</h1>
+<br/>
+<div class="container-fluid">
+    <div th:if="${message != null}" class="alert alert-dismissible alert-success" th:text="${message}">
+    </div>
+    <div th:if="${errormessage != null}" class="alert alert-dismissible alert-danger" th:text="${errormessage}">
+    </div>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    <th:block th:each="cat : ${listCategories}">
+        <div class="col">
+        <div class="card border-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header">
+                <a th:href="@{'/category/' + ${cat.getKey().getCategoryId()}}" th:text="${cat.getKey().getCategoryName()}"></a>
+            </div>
+            <div class="card-body">
+                <div class="col" th:each="chilcat : ${cat.getValue()}">
+                    <a th:href="@{'/category/' + ${chilcat.getCategoryId()}}" th:text="${chilcat.getCategoryName()}"></a>
+                    </td>
+                </div>
+            </div>
+        </div>
+        </div>
+    </th:block>
 </div>
-<!--<div class="row">-->
-<!--    <div class="col" th:each="cat : ${listCategories}">-->
-<!--        th-->
-<!--    </div>-->
-<!--</div>-->
-
+</div>
 
 <div th:insert="~{fragments/footer :: footer}"></div>
 </body>

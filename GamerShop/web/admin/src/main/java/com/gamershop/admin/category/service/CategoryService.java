@@ -1,7 +1,7 @@
 package com.gamershop.admin.category.service;
 
 import com.gamershop.admin.category.interfaces.ICategoryService;
-import com.gamershop.admin.category.mapper.CategoryMapper;
+import com.gamershop.shared.mapper.CategoryMapper;
 import com.gamershop.admin.category.repo.CategoryRepository;
 import com.gamershop.admin.exception.UserNotFoundException;
 import com.gamershop.shared.dto.CategoryDTO;

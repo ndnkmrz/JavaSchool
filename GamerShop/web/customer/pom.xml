@@ -20,8 +20,8 @@
             <artifactId>spring-boot</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.egamershop</groupId>
-            <artifactId>shared</artifactId>
+            <groupId>com.gamershop</groupId>
+            <artifactId>admin</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

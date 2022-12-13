@@ -1,4 +1,4 @@
-package com.gamershop.admin.user.mapper;
+package com.gamershop.shared.mapper;
 
 import com.gamershop.shared.dto.UserDTO;
 import com.gamershop.shared.entity.RoleEntity;

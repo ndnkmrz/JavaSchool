@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:insert="~{fragments/head :: head}"></div>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+<br/>
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+        <th:block th:each="parent: ${parentCategories}">
+            <li class="breadcrumb-item">
+                <a th:href="@{'/category/'+ ${parent.getCategoryId()}}" th:text="${parent.getCategoryName()}"/>
+            </li>
+
+        </th:block>
+        <th:block th:each="product: ${categoryProducts}">
+            <span th:text="${product.getProductName()}"/>
+
+        </th:block>
+        <!--    <li class="breadcrumb-item"><a href="#">Library</a></li>-->
+        <!--    <li class="breadcrumb-item active">Data</li>-->
+    </ol>
+    <div th:if="${message != null}" class="alert alert-dismissible alert-success" th:text="${message}">
+    </div>
+    <div th:if="${errormessage != null}" class="alert alert-dismissible alert-danger" th:text="${errormessage}">
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <th:block th:each="product : ${productList}">
+            <div class="col">
+                <div class="card border-primary mb-3" style="max-width: 20rem;">
+                    <div class="card-header">
+                        <a th:href="@{'/product/' + ${product.getProductId()}}" th:text="${product.getProductName()}"></a>
+                    </div>
+                    <div class="card-body">
+                        <div class="col" th:text="${product.getProductPrice()}">
+                            </td>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </th:block>
+    </div>
+</div>
+
+<div th:insert="~{fragments/footer :: footer}"></div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-package com.gamershop.admin.product.mapper;
+package com.gamershop.shared.mapper;
 
 import com.gamershop.shared.dto.ProductParameterDTO;
 import com.gamershop.shared.entity.ProductParameterEntity;

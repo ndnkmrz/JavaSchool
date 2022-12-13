@@ -1,4 +1,4 @@
-package com.gamershop.admin.category.mapper;
+package com.gamershop.shared.mapper;
 
 import com.gamershop.shared.dto.CategoryDTO;
 import com.gamershop.shared.entity.CategoryEntity;

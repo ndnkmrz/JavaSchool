@@ -2,7 +2,7 @@ package com.gamershop.admin.user.service;
 
 import com.gamershop.admin.exception.UserNotFoundException;
 import com.gamershop.admin.user.interfaces.IUserService;
-import com.gamershop.admin.user.mapper.UserMapper;
+import com.gamershop.shared.mapper.UserMapper;
 import com.gamershop.admin.user.repo.UserRepository;
 import com.gamershop.shared.dto.UserDTO;
 import com.gamershop.shared.entity.UserEntity;
