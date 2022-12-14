@@ -1,0 +1,187 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:insert="~{fragments/head :: head}"></div>
+<style>
+    #slider {
+        position: relative;
+        overflow: hidden;
+        margin: 20px auto 0 auto;
+        border-radius: 4px;
+    }
+
+    #slider ul {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        height: 200px;
+        list-style: none;
+    }
+
+    #slider ul li {
+        position: relative;
+        display: block;
+        float: left;
+        margin: 0;
+        padding: 0;
+        width: 600px;
+        height: 300px;
+        text-align: center;
+        line-height: 300px;
+    }
+
+    a.control_prev, a.control_next {
+        position: absolute;
+        top: 40%;
+        z-index: 999;
+        display: block;
+        padding: 4% 3%;
+        width: auto;
+        height: auto;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 18px;
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    a.control_prev:hover, a.control_next:hover {
+        opacity: 1;
+        -webkit-transition: all 0.2s ease;
+    }
+
+    a.control_prev {
+        border-radius: 0 2px 2px 0;
+    }
+
+    a.control_next {
+        right: 0;
+        border-radius: 2px 0 0 2px;
+    }
+
+    .slider_option {
+        position: relative;
+        margin: 10px auto;
+        width: 160px;
+        font-size: 18px;
+    }
+</style>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+<br/>
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+        <th:block th:each="parent: ${parentCategories}">
+            <li class="breadcrumb-item">
+                <a th:href="@{'/category/'+ ${parent.getCategoryId()}}" th:text="${parent.getCategoryName()}"/>
+            </li>
+        </th:block>
+        <li class="breadcrumb-item active"><p th:text="${product.getProductName()}"/></li>
+    </ol>
+    <div class="row">
+        <div class="col-sm">
+            <div id="slider">
+                <a href="#" class="control_next">></a>
+                <a href="#" class="control_prev"><</a>
+                <ul>
+                    <th:block th:each="image : ${product.getProductImages()}">
+                        <li>
+                            <img th:src="${'data:image/jpeg;charset=utf-8;base64,' +
+                            image.getProductImageLink()}" width="500"/>
+                        </li>
+                    </th:block>
+                </ul>
+            </div>
+
+        </div>
+        <div class="col-sm">
+            <h2 th:text="${product.getProductName()}"></h2>
+            <p th:text="'Dimentions: '+ ${product.getProductLength()} + ' x ' + ${product.getProductWidth()} + ' x ' + ${product.getProductHeight()} + ' cm'"></p>
+            <p th:text="'Price: ' + ${product.getProductPrice()} + '$'"></p>
+            <p th:if="${product.getProductQuantity() <= 0}" class="text-danger" th:text="'Unavailable'"/>
+            <p th:if="${product.getProductQuantity() > 0}" th:text="'On stock: ' + ${product.getProductQuantity()}"/>
+
+        </div>
+    </div>
+    <div class="row">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" data-bs-toggle="tab" href="#description" aria-selected="true" role="tab">Description</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#params" aria-selected="false" role="tab" tabindex="-1">Parameters</a>
+            </li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active show" id="description" role="tabpanel">
+                <p th:text="${product.getProductDescription()}"/>
+            </div>
+            <div class="tab-pane fade" id="params" role="tabpanel">
+                <table class="table table-hover">
+                <th:block th:each="parameter : ${product.getProductParameters()}">
+                    <tr>
+                        <td th:text="*{parameter.getProductParameterName()}"></td>
+                        <td th:text="*{parameter.getProductParameterValue()}"></td>
+                    </tr>
+                </th:block>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br/>
+<br/>
+<div th:insert="~{fragments/footer :: footer}"></div>
+<script>
+    jQuery(document).ready(function ($) {
+
+        $('#checkbox').change(function(){
+            setInterval(function () {
+                moveRight();
+            }, 3000);
+        });
+
+        var slideCount = $('#slider ul li').length;
+        var slideWidth = $('#slider ul li').width();
+        var slideHeight = $('#slider ul li').height();
+        var sliderUlWidth = slideCount * slideWidth;
+
+        $('#slider').css({ width: slideWidth, height: slideHeight });
+
+        $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+
+        $('#slider ul li:last-child').prependTo('#slider ul');
+
+        function moveLeft() {
+            $('#slider ul').animate({
+                left: + slideWidth
+            }, 200, function () {
+                $('#slider ul li:last-child').prependTo('#slider ul');
+                $('#slider ul').css('left', '');
+            });
+        };
+
+        function moveRight() {
+            $('#slider ul').animate({
+                left: - slideWidth
+            }, 200, function () {
+                $('#slider ul li:first-child').appendTo('#slider ul');
+                $('#slider ul').css('left', '');
+            });
+        };
+
+        $('a.control_prev').click(function () {
+            moveLeft();
+        });
+
+        $('a.control_next').click(function () {
+            moveRight();
+        });
+
+    });
+
+</script>
+</body>
+</html>

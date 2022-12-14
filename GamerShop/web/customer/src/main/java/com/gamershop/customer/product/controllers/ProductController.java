@@ -35,6 +35,15 @@ public class ProductController {
         return "products_by_category";
     }
 
+    @GetMapping("/product/{product_id}")
+    public String viewProduct(@PathVariable("product_id") Integer id, Model model){
+        ProductDTO productDTO = productService.getProductById(id);
+        List<CategoryDTO> parentCategories = categoryService.getCategoryParentsById(productDTO.getProductCategoryId());
+        model.addAttribute("product", productDTO);
+        model.addAttribute("parentCategories", parentCategories);
+        return "/product";
+    }
+
 
 
 

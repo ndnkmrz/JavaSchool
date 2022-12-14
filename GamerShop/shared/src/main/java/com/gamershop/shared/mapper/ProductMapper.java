@@ -4,8 +4,6 @@ import com.gamershop.shared.dto.ProductDTO;
 import com.gamershop.shared.dto.ProductImageDTO;
 import com.gamershop.shared.dto.ProductParameterDTO;
 import com.gamershop.shared.entity.ProductEntity;
-import com.gamershop.shared.entity.ProductImageEntity;
-import com.gamershop.shared.entity.ProductParameterEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,6 +11,13 @@ import java.util.List;
 
 @Service
 public class ProductMapper {
+    private final ProductImageMapper productImageMapper;
+    private final ProductParameterMapper productParameterMapper;
+
+    public ProductMapper(ProductImageMapper productImageMapper, ProductParameterMapper productParameterMapper) {
+        this.productImageMapper = productImageMapper;
+        this.productParameterMapper = productParameterMapper;
+    }
 
     public ProductDTO toDTO(ProductEntity productEntity){
         Integer productId = productEntity.getProductId();
@@ -24,6 +29,7 @@ public class ProductMapper {
         Double productLength = productEntity.getProductLength();
         Integer productQuantity = productEntity.getProductQuantity();
         String productDescription = productEntity.getProductDescription();
+        Integer productCategoryId = productEntity.getProductCategory().getCategoryId();
         boolean enabled = productEntity.isEnabled();
         String productCategory;
         if (productEntity.getProductCategory() != null){
@@ -32,8 +38,10 @@ public class ProductMapper {
         else{
             productCategory = null;
         }
-//        List<ProductImageDTO> productImages = productEntity.getProductImages();
-//        List<ProductParameterDTO> productParameters = productEntity.getProductParameters();
+        List<ProductImageDTO> productImages = productEntity.getProductImages().stream()
+                .map(productImageMapper::toDTO).toList();
+        List<ProductParameterDTO> productParameters = productEntity.getProductParameters().stream()
+                .map(productParameterMapper::toDTO).toList();
         return new ProductDTO(productId,
                 productName,
                 productPrice,
@@ -43,10 +51,11 @@ public class ProductMapper {
                 productLength,
                 productQuantity,
                 productDescription,
+                productCategoryId,
                 enabled,
                 productCategory,
-                new ArrayList<>(),
-                new ArrayList<>());
+                productImages,
+                productParameters);
     }
 
     public ProductEntity toProduct(ProductDTO productDTO){

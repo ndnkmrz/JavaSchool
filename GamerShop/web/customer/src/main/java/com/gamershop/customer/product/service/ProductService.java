@@ -1,5 +1,6 @@
 package com.gamershop.customer.product.service;
 
+import com.gamershop.customer.exception.ProductNotFoundException;
 import com.gamershop.customer.product.interfaces.IProductService;
 import com.gamershop.shared.mapper.ProductMapper;
 import com.gamershop.customer.category.service.CategoryService;
@@ -35,6 +36,11 @@ public class ProductService implements IProductService {
                 .findAllByProductCategory_CategoryIdIn(listCategoriesId, pageable);
         List<ProductDTO> products = productEntities.stream().map(productMapper::toDTO).toList();
         return new PageImpl<>(products, pageable, productEntities.getTotalElements());
+    }
 
+    public ProductDTO getProductById(Integer productId){
+        ProductEntity productEntity = productRepository.findById(productId)
+                .orElseThrow(() -> new ProductNotFoundException("Could not find this product"));
+        return productMapper.toDTO(productEntity);
     }
 }

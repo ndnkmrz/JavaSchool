@@ -12,5 +12,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 public class ProductImageDTO {
     private Integer productImageId;
     private String productImageName;
+    private String productImageLink;
 
 }

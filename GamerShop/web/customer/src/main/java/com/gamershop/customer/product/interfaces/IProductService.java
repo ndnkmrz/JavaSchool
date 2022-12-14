@@ -5,4 +5,5 @@ import org.springframework.data.domain.Page;
 
 public interface IProductService {
     Page<ProductDTO> listByCategory(int pageNum, Integer categoryId);
+    ProductDTO getProductById(Integer productId);
 }
