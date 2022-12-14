@@ -1,0 +1,106 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{fragments/head :: head}"></div>
+<title>Products</title>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+
+</br>
+<div class="container-fluid">
+    <div class="card border-light mb-5" >
+        <div class="card-body">
+            <div class="row">
+                <div class="col-2">
+                    <form th:action="@{/products/page/1}">
+                        <legend>Filters</legend>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="form-label mt-4">Name</label>
+                            <input type="search" class="form-control" id="exampleInputEmail1" name="keyword" th:value="${keyword}">
+                            <small id="emailHelp" class="form-text text-muted">Enter the name or it`s part. </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleSelect1" class="form-label mt-4">Category</label>
+                            <select class="form-select" id="exampleSelect1" name="categoryId">
+                                <th:block th:each="category : ${listCategories}">
+                                    <option th:text="'All categories'" th:value="0"/>
+                                    <option th:text="${category.getKey().getCategoryName()}" th:value="${category.getKey().getCategoryId()}"></option>
+                                    <th:block th:each="subcategory : ${category.getValue()}">
+                                        <option th:text="'-- ' + ${subcategory.getCategoryName()}" th:value="${subcategory.getCategoryId()}"></option>
+                                    </th:block>
+                                </th:block>
+                            </select>
+                        </div>
+                        <fieldset class="form-group">
+                            <legend class="mt-4">Price</legend>
+                            <label class="form-label">Minimum</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
+                                       name="minprice" th:value="${minprice}">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                            <label class="form-label">Maximum</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
+                                       name="maxprice" th:value="${maxprice}">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <div th:if="${listProducts.isEmpty()}">
+                        <div class="alert alert-dismissible alert-warning">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            <h4 class="alert-heading">Warning!</h4>
+                            <p class="mb-0">Unfortunately, there is nothing like this in our shop. Wanna look at our games?</p>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                        <th:block th:each="product : ${listProducts}">
+                            <div class="col">
+                                <div class="card border-primary mb-3" style="max-width: 20rem;">
+                                    <div class="card-header">
+                                        <a th:href="@{'/product/' + ${product.getProductId()}}" th:text="${product.getProductName()}"></a>
+                                    </div>
+                                    <div class="card-body">
+                                        <img th:src="${'data:image/jpeg;charset=utf-8;base64,' +
+                            product.getProductImages().get(0).getProductImageLink()}" width="280">
+                                        <div class="col" th:text="${product.getProductPrice()}">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </th:block>
+                        <div th:if="${totalPages} > 1">
+                            <span th:text="${totalItems}"/>
+                            <ul class="pagination justify-content-center">
+                                <li th:class="${currentPage == 1 ? 'page-item disabled' : 'page-item'}">
+                                    <a class="page-link" th:href="@{'/products/page/' + ${currentPage - 1} + '?sortField=' + ${sortField} + '&sortDir=' +${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">&laquo;</a>
+                                </li>
+                                <li th:class="${currentPage != i ? 'page-item' : 'page-item active'}" th:each="i : ${#numbers.sequence(1, totalPages)}">
+                                    <a class="page-link" th:href="@{'/products/page/' + ${i} + '?sortField=' + ${sortField} + '&sortDir=' +${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}" th:text="${i}">1</a>
+                                </li>
+                                <li th:class="${currentPage == totalPages ? 'page-item disabled' : 'page-item'}">
+                                    <a class="page-link" th:href="@{'/products/page/' + ${currentPage + 1} + '?sortField=' + ${sortField} + '&sortDir=' +${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">&raquo;</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:insert="~{fragments/footer :: footer}"></div>
+</div>
+
+<script type="text/javascript">
+    function clearFilter(){
+        window.location = "[[@{/products}]]"
+    }
+</script>
+</body>
+</html>
