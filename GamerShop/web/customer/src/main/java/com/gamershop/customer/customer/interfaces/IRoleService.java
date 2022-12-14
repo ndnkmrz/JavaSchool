@@ -1,0 +1,10 @@
+package com.gamershop.customer.customer.interfaces;
+
+import com.gamershop.shared.entity.RoleEntity;
+
+import java.util.List;
+
+public interface IRoleService {
+    RoleEntity getOrCreateRole(String roleName);
+    List<String> listRoles();
+}
