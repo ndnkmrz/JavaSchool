@@ -50,9 +50,9 @@ public class ProductController {
     public String listByPage(@PathVariable(name="pageNum") int pageNum, Model model,
                              @Param("keyword") String keyword,
                              @Param("categoryId") Integer categoryId,
-                             @Param("minprice") Integer minprice,
-                             @Param("maxprice") Integer maxprice){
-        Page<ProductDTO> page = productService.listByPage(pageNum, keyword, categoryId);
+                             @Param("minprice") Double minprice,
+                             @Param("maxprice") Double maxprice){
+        Page<ProductDTO> page = productService.listByPage(pageNum, keyword, categoryId, minprice, maxprice);
         List<ProductDTO> listProducts = page.getContent();
         Map<CategoryDTO, Set<CategoryDTO>> listCategories = categoryService.listWithChildrenCategories();
         model.addAttribute("listProducts", listProducts);

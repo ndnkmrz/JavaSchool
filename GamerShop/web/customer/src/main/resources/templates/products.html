@@ -20,8 +20,8 @@
                         <div class="form-group">
                             <label for="exampleSelect1" class="form-label mt-4">Category</label>
                             <select class="form-select" id="exampleSelect1" name="categoryId">
+                                <option th:text="'All categories'" th:value="0"/>
                                 <th:block th:each="category : ${listCategories}">
-                                    <option th:text="'All categories'" th:value="0"/>
                                     <option th:text="${category.getKey().getCategoryName()}" th:value="${category.getKey().getCategoryId()}"></option>
                                     <th:block th:each="subcategory : ${category.getValue()}">
                                         <option th:text="'-- ' + ${subcategory.getCategoryName()}" th:value="${subcategory.getCategoryId()}"></option>

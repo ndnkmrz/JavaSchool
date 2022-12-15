@@ -43,18 +43,23 @@ public class ProductService implements IProductService {
 
     public Page<ProductDTO> listByPage(int pageNum,
                                        String keyword,
-                                       Integer categoryId){
+                                       Integer categoryId,
+                                       Double minPrice,
+                                       Double maxPrice){
         Pageable pageable = PageRequest.of(pageNum -1, PRODUCTS_PER_PAGE);
         Page<ProductEntity> productEntities = productRepository.findAll(pageable);
-        if (categoryId != null && categoryId > 0){
-            productEntities = productRepository.findAllByProductCategory_CategoryIdLike(categoryId, pageable);
-        }
-        if (keyword != null && !keyword.isEmpty()){
+        if (keyword != null) {
             keyword = "%" + keyword + "%";
-            productEntities = productRepository.getProductEntitiesByProductNameLike(keyword, pageable);
-            if (categoryId != null && categoryId > 0){
-                productEntities = productRepository.findAllByProductCategory_CategoryIdLikeAndProductNameLike(categoryId, keyword, pageable);
-            }
+            List<Integer> ids = categoryId == 0 ? categoryService.getAllCategoryId() : categoryService
+                    .getCategoryChildrenById(categoryId);
+            minPrice = minPrice == null ? 0.0 : minPrice;
+            maxPrice = maxPrice == null ? Double.MAX_VALUE : maxPrice;
+            productEntities = productRepository
+                    .findAllByProductCategory_CategoryIdInAndProductNameLikeAndProductPriceBetween(ids,
+                    keyword,
+                    minPrice,
+                    maxPrice,
+                    pageable);
         }
         List<ProductDTO> products = productEntities.stream().map(productMapper::toDTO).toList();
         return new PageImpl<>(products, pageable, productEntities.getTotalElements());

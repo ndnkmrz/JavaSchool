@@ -8,5 +8,7 @@ public interface IProductService {
     ProductDTO getProductById(Integer productId);
     Page<ProductDTO> listByPage(int pageNum,
                                 String keyword,
-                                Integer categoryId);
+                                Integer categoryId,
+                                Double minPrice,
+                                Double maxPrice);
 }

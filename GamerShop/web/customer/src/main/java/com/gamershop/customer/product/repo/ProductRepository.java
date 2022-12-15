@@ -10,8 +10,13 @@ import java.util.List;
 public interface ProductRepository extends PagingAndSortingRepository<ProductEntity, Integer> {
     Page<ProductEntity> findAllByProductCategory_CategoryIdIn(List<Integer> ids, Pageable pageable);
     Page<ProductEntity> getProductEntitiesByProductNameLike(String keyword, Pageable pageable);
-    Page<ProductEntity> findAllByProductCategory_CategoryIdLike(Integer id, Pageable pageable);
-    Page<ProductEntity> findAllByProductCategory_CategoryIdLikeAndProductNameLike(Integer id, String keyword, Pageable pageable);
+    Page<ProductEntity> findAllByProductNameLike(String keyword, Pageable pageable);
+    Page<ProductEntity> findAllByProductCategory_CategoryIdInAndProductNameLikeAndProductPriceBetween(List<Integer> ids,
+                                                                                                       String keyword,
+                                                                                                       Double minimum,
+                                                                                                       Double maximum,
+                                                                                                       Pageable pageable);
+
 
 
 

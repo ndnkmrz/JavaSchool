@@ -1,8 +1,11 @@
 package com.gamershop.shared.dto;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,7 +17,9 @@ public class CustomerDTO {
     private String customerName;
     private String customerSurname;
     private String customerPhoneNumber;
-    private LocalDate customerBirthday;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date customerBirthday;
     private Integer customerUserId;
+    private List<AddressDTO> customerAddresses;
 
 }

@@ -11,5 +11,5 @@ public interface ICategoryService {
     Map<CategoryDTO, Set<CategoryDTO>> listWithChildrenCategories();
     CategoryDTO getCategoryById(Integer id);
     List<CategoryDTO> getCategoryParentsById(Integer id);
-
+    List<Integer> getAllCategoryId();
 }

@@ -86,5 +86,9 @@ public class CategoryService implements ICategoryService {
         return child;
     }
 
+    public List<Integer> getAllCategoryId(){
+        List<CategoryEntity> categoryList = (List<CategoryEntity>) categoryRepo.findAll();
+        return categoryList.stream().map(CategoryEntity::getCategoryId).toList();
+    }
 }
 

@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:insert="~{fragments/head :: head}"></div>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+<br/>
+<div class="container-fluid">
+  <div class="card border-light mb-5" style="max-width:700px; margin:0 auto">
+    <div class="card-header"><h1 th:text="${cardTitle}">
+    </h1></div>
+    <div class="card-body">
+      <form th:action="@{/account/update}" method="post" th:object="${user}">
+        <fieldset>
+          <div class="form-group">
+            <input type="hidden" th:field="*{id}">
+            <input type="hidden" th:field="*{userName}">
+            <input type="hidden" th:field="*{userEmail}">
+          </div>
+          <div class="form-group">
+            <label class="form-label mt-4">Password
+              <input name="password" id="password" type="password" class="form-control"
+                     th:field="*{password}"/>
+            </label>
+            <br>
+            <label class="form-label mt-4">Confirm password
+              <input type="password" name="confirm_password" id="confirm_password" class="form-control"/>
+              <span id='message'></span>
+            </label>
+          </div>
+
+          <br/>
+          <button type="submit" class="btn btn-light">Submit</button>
+          <a class="btn btn-secondary" th:href="@{/}">Cancel</a>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div th:insert="~{fragments/footer :: footer}"></div>
+</div>
+<script>
+  $('#password, #confirm_password').on('keyup', function () {
+    if ($('#password').val() == $('#confirm_password').val()) {
+      $('#message').html('Matching').css('color', 'green');
+    } else
+      $('#message').html('Not Matching').css('color', 'red');
+  });
+</script>
+</body>
+</html>
