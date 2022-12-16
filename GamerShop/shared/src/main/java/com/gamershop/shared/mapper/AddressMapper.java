@@ -1,12 +1,21 @@
 package com.gamershop.shared.mapper;
 
 import com.gamershop.shared.dto.AddressDTO;
+import com.gamershop.shared.dto.OrderDTO;
 import com.gamershop.shared.entity.AddressEntity;
-import com.gamershop.shared.entity.CustomerEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AddressMapper {
+    private final OrderMapper orderMapper;
+
+    public AddressMapper(OrderMapper orderMapper) {
+        this.orderMapper = orderMapper;
+    }
+
     public AddressDTO toDTO(AddressEntity addressEntity){
         Integer addressId = addressEntity.getAddressId();
         String addressCountry = addressEntity.getAddressCountry();
@@ -17,6 +26,7 @@ public class AddressMapper {
         String addressApartNum = addressEntity.getAddressApartNum();
         boolean enable = addressEntity.isEnable();
         Integer addressCustomer = addressEntity.getAddressCustomer().getCustomerId();
+        List<OrderDTO> addressOrders = addressEntity.getAddressOrders().stream().map(orderMapper::toDTO).toList();
         return new AddressDTO(addressId,
                 addressCountry,
                 addressCity,
@@ -25,7 +35,8 @@ public class AddressMapper {
                 addressHouseNum,
                 addressApartNum,
                 enable,
-                addressCustomer);
+                addressCustomer,
+                addressOrders);
     }
 
     public AddressEntity toAddress(AddressDTO addressDTO){

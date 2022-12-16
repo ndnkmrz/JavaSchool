@@ -1,0 +1,4 @@
+2022-12-15 00:11:39.637  INFO 17180 --- [main] c.g.admin.user.UserRepositoryTests       : Starting UserRepositoryTests using Java 19.0.1 on DESB3778 with PID 17180 (started by nmoroz in C:\Users\nmoroz\IdeaProjects\JavaSchool\JavaSchool\GamerShop\web\admin)
+2022-12-15 00:11:39.643 DEBUG 17180 --- [main] c.g.admin.user.UserRepositoryTests       : Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-15 00:11:39.644  INFO 17180 --- [main] c.g.admin.user.UserRepositoryTests       : No active profile set, falling back to 1 default profile: "default"
+2022-12-15 00:11:43.441  INFO 17180 --- [main] c.g.admin.user.UserRepositoryTests       : Started UserRepositoryTests in 4.234 seconds (JVM running for 5.438)

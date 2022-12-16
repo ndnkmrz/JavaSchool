@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
+import java.util.List;
 
 @Entity
 @Table(name="Address")
@@ -25,6 +26,9 @@ public class AddressEntity {
     @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "customerId")
     private CustomerEntity addressCustomer;
+
+    @OneToMany(mappedBy = "orderAddress")
+    private List<OrderEntity> addressOrders;
 
 
     public AddressEntity() {

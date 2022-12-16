@@ -1,0 +1,82 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:insert="~{fragments/head :: head}"></div>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+<br/>
+<div class="container-fluid">
+  <div class="card border-light mb-3">
+    <div class="card-header">Shopping cart</div>
+    <div class="card-body">
+      <th:block th:if="${order == null}">
+        <p> You didn`t add any purchases yet. Check something nice at our catalogue!</p>
+      </th:block>
+      <th:block th:if="${order != null}">
+        <table class="table table-hover">
+          <th:block th:each="prod : ${order.getOrderProductsOrders()}">
+            <tr>
+              <td>
+                <img th:src="${'data:image/jpeg;charset=utf-8;base64,' +prod.getOrderProductProduct().getProductImages().get(0).getProductImageLink()}" width="200"/>
+              </td>
+              <td th:text="${prod.getOrderProductProduct().getProductName()}"></td>
+<!--              <td>-->
+<!--                <input type="number" th:value="${prod.getOrderProductQuantity()}" th:id="'quantity' + ${prod.getOrderProductProduct().getProductId()}"-->
+<!--                       class="form-control text-center" style="width: 55px" min="0" th:max="${prod.getOrderProductProduct().getProductQuantity()}"-->
+<!--                       th:onchange="'deleteProduct(' + ${prod.orderProductProduct.getProductId()} + ')'"/>-->
+<!--              </td>-->
+              <td>
+                <nav>
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <a class="page-link linkMinus" href="" th:onclick="'reduceAmount(' + ${prod.orderProductProduct.getProductId()} +')'"><b>-</b></a>
+                    </li>
+                    <li class="page-item">
+                      <input type="text" th:value="${prod.getOrderProductQuantity()}" th:id="'quantity' + ${prod.getOrderProductProduct().getProductId()}"
+                             disabled=""
+                             class="form-control text-center" style="width: 55px" />
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link linkPlus" href="" th:onclick="'increaseAmount('+ ${prod.orderProductProduct.getProductId()}+')'"><b>+</b></a>
+                    </li>
+                  </ul>
+                </nav>
+              </td>
+              <td th:text="'Price: ' + ${prod.getOrderProductProduct().getProductPrice() * prod.getOrderProductQuantity()} + '$'"/>
+              <td><a class="fa-solid fa-x" th:onclick="'deleteProduct(' + ${prod.orderProductProduct.getProductId()} + ')'"></a></td>
+            </tr>
+          </th:block>
+        </table>
+      </th:block>
+    </div>
+  </div>
+
+
+</div>
+
+<div th:insert="~{fragments/footer :: footer}"></div>
+<script>
+  function deleteProduct(productId){
+    let httpRequest= new XMLHttpRequest();
+    httpRequest.open("GET", "DeleteProduct/" + productId);
+    httpRequest.send();
+    location.reload();
+  }
+  function increaseAmount(productId){
+    let httpRequest= new XMLHttpRequest();
+    httpRequest.open("GET", "ChangeProductQuantity/" + productId + "/1");
+    httpRequest.send();
+    httpRequest.onload=function (){
+      if(httpRequest.responseText === "ERROR"){
+        alert("There is no more products of this type on the stock :(")}
+    }
+    location.reload();
+  }
+  function reduceAmount(productId){
+    let httpRequest= new XMLHttpRequest();
+    httpRequest.open("GET", "ChangeProductQuantity/" + productId + "/0");
+    httpRequest.send();
+    location.reload();
+  }
+</script>
+</body>
+</html>

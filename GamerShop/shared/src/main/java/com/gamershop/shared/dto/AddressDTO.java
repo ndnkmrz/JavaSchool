@@ -3,6 +3,8 @@ package com.gamershop.shared.dto;
 import com.gamershop.shared.entity.CustomerEntity;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,6 +20,7 @@ public class AddressDTO {
     private String addressApartNum;
     private boolean enable = true;
     private Integer addressCustomer;
+    private List<OrderDTO> orderAddresses;
     @Override
     public String toString(){
         return this.addressCountry + ", " + this.addressCity + "\n" + this.addressStreet + ", " + this.addressHouseNum

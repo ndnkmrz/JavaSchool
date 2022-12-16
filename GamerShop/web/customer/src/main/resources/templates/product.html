@@ -24,7 +24,7 @@
         margin: 0;
         padding: 0;
         width: 600px;
-        height: 300px;
+        height: 500px;
         text-align: center;
         line-height: 300px;
     }
@@ -93,39 +93,58 @@
                     </th:block>
                 </ul>
             </div>
-
         </div>
         <div class="col-sm">
             <h2 th:text="${product.getProductName()}"></h2>
             <p th:text="'Dimentions: '+ ${product.getProductLength()} + ' x ' + ${product.getProductWidth()} + ' x ' + ${product.getProductHeight()} + ' cm'"></p>
             <p th:text="'Price: ' + ${product.getProductPrice()} + '$'"></p>
             <p th:if="${product.getProductQuantity() <= 0}" class="text-danger" th:text="'Unavailable'"/>
-            <p th:if="${product.getProductQuantity() > 0}" th:text="'On stock: ' + ${product.getProductQuantity()}"/>
-
-        </div>
-    </div>
-    <div class="row">
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item" role="presentation">
-                <a class="nav-link active" data-bs-toggle="tab" href="#description" aria-selected="true" role="tab">Description</a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a class="nav-link" data-bs-toggle="tab" href="#params" aria-selected="false" role="tab" tabindex="-1">Parameters</a>
-            </li>
-        </ul>
-        <div id="myTabContent" class="tab-content">
-            <div class="tab-pane fade active show" id="description" role="tabpanel">
-                <p th:text="${product.getProductDescription()}"/>
+            <p th:if="${product.getProductQuantity() > 0}" th:text="'On stock: ' + ${maxQuantity}"/>
+            <div class="row">
+                <form th:action="@{/order/add}" method="post" th:object="${order}">
+                    <fieldset>
+                    <div class="col-2">
+                        <input type="hidden" name="productId" th:value="${product.getProductId()}">
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="inputUsern" th:field="*{orderProductQuantity}" min ="1" th:max="${maxQuantity}">
+                        </div>
+                    </div>
+                    <div class="col"><br/><button type="submit" class="btn btn-light">Add to cart</button></div>
+                    </fieldset>
+                </form>
             </div>
-            <div class="tab-pane fade" id="params" role="tabpanel">
-                <table class="table table-hover">
-                <th:block th:each="parameter : ${product.getProductParameters()}">
-                    <tr>
-                        <td th:text="*{parameter.getProductParameterName()}"></td>
-                        <td th:text="*{parameter.getProductParameterValue()}"></td>
-                    </tr>
-                </th:block>
-                </table>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Description
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+                        <div class="accordion-body">
+                            <p th:text="${product.getProductDescription()}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Parameters
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
+                        <div class="accordion-body">
+                            <table class="table table-hover">
+                                <th:block th:each="parameter : ${product.getProductParameters()}">
+                                    <tr>
+                                        <td th:text="*{parameter.getProductParameterName()}"></td>
+                                        <td th:text="*{parameter.getProductParameterValue()}"></td>
+                                    </tr>
+                                </th:block>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,5 +1,6 @@
 package com.gamershop.shared.mapper;
 
+import com.gamershop.shared.dto.OrderProductDTO;
 import com.gamershop.shared.dto.ProductDTO;
 import com.gamershop.shared.dto.ProductImageDTO;
 import com.gamershop.shared.dto.ProductParameterDTO;
@@ -29,7 +30,7 @@ public class ProductMapper {
         Double productLength = productEntity.getProductLength();
         Integer productQuantity = productEntity.getProductQuantity();
         String productDescription = productEntity.getProductDescription();
-        Integer productCategoryId = productEntity.getProductCategory().getCategoryId();
+        Integer productCategoryId = productEntity.getProductCategory() == null ? null : productEntity.getProductCategory().getCategoryId();
         boolean enabled = productEntity.isEnabled();
         String productCategory;
         if (productEntity.getProductCategory() != null){
@@ -42,6 +43,7 @@ public class ProductMapper {
                 .map(productImageMapper::toDTO).toList();
         List<ProductParameterDTO> productParameters = productEntity.getProductParameters().stream()
                 .map(productParameterMapper::toDTO).toList();
+
         return new ProductDTO(productId,
                 productName,
                 productPrice,
@@ -55,7 +57,8 @@ public class ProductMapper {
                 enabled,
                 productCategory,
                 productImages,
-                productParameters);
+                productParameters,
+                new ArrayList<>());
     }
 
     public ProductEntity toProduct(ProductDTO productDTO){

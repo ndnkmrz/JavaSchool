@@ -2,6 +2,7 @@ package com.gamershop.shared.mapper;
 
 import com.gamershop.shared.dto.AddressDTO;
 import com.gamershop.shared.dto.CustomerDTO;
+import com.gamershop.shared.dto.OrderDTO;
 import com.gamershop.shared.entity.CustomerEntity;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,11 @@ import java.util.List;
 @Service
 public class CustomerMapper {
     private final AddressMapper addressMapper;
+    private final OrderMapper orderMapper;
 
-    public CustomerMapper(AddressMapper addressMapper) {
+    public CustomerMapper(AddressMapper addressMapper, OrderMapper orderMapper) {
         this.addressMapper = addressMapper;
+        this.orderMapper = orderMapper;
     }
 
     public CustomerDTO toDTO(CustomerEntity customerEntity){
@@ -25,7 +28,15 @@ public class CustomerMapper {
         Date customerBirthday = customerEntity.getCustomerBirthday();
         Integer customerUserId = customerEntity.getCustomerUserId();
         List<AddressDTO> customerAddresses = customerEntity.getCustomerAddresses().stream().map(addressMapper::toDTO).toList();
-        return new CustomerDTO(id, customerName, customerSurname, customerPhoneNumber, customerBirthday, customerUserId, customerAddresses);
+        List<OrderDTO> customerOrders = customerEntity.getCustomerOrders().stream().map(orderMapper::toDTO).toList();
+        return new CustomerDTO(id,
+                customerName,
+                customerSurname,
+                customerPhoneNumber,
+                customerBirthday,
+                customerUserId,
+                customerAddresses,
+                customerOrders);
     }
 
     public CustomerEntity toCustomer(CustomerDTO customerDTO){
@@ -35,6 +46,7 @@ public class CustomerMapper {
                 customerDTO.getCustomerPhoneNumber(),
                 customerDTO.getCustomerBirthday(),
                 customerDTO.getCustomerUserId(),
+                new ArrayList<>(),
                 new ArrayList<>());
     }
 }

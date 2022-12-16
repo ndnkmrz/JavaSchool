@@ -21,5 +21,6 @@ public class CustomerDTO {
     private Date customerBirthday;
     private Integer customerUserId;
     private List<AddressDTO> customerAddresses;
+    private List<OrderDTO> customerOrders;
 
 }

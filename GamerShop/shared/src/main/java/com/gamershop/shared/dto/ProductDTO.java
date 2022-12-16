@@ -1,7 +1,5 @@
 package com.gamershop.shared.dto;
 
-import com.gamershop.shared.entity.ProductImageEntity;
-import com.gamershop.shared.entity.ProductParameterEntity;
 import lombok.*;
 
 import java.util.List;
@@ -26,5 +24,6 @@ public class ProductDTO {
     private String productCategory;
     private List<ProductImageDTO> productImages;
     private List<ProductParameterDTO> productParameters;
+    private List<OrderProductDTO> productProductsOrders;
 
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -79,7 +80,7 @@ public class ProductController {
     }
 
     @GetMapping("/products/edit/{id}")
-    public String editProduct(@PathVariable(name = "id") Integer id, Model model){
+    public String editProduct(@PathVariable(name = "id") Integer id, Model model, HttpSession session){
         List<String> listCategories = categoryService.listCategoriesUsedInForm();
         ProductDTO product = productService.getProductById(id);
         model.addAttribute("product", product);

@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -100,16 +101,26 @@ public class ProductService implements IProductService {
             product.setProductCategory(categoryService.getOrCreateCategory(productDTO.getProductCategory()));
         }
         var savedProduct = productRepo.save(product);
-        for (MultipartFile image : files){
-            var resource = StreamUtils.copyToByteArray(image.getInputStream());
-            productImageRepo.save(new ProductImageEntity(resource, savedProduct, image.getOriginalFilename()));
-        }
+        List<ProductImageEntity> images = Arrays.stream(files).map(image -> {
+            try {
+                return multipartToEntity(image, savedProduct);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }).toList();
+        productImageRepo.saveAll(images);
         for(int i = 0; i < detailNames.length; i++){
             if(!detailNames[i].isEmpty() && !detailValues[i].isEmpty()) {
                 productParameterRepo.save(new ProductParameterEntity(detailNames[i], detailValues[i], savedProduct));
             }
         }
     }
+
+    public ProductImageEntity multipartToEntity(MultipartFile image, ProductEntity savedProduct) throws IOException {
+        var resource = StreamUtils.copyToByteArray(image.getInputStream());
+        return new ProductImageEntity(resource, savedProduct, image.getOriginalFilename());
+    }
+
 
 
 

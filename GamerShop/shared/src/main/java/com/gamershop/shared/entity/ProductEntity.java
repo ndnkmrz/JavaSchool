@@ -35,6 +35,8 @@ public class ProductEntity {
     @JoinColumn(name = "category_id", referencedColumnName = "categoryId")
     private CategoryEntity productCategory;
 
+    @OneToMany(mappedBy = "orderProductProduct")
+    private List<OrderProductEntity> productProductsOrders;
 
     public ProductEntity(Integer productId,
                          String productName,

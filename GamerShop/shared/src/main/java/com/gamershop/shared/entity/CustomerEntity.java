@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -27,6 +26,9 @@ public class CustomerEntity {
 
     @OneToMany(mappedBy = "addressCustomer")
     private List<AddressEntity> customerAddresses;
+
+    @OneToMany(mappedBy = "orderCustomer")
+    private List<OrderEntity> customerOrders;
 
     public CustomerEntity(Integer customerId,
                           String customerName,
