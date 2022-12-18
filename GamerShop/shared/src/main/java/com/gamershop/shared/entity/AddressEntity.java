@@ -30,7 +30,6 @@ public class AddressEntity {
     @OneToMany(mappedBy = "orderAddress")
     private List<OrderEntity> addressOrders;
 
-
     public AddressEntity() {
     }
 

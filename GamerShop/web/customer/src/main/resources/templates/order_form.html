@@ -1,0 +1,63 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:insert="~{fragments/head :: head}"></div>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+<br/>
+<div class="container-fluid">
+    <div class="card border-light mb-5" style="max-width:700px; margin:0 auto">
+        <div class="card-header"><h1 th:text="${cardTitle}">
+        </h1></div>
+        <div class="card-body">
+            <table class="table table-hover">
+            <th:block th:each="product : ${order.getOrderProductsOrders()}">
+                <tr>
+                    <td th:text="${product.getOrderProductProduct().getProductName()}"></td>
+                    <td th:text="${product.getOrderProductQuantity()}"></td>
+                    <td th:text="${product.getOrderProductProduct().getProductPrice() * product.getOrderProductQuantity()} + '$'"></td>
+                </tr>
+            </th:block>
+            </table>
+            <br/>
+            <form th:action="@{/order/save}" method="post" th:object="${order}">
+                <fieldset>
+                    <input type="hidden" th:field="*{orderCustomer}"/>
+                    <div class="form-group">
+                        <label for="exampleSelect1" class="form-label mt-4">Delivery Method</label>
+                        <select class="form-select" id="exampleSelect1" th:field="*{orderDeliveryMethod}">
+                            <th:block th:each="del_meth : ${listDeliveryMethods}">
+                                <option th:text="${del_meth}" th:value="${del_meth}" ></option>
+                            </th:block>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect" class="form-label mt-4">Payment Method</label>
+                        <select class="form-select" id="exampleSelect" th:field="*{orderPaymentMethod}">
+                            <th:block th:each="pay_meth : ${listPaymentMethods}">
+                                <option th:text="${pay_meth}" th:value="${pay_meth}" ></option>
+                            </th:block>
+                        </select>
+                    </div>
+                    <br/>
+                    <legend class="mt-4">Addresses</legend>
+                    <div class="form-check">
+                        <th:block th:each="address : ${customer.getCustomerAddresses()}">
+                            <input class="form-check-input" type="checkbox" th:field="*{orderAddress}"
+                                   th:text="${address.toString()}"
+                                   th:value="${address.getAddressId()}">
+                            <br/>
+                        </th:block>
+                        <a th:href="@{'/address/new/' + ${customer.getCustomerId()}}" class="button">Create new address</a>
+                    </div>
+                    <br/>
+                    <button type="submit" class="btn btn-light">Submit</button>
+                    <a class="btn btn-secondary" th:href="@{/}">Cancel</a>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    </br>
+    <div th:insert="~{fragments/footer :: footer}"></div>
+</div>
+</body>
+</html>

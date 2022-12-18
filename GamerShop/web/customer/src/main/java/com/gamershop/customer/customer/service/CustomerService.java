@@ -8,6 +8,7 @@ import com.gamershop.customer.customer.repo.CustomerRepository;
 import com.gamershop.customer.customer.repo.UserRepository;
 import com.gamershop.shared.dto.AddressDTO;
 import com.gamershop.shared.dto.CustomerDTO;
+import com.gamershop.shared.dto.OrderDTO;
 import com.gamershop.shared.dto.UserDTO;
 import com.gamershop.shared.entity.AddressEntity;
 import com.gamershop.shared.entity.CustomerEntity;
@@ -15,9 +16,12 @@ import com.gamershop.shared.entity.RoleEntity;
 import com.gamershop.shared.entity.UserEntity;
 import com.gamershop.shared.mapper.AddressMapper;
 import com.gamershop.shared.mapper.CustomerMapper;
+import com.gamershop.shared.mapper.OrderMapper;
 import com.gamershop.shared.mapper.UserMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CustomerService implements ICustomerService{
@@ -30,11 +34,12 @@ public class CustomerService implements ICustomerService{
     private final AddressMapper addressMapper;
     private final IRoleService roleService;
     private final PasswordEncoder passwordEncoder;
+    private final OrderMapper orderMapper;
 
     public CustomerService(CustomerRepository customerRepo,
                            UserRepository userRepo,
                            AddressRepository addressRepo, UserMapper userMapper,
-                           CustomerMapper customerMapper, AddressMapper addressMapper, IRoleService roleService, PasswordEncoder passwordEncoder) {
+                           CustomerMapper customerMapper, AddressMapper addressMapper, IRoleService roleService, PasswordEncoder passwordEncoder, OrderMapper orderMapper) {
         this.customerRepo = customerRepo;
         this.userRepo = userRepo;
         this.addressRepo = addressRepo;
@@ -43,6 +48,7 @@ public class CustomerService implements ICustomerService{
         this.addressMapper = addressMapper;
         this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;
+        this.orderMapper = orderMapper;
     }
 
     public void saveUser(UserDTO userDTO){
@@ -95,6 +101,16 @@ public class CustomerService implements ICustomerService{
         return customerMapper.toDTO(customerEntity);
     }
 
+    public CustomerEntity getCustomerEntityByUserId(Integer id){
+        return customerRepo.findCustomerEntityByCustomerUserId(id)
+                .orElseThrow(() -> new UserNotFoundException("Can`t find user with id: " + id));
+    }
+    public List<OrderDTO> getOrdersByUserEmail(String email){
+        UserDTO user = getUserByEmail(email);
+        CustomerEntity customer = getCustomerEntityByUserId(user.getId());
+        return customer.getCustomerOrders().stream().map(orderMapper::toDTO).toList();
+    }
+
     public CustomerEntity getCustomerById(Integer id){
         return customerRepo.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("Can`t find user with id: " + id));
@@ -110,6 +126,11 @@ public class CustomerService implements ICustomerService{
         AddressEntity address = addressRepo.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("Can`t find address with id: " + id));
         return addressMapper.toDTO(address);
+    }
+
+    public AddressEntity getAddressEntityById(Integer id){
+        return addressRepo.findById(id)
+                .orElseThrow(() -> new UserNotFoundException("Can`t find address with id: " + id));
     }
 
 

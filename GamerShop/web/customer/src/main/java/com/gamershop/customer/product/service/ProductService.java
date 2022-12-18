@@ -40,7 +40,10 @@ public class ProductService implements IProductService {
                 .orElseThrow(() -> new ProductNotFoundException("Could not find this product"));
         return productMapper.toDTO(productEntity);
     }
-
+    public ProductEntity getProductEntityById(Integer productId){
+        return productRepository.findById(productId)
+                .orElseThrow(() -> new ProductNotFoundException("Could not find this product"));
+    }
     public Page<ProductDTO> listByPage(int pageNum,
                                        String keyword,
                                        Integer categoryId,
