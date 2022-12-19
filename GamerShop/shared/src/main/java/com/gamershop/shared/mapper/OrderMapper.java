@@ -2,10 +2,12 @@ package com.gamershop.shared.mapper;
 
 import com.gamershop.shared.dto.OrderDTO;
 import com.gamershop.shared.dto.OrderProductDTO;
+import com.gamershop.shared.entity.AddressEntity;
 import com.gamershop.shared.entity.OrderEntity;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -19,20 +21,30 @@ public class OrderMapper {
     public OrderDTO toDTO(OrderEntity orderEntity){
         Integer orderId = orderEntity.getOrderId();
         Integer orderCustomer = orderEntity.getOrderCustomer().getCustomerId();
+        String orderCustomerEmail = orderEntity.getOrderCustomer().getUser().getUserEmail();
         Integer orderAddress = orderEntity.getOrderAddress().getAddressId();
+        AddressEntity address = orderEntity.getOrderAddress();
+        String orderAddressText = address.getAddressCountry() + ", " + address.getAddressCity() + "\n" + address.getAddressStreet()
+                + ", " + address.getAddressHouseNum() + ", " + address.getAddressApartNum() +  "\n" + address.getAddressPostCode();
         List<OrderProductDTO> orderProductsOrders = orderEntity.getOrderProductsOrders().stream().map(orderProductMapper::toDTO).toList();
         String orderOrderStatus = orderEntity.getOrderOrderStatus().getOrderStatusName();
         String orderDeliveryMethod = orderEntity.getOrderDeliveryMethod().getDeliveryMethodName();
         String orderPaymentMethod = orderEntity.getOrderPaymentMethod().getPaymentMethodName();
+        String orderPaymentStatus = orderEntity.getOrderOrderStatus().getOrderStatusName();
         Double finalSum = getSum(orderEntity);
+        Date orderDate = orderEntity.getOrderDate();
         return new OrderDTO(orderId,
                 orderCustomer,
+                orderCustomerEmail,
                 orderAddress,
+                orderAddressText,
                 orderProductsOrders,
                 orderOrderStatus,
                 orderDeliveryMethod,
                 orderPaymentMethod,
-                finalSum);
+                orderPaymentStatus,
+                finalSum,
+                orderDate);
     }
     private Double getSum(OrderEntity order){
         var products = order.getOrderProductsOrders();

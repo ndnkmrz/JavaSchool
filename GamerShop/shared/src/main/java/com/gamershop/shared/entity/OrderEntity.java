@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,7 +17,7 @@ public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer orderId;
-
+    private Date orderDate;
     @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "customerId")
     private CustomerEntity orderCustomer;

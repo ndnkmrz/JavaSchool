@@ -98,8 +98,7 @@ public class OrderController {
     }
 
     @PostMapping("/order/save")
-    public String saveOrder(Model model,
-                            HttpSession session,
+    public String saveOrder(HttpSession session,
                             OrderDTO orderDTO,
                             RedirectAttributes redirectAttributes){
         OrderDTO order = (OrderDTO) session.getAttribute("cart");

@@ -1,0 +1,75 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{fragments/head :: head}"></div>
+<title>Users page</title>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+
+</br>
+<div class="container-fluid">
+<div class="card border-light mb-5" >
+    <div class="card-header"><h1>
+        Manage orders
+    </h1></div>
+    <div class="card-body">
+    <form th:action="@{/orders/page/1}" class="d-flex">
+        <table>
+            <tr>
+                <th><input type="search" name="orderId" th:value="${orderId}" placeholder="Enter order number" class="form-control me-sm-2"></th>
+            </tr>
+        </table>
+        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+        <button type="button" class="btn btn-secondary" onclick="clearFilter()">Clear</button>
+        &nbsp;&nbsp
+    </form>
+
+    <table class="table table-hover">
+        <tbody>
+        <tr>
+            <th>Order №</th>
+            <th>Customer Email</th>
+            <th>Address</th>
+            <th>Payment Method</th>
+            <th>Delivery Method</th>
+            <th>Order Date</th>
+            <th>Order Status</th>
+            <th>Final Sum</th>
+        </tr>
+        <tr class="table-dark" th:each="order: ${listOrders}">
+            <td th:text="${order.orderId}"/>
+            <td th:text="${order.orderCustomerEmail}"/>
+            <td th:text="${order.orderAddressText}"/>
+            <td th:text="${order.orderPaymentMethod}"/>
+            <td th:text="${order.orderDeliveryMethod}"/>
+            <td th:text="${order.orderDate}"/>
+            <td th:text="${order.orderOrderStatus}"/>
+            <td th:text="${order.finalSum}"/>
+            <td><a th:href="@{'/orders/edit/' + ${order.orderId}}">Details</a></td>
+        </tr>
+        </tbody>
+    </table>
+        <div th:if="${totalPages} > 1">
+            <span th:text="${totalOrders}"/>
+            <ul class="pagination justify-content-center">
+                <li th:class="${currentPage == 1 ? 'page-item disabled' : 'page-item'}">
+                    <a class="page-link" th:href="@{'/orders/page/' + ${currentPage - 1} + ${keyword != null ? '&keyword=' + keyword : ''} + ${orderId != null ? '&orderId=' + orderId : ''}}">&laquo;</a>
+                </li>
+                <li th:class="${currentPage != i ? 'page-item' : 'page-item active'}" th:each="i : ${#numbers.sequence(1, totalPages)}">
+                    <a class="page-link" th:href="@{'/orders/page/' + ${i} + ${keyword != null ? '&keyword=' + keyword : ''} + ${orderId != null ? '&orderId=' + orderId : ''}}" th:text="${i}">1</a>
+                </li>
+                <li th:class="${currentPage == totalPages ? 'page-item disabled' : 'page-item'}">
+                    <a class="page-link" th:href="@{'/orders/page/' + ${currentPage + 1} + ${keyword != null ? '&keyword=' + keyword : ''} + ${orderId != null ? '&orderId=' + orderId : ''}}">&raquo;</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+    <div th:insert="~{fragments/footer :: footer}"></div>
+</div>
+
+<script type="text/javascript">
+    function clearFilter(){
+        window.location = "[[@{/orders}]]"
+    }
+</script>
+</body>
+</html>

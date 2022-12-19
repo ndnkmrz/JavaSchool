@@ -23,6 +23,9 @@ public class UserEntity {
 
     private boolean enabled = true;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customerId", referencedColumnName = "customerId")
+    private CustomerEntity customer;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name="UserRoles",

@@ -72,13 +72,17 @@ public class CustomerService implements ICustomerService{
             getCustomerByUserId(user.getUserId());
         }
         catch (Exception ex){
-            CustomerEntity customerEntity = new CustomerEntity(user.getUserId());
+            CustomerEntity customerEntity = new CustomerEntity(user);
             customerRepo.save(customerEntity);
         }
     }
 
     public void saveCustomer(CustomerDTO customerDTO){
         CustomerEntity customerEntity = customerMapper.toCustomer(customerDTO);
+        UserEntity user = userRepo.findById(customerDTO.getCustomerUserId()).orElseThrow(
+                () -> new UserNotFoundException("Can`t find user with id: " + customerDTO.getCustomerUserId())
+        );
+        customerEntity.setUser(user);
         customerRepo.save(customerEntity);
     }
     private void encodePassword(UserDTO user){
@@ -96,13 +100,13 @@ public class CustomerService implements ICustomerService{
                 .orElseThrow(() -> new UserNotFoundException("Can`t find user with id: " + id));
     }
     public CustomerDTO getCustomerByUserId(Integer id){
-        CustomerEntity customerEntity = customerRepo.findCustomerEntityByCustomerUserId(id)
+        CustomerEntity customerEntity = customerRepo.findCustomerEntityByUser_UserId(id)
                 .orElseThrow(() -> new UserNotFoundException("Can`t find user with id: " + id));
         return customerMapper.toDTO(customerEntity);
     }
 
     public CustomerEntity getCustomerEntityByUserId(Integer id){
-        return customerRepo.findCustomerEntityByCustomerUserId(id)
+        return customerRepo.findCustomerEntityByUser_UserId(id)
                 .orElseThrow(() -> new UserNotFoundException("Can`t find user with id: " + id));
     }
     public List<OrderDTO> getOrdersByUserEmail(String email){

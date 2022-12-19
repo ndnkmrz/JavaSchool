@@ -1,0 +1,80 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:insert="~{fragments/head :: head}"></div>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+
+<div class="container-fluid">
+  <div class="card border-light mb-5" style="max-width:700px; margin:0 auto">
+    <div class="card-header"><h1 th:text="'Order № ' + ${order.orderId} + ' — ' + ${order.orderDate}">
+    </h1></div>
+    <div class="card-body">
+      <div th:if="${message != null}" class="alert alert-dismissible alert-success" th:text="${message}">
+      </div>
+      <table class="table table-hover">
+        <tr>
+          <td>Email: </td>
+          <td th:text="${order.getOrderCustomerEmail()}"></td>
+        </tr>
+        <tr>
+          <td>Address: </td>
+          <td th:text="${order.orderAddressText}"></td>
+        </tr>
+        <tr>
+          <td>Delivery Method: </td>
+          <td th:text="${order.orderDeliveryMethod}"></td>
+        </tr>
+        <tr>
+          <td>Payment Method: </td>
+          <td th:text="${order.orderPaymentMethod}"></td>
+        </tr>
+        <tr>
+          <td>Payment Status: </td>
+          <td th:text="${order.orderPaymentStatus}"></td>
+        </tr>
+        <tr>
+          <td>Final sum: </td>
+          <td th:text="${order.getFinalSum()}"></td>
+        </tr>
+      </table>
+      <br/>
+      <table class="table table-hover">
+        <th:block th:each="product : ${order.getOrderProductsOrders()}">
+          <tr>
+          <tr>
+            <td th:text="${product.getOrderProductProduct().getProductName()}"></td>
+            <td th:text="${product.getOrderProductQuantity()}"></td>
+            <td th:text="${product.getOrderProductQuantity() * product.getOrderProductProduct().getProductPrice()} + '$'"></td>
+          </tr>
+          </tr>
+        </th:block>
+      </table>
+<!--
+
+    private List<OrderProductDTO> orderProductsOrders;
+-->
+      <th:block></th:block>
+      <p></p>
+      <form th:action="@{/orders/save}" method="post" th:object="${order}">
+        <fieldset>
+          <div class="form-group">
+            <input type="hidden" th:field="*{orderId}">
+          </div>
+          <div class="form-group">
+            <label for="exampleSelect1" class="form-label mt-4">Order Status</label>
+            <select class="form-select" id="exampleSelect1" th:field="*{orderOrderStatus}">
+              <th:block th:each="st : ${status}">
+                <option th:text="${st}" th:value="${st}" ></option>
+              </th:block>
+            </select>
+          </div>
+          <br/>
+          <button type="submit" class="btn btn-light">Change</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div th:insert="~{fragments/footer :: footer}"></div>
+</div>
+</body>
+</html>

@@ -26,7 +26,7 @@ public class CustomerMapper {
         String customerSurname = customerEntity.getCustomerSurname();
         String customerPhoneNumber = customerEntity.getCustomerPhoneNumber();
         Date customerBirthday = customerEntity.getCustomerBirthday();
-        Integer customerUserId = customerEntity.getCustomerUserId();
+        Integer customerUserId = customerEntity.getUser().getUserId();
         List<AddressDTO> customerAddresses = customerEntity.getCustomerAddresses().stream().map(addressMapper::toDTO).toList();
         List<OrderDTO> customerOrders = customerEntity.getCustomerOrders().stream().map(orderMapper::toDTO).toList();
         return new CustomerDTO(id,
@@ -45,7 +45,6 @@ public class CustomerMapper {
                 customerDTO.getCustomerSurname(),
                 customerDTO.getCustomerPhoneNumber(),
                 customerDTO.getCustomerBirthday(),
-                customerDTO.getCustomerUserId(),
                 new ArrayList<>(),
                 new ArrayList<>());
     }

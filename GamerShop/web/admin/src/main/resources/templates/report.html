@@ -1,0 +1,116 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:insert="~{fragments/head :: head}"></div>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+<br/>
+<div class="container-fluid">
+
+    <div class="card border-light mb-5" >
+        <div class="card-body">
+            <div class="row">
+                <div class="col-2">
+                    <form th:action="@{/report/change}" method="post" th:object="${range}">
+                        <fieldset>
+                            <div class="form-group"><input type="date" class="form-control" th:field="${range.minDate}" id="min-date"/></div>
+                            <br/>
+                            <div class="form-group"><input type="date" class="form-control" th:field="${range.maxDate}" id="max-date"/></div>
+                            <br/>
+                            <div class="form-group"><button type="submit" class="btn btn-light">Submit</button> </div>
+                        </fieldset>
+                    </form>
+                    <p th:text="'Total revenue for the period: ' + ${total} + '$'"></p>
+                </div>
+                <div class="col">
+                    <input type="hidden" id="products" th:value="${products}">
+                    <input type="hidden" id="customers" th:value="${customers}">
+                    <input type="hidden" id="days" th:value="${days}">
+                    <div class="row">
+                        <div class="col"><div id="chart_div"></div></div>
+                        <div class="col"><div id="chart_div1"></div></div>
+                    </div>
+                    <br/>
+                    <div class="row" style="align-content: center; align-items: center"> <div id="calendar_basic" style="width: 1000px; height: 350px;"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart', 'calendar']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+    // google.charts.load("current", {packages:["calendar"]});
+    // google.charts.setOnLoadCallback(drawChart);
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart() {
+        var rawProducts =document.getElementById("products").getAttribute("value");
+        var products = new google.visualization.DataTable();
+        products.addColumn('string', 'Product');
+        products.addColumn('number', 'Revenue');
+        const obj = JSON.parse(rawProducts);
+        var result = [];
+        for(var i in obj)
+            result.push([i, parseFloat(obj[i])]);
+        products.addRows(result);
+        // Create the data table.
+        // Set chart options
+        var options = {'title':'Best selling products for period',
+            'backgroundColor': 'transparent',
+            'titleTextStyle': {color: 'white'},
+            'legend': {textStyle: {color: 'white'}},
+            'width':600,
+            'height':500};
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(products, options);
+
+        var rawCustomers = document.getElementById("customers").getAttribute("value");
+        var customers = new google.visualization.DataTable();
+        customers.addColumn('string', 'Customer');
+        customers.addColumn('number', 'Revenue');
+        const objC = JSON.parse(rawCustomers);
+        var result = [];
+        for(var i in objC)
+            result.push([i, parseFloat(objC[i])]);
+        customers.addRows(result);
+        // Create the data table.
+        // Set chart options
+        var options = {'title':'Most active customers for period',
+            'backgroundColor': 'transparent',
+            'titleTextStyle': {color: 'white'},
+            'legend': {textStyle: {color: 'white'}},
+            'width':600,
+            'height':500};
+
+        var chart1 = new google.visualization.PieChart(document.getElementById('chart_div1'));
+        chart1.draw(customers, options);
+
+        var dataTable = new google.visualization.DataTable();
+        dataTable.addColumn({ type: 'date', id: 'Date' });
+        dataTable.addColumn({ type: 'number', id: 'Won/Loss' });
+        var rawDays = document.getElementById("days").getAttribute("value");
+        const d = JSON.parse(rawDays);
+        var result = [];
+        for(var i in d)
+            result.push([new Date(i), parseFloat(d[i])]);
+        dataTable.addRows(result);
+        var chart = new google.visualization.Calendar(document.getElementById('calendar_basic'));
+
+        var options = {
+            title: "Revenue card",
+        };
+
+        chart.draw(dataTable, options);
+
+    }
+</script>
+
+</body>
+</html>

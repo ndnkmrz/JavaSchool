@@ -22,7 +22,9 @@ public class CustomerEntity {
     private String customerSurname;
     private String customerPhoneNumber;
     private Date customerBirthday;
-    private Integer customerUserId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "userId", referencedColumnName = "userId")
+    private UserEntity user;
 
     @OneToMany(mappedBy = "addressCustomer")
     private List<AddressEntity> customerAddresses;
@@ -34,16 +36,20 @@ public class CustomerEntity {
                           String customerName,
                           String customerSurname,
                           String customerPhoneNumber,
-                          Date customerBirthday) {
+                          Date customerBirthday,
+                          List<AddressEntity> addresses,
+                          List<OrderEntity> orders) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.customerSurname = customerSurname;
         this.customerPhoneNumber = customerPhoneNumber;
         this.customerBirthday = customerBirthday;
+        this.customerAddresses = addresses;
+        this.customerOrders = orders;
     }
 
-    public CustomerEntity(Integer customerUserId) {
-        this.customerUserId = customerUserId;
+    public CustomerEntity(UserEntity user) {
+        this.user = user;
     }
 
     public CustomerEntity() {

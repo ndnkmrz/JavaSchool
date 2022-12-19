@@ -12,6 +12,7 @@
           <th>Number of order</th>
           <th>Final sum</th>
           <th>Status</th>
+          <th>Date </th>
           <th></th>
         </tr>
         <th:block th:each="order : ${orders}">
@@ -19,6 +20,7 @@
             <td th:text="'Order № '+ ${order.getOrderId()}"></td>
             <td th:text="'Total: ' + ${order.getFinalSum()} + '$'"></td>
             <td th:text="${order.getOrderOrderStatus()}"></td>
+            <td th:text="${order.getOrderDate()}"></td>
             <td><a th:href="@{'/order/details/' + ${order.getOrderId()}}">View details</a></td>
           </tr>
         </th:block>

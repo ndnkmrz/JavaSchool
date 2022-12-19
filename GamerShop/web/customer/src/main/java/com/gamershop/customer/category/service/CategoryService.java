@@ -34,7 +34,7 @@ public class CategoryService implements ICategoryService {
         CategoryDTO absent;
         Map<CategoryDTO, Set<CategoryDTO>> dictionary = new HashMap<CategoryDTO, Set<CategoryDTO>>();
         for(CategoryEntity category : categoryEnableList){
-            if(category.getParent() == null){
+            if (category.getParent() == null){
                 CategoryDTO categoryDTO = categoryMapper.toDTO(category);
                 absent = checkDictionaryValues(category.getCategoryName(), dictionary.keySet());
                 if(absent == null){

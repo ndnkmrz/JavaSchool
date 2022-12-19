@@ -17,6 +17,9 @@ import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -61,8 +64,10 @@ public class OrderService implements IOrderService {
         orderEntity.setOrderPaymentMethod(getOrCreatePaymentMethod(orderDTO.getOrderPaymentMethod()));
         orderEntity.setOrderOrderStatus(getOrCreateOrderStatus("Created"));
         orderEntity.setOrderPaymentStatus(getOrCreatePaymentStatus("Paid"));
+        orderEntity.setOrderDate(Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()));
         OrderEntity savedOrder = orderRepo.save(orderEntity);
         for(var product : orderDTO.getOrderProductsOrders()){
+            product.setOrderProductId(null);
             createOrderProduct(product, savedOrder);
         }
     }
