@@ -60,13 +60,11 @@
                     <div class="row row-cols-1 row-cols-md-4 g-4">
                         <th:block th:each="product : ${listProducts}">
                             <div class="col">
-                                <div class="card border-primary mb-3" style="max-width: 20rem;">
-                                    <div class="card-header">
-                                        <a th:href="@{'/product/' + ${product.getProductId()}}" th:text="${product.getProductName()}"></a>
-                                    </div>
+                                <div class="card border-primary mb-3 h-100 card-img-top" style="max-width: 20rem;">
+                                    <img th:src="${'data:image/jpeg;charset=utf-8;base64,' +
+                                    product.getProductImages().get(0).getProductImageLink()}">
                                     <div class="card-body">
-                                        <img th:src="${'data:image/jpeg;charset=utf-8;base64,' +
-                            product.getProductImages().get(0).getProductImageLink()}" width="280">
+                                        <a th:href="@{'/product/' + ${product.getProductId()}}" th:text="${product.getProductName()}"></a>
                                         <div class="col" th:text="${product.getProductPrice()}">
                                         </div>
 

@@ -6,18 +6,18 @@ import com.gamershop.admin.order.repo.OrderProductRepository;
 import com.gamershop.admin.report.interfaces.IReportService;
 import com.gamershop.admin.report.utils.ReportRange;
 import com.gamershop.shared.dto.ReportDTO;
-import com.gamershop.shared.entity.OrderEntity;
 import com.gamershop.shared.entity.OrderProductEntity;
 import com.gamershop.shared.mapper.ReportMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.ParseException;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional(readOnly = true)
 public class ReportService implements IReportService {
-
     private final OrderProductRepository orderProductRepository;
     private final ReportMapper reportMapper;
 

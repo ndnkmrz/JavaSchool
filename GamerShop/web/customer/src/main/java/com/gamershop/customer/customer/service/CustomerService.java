@@ -20,12 +20,13 @@ import com.gamershop.shared.mapper.OrderMapper;
 import com.gamershop.shared.mapper.UserMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class CustomerService implements ICustomerService{
-
     private final CustomerRepository customerRepo;
     private final UserRepository userRepo;
     private final AddressRepository addressRepo;
@@ -50,7 +51,7 @@ public class CustomerService implements ICustomerService{
         this.passwordEncoder = passwordEncoder;
         this.orderMapper = orderMapper;
     }
-
+    @Transactional
     public void saveUser(UserDTO userDTO){
         if (userDTO.getId() != null){
             if(userDTO.getPassword() == null) {
@@ -76,7 +77,7 @@ public class CustomerService implements ICustomerService{
             customerRepo.save(customerEntity);
         }
     }
-
+    @Transactional
     public void saveCustomer(CustomerDTO customerDTO){
         CustomerEntity customerEntity = customerMapper.toCustomer(customerDTO);
         UserEntity user = userRepo.findById(customerDTO.getCustomerUserId()).orElseThrow(
@@ -119,7 +120,7 @@ public class CustomerService implements ICustomerService{
         return customerRepo.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("Can`t find user with id: " + id));
     }
-
+    @Transactional
     public void saveAddress(AddressDTO addressDTO){
         AddressEntity address = addressMapper.toAddress(addressDTO);
         address.setAddressCustomer(getCustomerById(addressDTO.getAddressCustomer()));

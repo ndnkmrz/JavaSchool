@@ -12,7 +12,7 @@
   <div class="row row-cols-1 row-cols-md-4 g-4">
     <th:block th:each="address : ${addresses}">
       <div class="col">
-        <div class="card border-primary mb-3" style="max-width: 20rem;">
+        <div class="card border-primary mb-3 h-100" style="max-width: 20rem;">
           <div class="card-body">
               <p th:text="${address.toString()}"></p>
               <a th:href="@{'/address/edit/' + ${address.getAddressId()}}" th:text="'Edit address'"></a>
@@ -21,6 +21,7 @@
       </div>
     </th:block>
   </div>
+  <br/>
   <a class="btn btn-secondary" th:href="@{'/address/new/' + ${customerId}}">Create new address</a>
 </div>
 

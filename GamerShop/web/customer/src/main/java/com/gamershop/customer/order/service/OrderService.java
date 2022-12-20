@@ -6,23 +6,21 @@ import com.gamershop.customer.order.interfaces.IOrderService;
 import com.gamershop.customer.order.repo.*;
 import com.gamershop.customer.product.repo.ProductRepository;
 import com.gamershop.customer.product.service.ProductService;
-import com.gamershop.shared.dto.CustomerDTO;
 import com.gamershop.shared.dto.OrderDTO;
 import com.gamershop.shared.dto.OrderProductDTO;
-import com.gamershop.shared.dto.UserDTO;
 import com.gamershop.shared.entity.*;
 import com.gamershop.shared.mapper.OrderMapper;
 import com.gamershop.shared.mapper.OrderProductMapper;
-import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class OrderService implements IOrderService {
     private final OrderMapper orderMapper;
     private final OrderRepository orderRepo;
@@ -56,6 +54,7 @@ public class OrderService implements IOrderService {
         this.productRepo = productRepo;
     }
 
+    @Transactional
     public void saveOrder(OrderDTO orderDTO){
         OrderEntity orderEntity = orderMapper.toOrder(orderDTO);
         orderEntity.setOrderCustomer(customerService.getCustomerById(orderDTO.getOrderCustomer()));
@@ -71,6 +70,7 @@ public class OrderService implements IOrderService {
             createOrderProduct(product, savedOrder);
         }
     }
+    @Transactional
     private void createOrderProduct(OrderProductDTO orderProductDTO, OrderEntity order){
         OrderProductEntity orderProduct = orderProductMapper.toOrderProduct(orderProductDTO);
         var product = productService.getProductEntityById(orderProductDTO.getOrderProductProduct().getProductId());
@@ -80,21 +80,22 @@ public class OrderService implements IOrderService {
         product.setProductQuantity(product.getProductQuantity() - orderProduct.getOrderProductQuantity());
         productRepo.save(product);
     }
+    @Transactional
     public PaymentStatusEntity getOrCreatePaymentStatus(String paymentStatusName){
         return paymentStatusRepo.findByPaymentStatusName(paymentStatusName)
                 .orElseGet(()-> paymentStatusRepo.save(new PaymentStatusEntity(paymentStatusName)));
     }
-
+    @Transactional
     public OrderStatusEntity getOrCreateOrderStatus(String orderStatusName){
         return orderStatusRepo.findByOrderStatusName(orderStatusName)
                 .orElseGet(()-> orderStatusRepo.save(new OrderStatusEntity(orderStatusName)));
     }
-
+    @Transactional
     public DeliveryMethodEntity getOrCreateDeliveryMethod(String deliveryMethodName){
         return deliveryMethodRepo.findByDeliveryMethodName(deliveryMethodName)
                 .orElseGet(() -> deliveryMethodRepo.save(new DeliveryMethodEntity(deliveryMethodName)));
     }
-
+    @Transactional
     public PaymentMethodEntity getOrCreatePaymentMethod(String paymentMethodName){
         return paymentMethodRepo.findByPaymentMethodName(paymentMethodName)
                 .orElseGet(() -> paymentMethodRepo.save(new PaymentMethodEntity(paymentMethodName)));

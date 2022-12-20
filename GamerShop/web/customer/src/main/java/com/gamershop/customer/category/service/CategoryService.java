@@ -6,10 +6,12 @@ import com.gamershop.shared.dto.CategoryDTO;
 import com.gamershop.shared.entity.CategoryEntity;
 import com.gamershop.shared.mapper.CategoryMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
 @Service
+@Transactional(readOnly = true)
 public class CategoryService implements ICategoryService {
     private final CategoryRepository categoryRepo;
     private final CategoryMapper categoryMapper;

@@ -8,10 +8,12 @@ import com.gamershop.shared.dto.CategoryDTO;
 import com.gamershop.shared.entity.CategoryEntity;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class CategoryService implements ICategoryService {
     private final CategoryRepository categoryRepo;
     private final CategoryMapper categoryMapper;
@@ -47,7 +49,7 @@ public class CategoryService implements ICategoryService {
         List<CategoryDTO> categories = categoryEntities.stream().map(categoryMapper::toDTO).toList();
         return new PageImpl<>(categories, pageable, categoryEntities.getTotalElements());
     }
-
+    @Transactional
     public void saveCategory(CategoryDTO category){
         CategoryEntity categoryEntity = categoryMapper.toCategory(category);
         if (!category.getParentCategory().isEmpty()){
@@ -55,7 +57,7 @@ public class CategoryService implements ICategoryService {
         }
         categoryRepo.save(categoryEntity);
     }
-
+    @Transactional
     public CategoryEntity getOrCreateCategory(String categoryName){
         return categoryRepo.findByCategoryName(categoryName).orElseGet(()-> categoryRepo.save(new CategoryEntity(categoryName)));
     }

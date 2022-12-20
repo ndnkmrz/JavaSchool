@@ -12,7 +12,6 @@ public interface IUserService {
     void saveUser(UserDTO user);
     UserDTO getUserById(Integer id);
     UserDTO getUserByEmail(String email);
-    void deleteUser(Integer id);
     boolean isEmailUnique(String email);
 
 }

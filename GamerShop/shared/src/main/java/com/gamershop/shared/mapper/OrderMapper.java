@@ -7,6 +7,8 @@ import com.gamershop.shared.entity.OrderEntity;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +34,8 @@ public class OrderMapper {
         String orderPaymentMethod = orderEntity.getOrderPaymentMethod().getPaymentMethodName();
         String orderPaymentStatus = orderEntity.getOrderOrderStatus().getOrderStatusName();
         Double finalSum = getSum(orderEntity);
-        Date orderDate = orderEntity.getOrderDate();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String orderDate = dateFormat.format(orderEntity.getOrderDate());
         return new OrderDTO(orderId,
                 orderCustomer,
                 orderCustomerEmail,

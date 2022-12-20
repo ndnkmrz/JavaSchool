@@ -22,7 +22,7 @@ public class OrderDTO {
     private String orderPaymentMethod;
     private String orderPaymentStatus;
     private Double finalSum;
-    private Date orderDate;
+    private String orderDate;
     public void addProduct(OrderProductDTO product){
         this.orderProductsOrders.add(product);
     }

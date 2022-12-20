@@ -9,10 +9,12 @@ import com.gamershop.shared.dto.ProductDTO;
 import com.gamershop.shared.entity.ProductEntity;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class ProductService implements IProductService {
     private final ProductRepository productRepository;
     public static final int PRODUCTS_PER_PAGE = 12;

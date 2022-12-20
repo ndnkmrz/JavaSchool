@@ -17,6 +17,7 @@ import com.gamershop.shared.entity.ProductImageEntity;
 import com.gamershop.shared.entity.ProductParameterEntity;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,23 +27,16 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class ProductService implements IProductService {
-
     private final ProductRepo productRepo;
     private final ProductMapper productMapper;
-
     public static final int PRODUCTS_PER_PAGE = 10;
-
     private final CategoryService categoryService;
-
     private final ProductImageRepo productImageRepo;
-
     private final ProductParameterRepo productParameterRepo;
-
     private final ProductImageMapper productImageMapper;
-
     private final ProductParameterMapper productParameterMapper;
-
 
     public ProductService(ProductRepo productRepo,
                           ProductMapper productMapper,
@@ -93,7 +87,7 @@ public class ProductService implements IProductService {
         productDTO.setProductParameters(parameters);
         return productDTO;
     }
-
+    @Transactional
     public void saveProduct(ProductDTO productDTO, MultipartFile[] files, String[] detailNames, String[] detailValues)
                             throws IOException, SQLException {
         ProductEntity product = productMapper.toProduct(productDTO);

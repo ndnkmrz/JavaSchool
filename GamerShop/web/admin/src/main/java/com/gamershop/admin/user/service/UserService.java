@@ -11,11 +11,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 
 @Service
+@Transactional(readOnly = true)
 public class UserService implements IUserService {
     public static final int USERS_PER_PAGE = 5;
     private final UserRepository userRepo;
@@ -56,7 +58,7 @@ public class UserService implements IUserService {
         return new PageImpl<>(users, pageable, userEntities.getTotalElements());
 
     }
-
+    @Transactional
     public void saveUser(UserDTO user){
         LOGGER.debug("Trying to save user");
         if (user.getId() != null){
@@ -89,15 +91,6 @@ public class UserService implements IUserService {
         UserEntity user = userRepo.getUserEntityByUserEmail(email)
                 .orElseThrow(()-> new UserNotFoundException("Could not find any user with: " + email));
         return userMapper.toDTO(user);
-    }
-
-    public void deleteUser(Integer id){
-        if (userRepo.existsById(id)){
-            userRepo.deleteById(id);
-        }
-        else {
-            throw new UserNotFoundException("Could not find any user with ID " + id);
-        }
     }
 
     private void encodePassword(UserDTO user){

@@ -8,15 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.text.ParseException;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Date;
 
 @Controller
@@ -46,6 +40,7 @@ public class ReportController {
         model.addAttribute("days", days);
         model.addAttribute("total", total);
         model.addAttribute("range", range);
+        model.addAttribute("pageTitle", "Sales report");
         return "report";
     }
 

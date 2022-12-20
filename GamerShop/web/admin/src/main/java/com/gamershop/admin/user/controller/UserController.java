@@ -80,12 +80,6 @@ public class UserController {
         return "user_form";
     }
 
-    @GetMapping("/users/delete/{id}")
-    public String deleteUser(@PathVariable(name="id") Integer id, RedirectAttributes redirectAttributes){
-        userService.deleteUser(id);
-        redirectAttributes.addFlashAttribute("message", "The user "+ id+" has been deleted succesfully");
-        return "redirect:/users";
-    }
 
 
 

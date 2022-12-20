@@ -13,10 +13,12 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class OrderService implements IOrderService {
     public static final int ORDERS_PER_PAGE = 10;
     private final OrderRepository orderRepo;
@@ -48,12 +50,12 @@ public class OrderService implements IOrderService {
         List<OrderDTO> orders = orderEntities.stream().map(orderMapper::toDTO).toList();
         return new PageImpl<>(orders, pageable, orderEntities.getTotalElements());
     }
-
+    @Transactional
     public OrderStatusEntity getOrCreateOrderStatus(String orderStatusName){
         return orderStatusRepo.findByOrderStatusName(orderStatusName)
                 .orElseGet(()-> orderStatusRepo.save(new OrderStatusEntity(orderStatusName)));
     }
-
+    @Transactional
     public void saveOrder(OrderDTO orderDTO){
         OrderEntity order = orderRepo.findById(orderDTO.getOrderId())
                 .orElseThrow(() -> new OrderNotFoundException("Can`t find order with id " + orderDTO.getOrderId()));
