@@ -42,7 +42,6 @@ class UserRepositoryTests {
         RoleEntity roleAdmin = entityManager.find(RoleEntity.class, 1);
         UserEntity kuku = new UserEntity("test", "test", "test", true);
         kuku.addRole(roleAdmin);
-
         UserEntity savedUser = repo.save(kuku);
         assertThat(savedUser.getUserId()).isPositive();
 
