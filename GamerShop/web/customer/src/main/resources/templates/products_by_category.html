@@ -22,7 +22,7 @@
     <div class="row row-cols-1 row-cols-md-4 g-4">
         <th:block th:each="product : ${productList}">
             <div class="col">
-                <div class="card border-primary mb-3" style="max-width: 20rem;">
+                <div class="card border-primary mb-3 h-100" style="max-width: 20rem;">
                     <div class="card-header">
                         <a th:href="@{'/product/' + ${product.getProductId()}}" th:text="${product.getProductName()}"></a>
                     </div>

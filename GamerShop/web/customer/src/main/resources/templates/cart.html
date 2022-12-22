@@ -49,10 +49,10 @@
       </th:block>
       <th:block th:if="${session.get('cart') != null}">
         <th:block sec:authorize="isAuthenticated()">
-          <a class="button" th:href="@{/order/details}">Continue</a>
+          <a class="btn btn-link" th:href="@{/order/details}">Continue</a>
         </th:block>
         <th:block sec:authorize="!isAuthenticated()">
-          <a class="button" th:href="@{/login}">Continue</a>
+          <a class="btn btn-link" th:href="@{/login}">Continue</a>
         </th:block>
       </th:block>
     </div>
